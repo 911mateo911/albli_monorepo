@@ -1,0 +1,29 @@
+{
+  "root": "apps/al-bli-frontend-e2e",
+  "sourceRoot": "apps/al-bli-frontend-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/al-bli-frontend-e2e/cypress.json",
+        "devServerTarget": "al-bli-frontend:serve",
+        "tsConfig": "apps/al-bli-frontend-e2e/tsconfig.json"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "al-bli-frontend:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/al-bli-frontend-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["al-bli-frontend"]
+}
