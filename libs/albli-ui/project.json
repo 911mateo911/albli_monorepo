@@ -1,0 +1,42 @@
+{
+  "root": "libs/albli-ui",
+  "sourceRoot": "libs/albli-ui/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/albli-ui",
+        "tsConfig": "libs/albli-ui/tsconfig.lib.json",
+        "project": "libs/albli-ui/package.json",
+        "entryFile": "libs/albli-ui/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "assets": [
+          {
+            "glob": "libs/albli-ui/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/albli-ui/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/albli-ui"],
+      "options": {
+        "jestConfig": "libs/albli-ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
