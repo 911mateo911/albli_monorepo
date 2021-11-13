@@ -1,5 +1,6 @@
 import { Story, Meta } from '@storybook/react';
-import { Navbar, NavbarProps } from './navbar';
+import { Navbar } from './navbar';
+import { NavbarProps } from './navbar.interface';
 
 export default {
   component: Navbar,

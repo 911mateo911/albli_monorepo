@@ -1,14 +1,19 @@
-$color_grey-5: #F0F0F1;
-$color_grey-10: #E1E1E3;
-$color_grey-20: #D2D2D6;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+$font_primary: "Red Hat";
+$font_secondary: "Inter";
+
+$color_grey-5: #f0f0f1;
+$color_grey-10: #e1e1e3;
+$color_grey-20: #d2d2d6;
 $color_grey-30: #b4b4bb;
-$color_grey-40: #9696A0;
+$color_grey-40: #9696a0;
 $color_grey-50: #787885;
-$color_grey-60: #5A5B6A;
-$color_grey-70: #4A4B57;
-$color_grey-80: #3A3A44;
-$color_grey-90: #292A31;
-$color_grey-100: #19191D;
+$color_grey-60: #5a5b6a;
+$color_grey-70: #4a4b57;
+$color_grey-80: #3a3a44;
+$color_grey-90: #292a31;
+$color_grey-100: #19191d;
 
 $color_blue-5: #ebf2ff;
 $color_blue-10: #d8e6ff;

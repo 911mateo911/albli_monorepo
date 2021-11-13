@@ -1,9 +1,9 @@
-import styles from "./navbar.module.css";
+import styles from "./navbar.module.scss";
 import { FC } from 'react';
 import { NavbarProps } from './navbar.interface';
 
 export const Navbar: FC<NavbarProps> = ({
-  title = 'alBLi',
+  title = 'alBli',
   logo
 }) => {
   return (
