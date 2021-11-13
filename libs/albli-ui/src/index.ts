@@ -1,1 +1,1 @@
-export * from './lib/albli-ui';
+export * from './lib';
