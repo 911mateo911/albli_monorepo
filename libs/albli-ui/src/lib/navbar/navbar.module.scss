@@ -1,0 +1,67 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.navbar-wrapper {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  box-shadow: 0px 30px 60px rgb(0 0 0 / 4%);
+  transform: translateX(-50%);
+  width: calc(100% - 20px);
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1.5px solid $color_grey-10;
+  border-radius: 10px;
+}
+
+.navbar-app-title {
+  transition: all 0.3s;
+  font-family: $font_secondary;
+  font-weight: 700;
+  user-select: none;
+  color: $color_blue-70;
+  cursor: pointer;
+  font-size: 2rem;
+
+  &:hover {
+    transform: translateY(-5%);
+  }
+}
+
+.navbar-navigation-wrapper {
+  @include basic_flex;
+}
+
+.navbar-navigation_login {
+  user-select: none;
+  cursor: pointer;
+  color: $color_blue-80;
+  font-weight: 500;
+  border-radius: 999px;
+  padding: 5px 1.1rem;
+  margin-left: 1rem;
+  background-color: $color_blue-20;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: $color_blue-30;
+    color: $color_blue-70;
+  }
+
+  &:active {
+    background-color: $color_blue-10;
+    color: $color_blue-50;
+  }
+}
+
+.navbar-navigation {
+  cursor: pointer;
+  user-select: none;
+  margin: 0 1rem;
+  color: $color_grey-70;
+  font-weight: 500;
+  font-size: 1rem;
+}
