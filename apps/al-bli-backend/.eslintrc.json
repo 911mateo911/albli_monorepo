@@ -5,6 +5,7 @@
   "ignorePatterns": [
     "!**/*"
   ],
+  "plugins": ["import"],
   "overrides": [
     {
       "files": [
