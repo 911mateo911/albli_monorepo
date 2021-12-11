@@ -11,4 +11,6 @@ const Template: Story<NavbarProps> = (args) => <Navbar {...args} />;
 
 export const Primary = Template.bind({})
 Primary.args = {
+  onSearchToggle: () => console.log('search toggled'),
+  onMenuToggle: () => console.log('menu toggled')
 }
