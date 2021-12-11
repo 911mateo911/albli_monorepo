@@ -1,0 +1,52 @@
+{
+  "root": "apps/al-bli-backend",
+  "sourceRoot": "apps/al-bli-backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/al-bli-backend",
+        "main": "apps/al-bli-backend/src/main.ts",
+        "tsConfig": "apps/al-bli-backend/tsconfig.app.json",
+        "assets": [
+          "apps/al-bli-backend/src/assets"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/al-bli-backend/src/environments/environment.ts",
+              "with": "apps/al-bli-backend/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "al-bli-backend:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/al-bli-backend/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

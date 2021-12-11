@@ -8,11 +8,12 @@
     "build": "nx build",
     "test": "nx test",
     "storybook": "nx run albli-ui:storybook --host=0.0.0.0 ",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "cz"
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
   "private": true,
