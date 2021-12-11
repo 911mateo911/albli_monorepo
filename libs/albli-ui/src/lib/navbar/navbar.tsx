@@ -8,16 +8,18 @@ import { ReactComponent as MenuIcon } from '../icons/menu.svg';
 
 export const Navbar: FC<NavbarProps> = ({
   title = 'al-Bli',
-  logo = <Logo />
+  logo = <Logo />,
+  onMenuToggle = () => ({}),
+  onSearchToggle = () => ({})
 }) => {
   return (
     <>
-      <div className={styles['search-icon-wrapper']} >
+      <div onClick={onSearchToggle} className={styles['search-icon-wrapper']} >
         <SearchIcon className={styles['search-icon']} />
       </div>
       <div className={styles['navbar-wrapper']} >
         <span className={styles['navbar-navigation-wrapper']} >
-          <MenuIcon className={styles['menu-icon']} />
+          <MenuIcon onClick={onMenuToggle} className={styles['menu-icon']} />
           {logo}
           <Link href='/' ><p className={styles['navbar-app-title']} >{title}</p></Link>
         </span>
