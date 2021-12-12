@@ -6,6 +6,7 @@ function CustomApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <NavbarComponent />
+      <div className='page-padder' ></div>
       <Component {...pageProps} />
     </>
   );

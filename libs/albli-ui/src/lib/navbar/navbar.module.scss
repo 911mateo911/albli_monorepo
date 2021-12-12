@@ -14,7 +14,9 @@
   align-items: center;
   padding: 1rem;
   border: 1.5px solid $color_grey-10;
+  background-color: white;
   border-radius: 10px;
+  z-index: 99999;
 }
 
 .menu-icon {
@@ -52,6 +54,7 @@
   border: 1px solid $color_grey-10;
   right: 8px;
   box-sizing: border-box;
+  z-index: 99999;
   padding: 12px;
   transition: all 0.3s;
   display: flex;
