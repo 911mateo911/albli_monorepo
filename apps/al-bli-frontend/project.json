@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@nrwl/next:build",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "root": "apps/al-bli-frontend",
@@ -19,7 +21,8 @@
       "executor": "@nrwl/next:server",
       "options": {
         "buildTarget": "al-bli-frontend:build",
-        "dev": true
+        "dev": true,
+        "proxyConfig": "apps/al-bli-frontend/proxy.conf.json"
       },
       "configurations": {
         "production": {
@@ -36,7 +39,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/al-bli-frontend"],
+      "outputs": [
+        "coverage/apps/al-bli-frontend"
+      ],
       "options": {
         "jestConfig": "apps/al-bli-frontend/jest.config.js",
         "passWithNoTests": true
@@ -44,9 +49,13 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/al-bli-frontend/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/al-bli-frontend/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     }
   },

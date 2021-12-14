@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "al-bli-backend": "apps/al-bli-backend",
     "al-bli-frontend": "apps/al-bli-frontend",
     "al-bli-frontend-e2e": "apps/al-bli-frontend-e2e",
     "albli-ui": "libs/albli-ui",

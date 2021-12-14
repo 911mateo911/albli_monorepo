@@ -1,23 +1,13 @@
 import { AppProps } from 'next/app';
-import Head from 'next/head';
-import './styles.css';
+import { NavbarComponent } from '../molecules/Navbar';
+import './styles.scss';
 
-function CustomApp({ Component, pageProps }: AppProps) {
+function CustomApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
-      <Head>
-        <title>Welcome to al-bli-frontend!</title>
-      </Head>
-      <div className="app">
-        <header className="flex">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/nx-logo-white.svg" alt="Nx logo" width="75" height="50" />
-          <h1>Welcome to al-bli-frontend!</h1>
-        </header>
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </div>
+      <NavbarComponent />
+      <div className='page-padder' ></div>
+      <Component {...pageProps} />
     </>
   );
 }

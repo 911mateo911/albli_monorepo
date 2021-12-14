@@ -1,0 +1,47 @@
+.drawer-wrapper_closed {
+  z-index: -1;
+  opacity: 0;
+  transition: right 0.35s, left 0.35s, top 0.35s, bottom 0.35s;
+}
+
+.drawer-wrapper {
+  position: fixed;
+  top: 0;
+  opacity: 1;
+  height: 100vh;
+  min-height: 100vh;
+  z-index: 999999;
+  width: 100vw;
+}
+
+.drawer-wrapper_left {
+  left: -100vw;
+}
+
+.drawer-wrapper_right {
+  right: -100vw;
+}
+
+.drawer-wrapper_top {
+  top: -100vh;
+}
+
+.drawer-wrapper_bottom {
+  bottom: -100vh;
+}
+
+.drawer-wrapper_left_open {
+  left: 0;
+}
+
+.drawer-wrapper_right_open {
+  right: 0;
+}
+
+.drawer-wrapper_top_open {
+  top: 0;
+}
+
+.drawer-wrapper_bottom_open {
+  bottom: 0;
+}
