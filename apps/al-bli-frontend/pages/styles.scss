@@ -3,3 +3,11 @@
 .page-padder {
   margin-top: 96px;
 }
+
+.body-scroll-lock {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  overflow: hidden;
+  touch-action: none;
+}
