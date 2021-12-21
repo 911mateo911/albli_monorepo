@@ -20,9 +20,6 @@
     "paths": {
       "@al-bli/albli-ui": [
         "libs/albli-ui/src/index.ts"
-      ],
-      "@hooks": [
-        "libs/hooks"
       ]
     }
   },

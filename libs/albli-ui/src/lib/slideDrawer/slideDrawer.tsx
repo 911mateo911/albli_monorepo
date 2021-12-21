@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react';
 import classNames from 'classnames';
 import { SlideDrawerProps, SlideDrawerSlideFrom } from './slideDrawer.interface';
 import styles from './slideDrawer.module.scss';
-import { useClickOutside } from '@hooks';
+import { useClickOutside } from '../hooks';
 
 const getCorrespondingClassesForSlideFromProp = (slideFrom: SlideDrawerSlideFrom, drawerOpened: boolean) => {
     const classes = {
