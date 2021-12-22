@@ -18,14 +18,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@al-bli/al-bli-interfaces": [
-        "libs/al-bli-interfaces/src/index.ts"
+      "@al-bli/al-bli-data-types": [
+        "libs/al-bli-data-types/src/index.ts"
+      ],
+      "@al-bli/al-bli-dummy-data": [
+        "libs/al-bli-dummy-data/src/index.ts"
       ],
       "@al-bli/albli-ui": [
         "libs/albli-ui/src/index.ts"
-      ],
-      "@al-bli/dummy-data": [
-        "libs/dummy-data/src/index.ts"
       ]
     }
   },

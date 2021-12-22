@@ -1,17 +1,25 @@
 import { FC } from 'react';
-import { AutoCompleteItemProps } from './autoCompleteItem.interface';
+import { AutoCompleteProduct } from '@al-bli/al-bli-data-types';
 
-export const AutoCompleteItem: FC<AutoCompleteItemProps> = ({
-    id,
-    image,
+export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
+    sellerId,
+    sellerName,
     location,
     title,
     price,
-    likes
+    likes,
+    image,
+    inSaleFor,
+    isInSale,
+    postId,
+    slug,
+    date,
+    description,
+    currency
 }) => {
     return (
         <div>
-
+            {sellerName}
         </div>
     )
 }

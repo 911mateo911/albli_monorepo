@@ -2,11 +2,11 @@
   "version": 2,
   "projects": {
     "al-bli-backend": "apps/al-bli-backend",
+    "al-bli-data-types": "libs/al-bli-data-types",
+    "al-bli-dummy-data": "libs/al-bli-dummy-data",
     "al-bli-frontend": "apps/al-bli-frontend",
     "al-bli-frontend-e2e": "apps/al-bli-frontend-e2e",
-    "al-bli-interfaces": "libs/al-bli-interfaces",
     "albli-ui": "libs/albli-ui",
-    "albli-ui-e2e": "apps/albli-ui-e2e",
-    "dummy-data": "libs/dummy-data"
+    "albli-ui-e2e": "apps/albli-ui-e2e"
   }
 }

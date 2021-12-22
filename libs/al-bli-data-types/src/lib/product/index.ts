@@ -3,14 +3,29 @@ export interface ProductImage {
     imageId: string;
 }
 
-export type CurrencyType = '$' | '€' | 'ALL'
+export type CurrencyType = '$' | '€' | 'ALL';
 
 /**
  * 1. change these when the backend is ready
  * 2. add types for the category and the subcategories if present
  */
 
+type AutoCompleteProductProps = 'title' | "description"
+    | "sellerId" | "location"
+    | "price" | "isInSale"
+    | "inSaleFor" | "date"
+    | "sellerName" | "currency"
+    | "postId" | "slug";
+
+type AutoCompleteProductWithoutImage = Pick<Product, AutoCompleteProductProps>;
+
+export interface AutoCompleteProduct extends AutoCompleteProductWithoutImage {
+    image: string;
+    likes: number;
+}
+
 export interface Product {
+    postId: string;
     title: string;
     description: string;
     images: ProductImage[];

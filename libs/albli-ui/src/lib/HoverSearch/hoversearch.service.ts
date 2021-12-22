@@ -1,18 +1,23 @@
-import { BehaviorSubject, distinctUntilChanged, debounceTime, tap, skip } from 'rxjs';
-
-type AutoCompleteResponse = { name: string }
+import { BehaviorSubject, distinctUntilChanged, debounceTime, tap, skip, skipWhile } from 'rxjs';
+import { mockApiCall, auto_complete_dummy_response } from '@al-bli/al-bli-dummy-data';
+import { AutoCompleteProduct } from '@al-bli/al-bli-data-types';
 
 export default class HoverSearchService {
 
     hoverSearchInputValue = new BehaviorSubject<string>('');
-    autoCompleteResults = new BehaviorSubject<AutoCompleteResponse[]>([]);
+    autoCompleteResults = new BehaviorSubject<AutoCompleteProduct[]>([]);
     autoCompleteLoading = new BehaviorSubject<boolean>(false);
 
     // since this is a singleton we will get one subscription i think?
     private shouldFetchData = this.hoverSearchInputValue.pipe(
         skip(1),
+        skipWhile(() => this.autoCompleteLoading.getValue()),
+        tap(() => {
+            if (this.autoCompleteLoading.value) this.autoCompleteLoading.next(false);
+        }),
         debounceTime(350),
         distinctUntilChanged(),
+        // use switchMapTo
         tap((hoverInputValue) => {
             if (!hoverInputValue) return;
 
@@ -34,13 +39,11 @@ export default class HoverSearchService {
         // call api here
         if (this.autoCompleteLoading.value) return;
 
+        console.log(searchTerm);
+
         this.autoCompleteLoading.next(true);
-        setTimeout(() => {
-            this.autoCompleteResults.next([
-                {
-                    name: 'mateo' + searchTerm
-                }
-            ]);
+        mockApiCall(() => {
+            this.autoCompleteResults.next(auto_complete_dummy_response);
             this.autoCompleteLoading.next(false);
         }, 2000);
     }

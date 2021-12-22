@@ -1,0 +1,33 @@
+{
+  "root": "libs/al-bli-data-types",
+  "sourceRoot": "libs/al-bli-data-types/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/workspace:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/al-bli-data-types",
+        "main": "libs/al-bli-data-types/src/index.ts",
+        "tsConfig": "libs/al-bli-data-types/tsconfig.lib.json",
+        "assets": [
+          "libs/al-bli-data-types/*.md"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/al-bli-data-types/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

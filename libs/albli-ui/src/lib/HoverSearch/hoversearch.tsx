@@ -6,6 +6,7 @@ import { useClickOutside } from '../hooks';
 import { ReactComponent as SearchIcon } from '../icons/search.svg';
 import { useBehaviorSubject } from '../hooks';
 import { hoverSearchService } from './hoversearch.service';
+import { ReactComponent as AnimatedSearchIcon } from '../icons/search-anim.svg';
 
 export const Hoversearch: FC<HoverSearchProps> = ({
     open,
@@ -34,6 +35,9 @@ export const Hoversearch: FC<HoverSearchProps> = ({
                         placeholder='Kerko dhe gjej gjithcka ne al-Bli'
                         className={styles['search-input']}
                     />
+                </div>
+                <div>
+                    {isLoading && <AnimatedSearchIcon className={styles['animated-search-icon']} />}
                 </div>
             </div>
         </>
