@@ -1,0 +1,19 @@
+{
+  "root": "libs/dummy-data",
+  "sourceRoot": "libs/dummy-data/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/dummy-data/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
