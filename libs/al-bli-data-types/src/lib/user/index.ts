@@ -1,12 +1,14 @@
+import { Product } from '../product';
+
 export interface User {
-    title: string;
     profilePic?: string;
     name: string;
+    bio?: string;
     email: string;
     whatsapp?: number;
-    telephone: number;
-    likes: string[];
-    favorites: string[];
+    telephone?: number;
+    likes: Product[];
+    favorites: Product[];
 }
 
 export interface UserWithCredential extends User {
