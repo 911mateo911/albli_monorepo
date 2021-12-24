@@ -1,10 +1,11 @@
-import { AutoCompleteProduct } from '@al-bli/al-bli-interfaces';
+import { AutoCompleteProduct } from '@al-bli/al-bli-data-types';
+import { loremIpsum } from 'lorem-ipsum';
 
-export const auto_complete_dummy_response: AutoCompleteProduct[] = [
+export const auto_complete_dummy_response = (): AutoCompleteProduct[] => [
     {
         date: new Date(),
         currency: "ALL",
-        description: "Lorem Ipsum dolor sit amet, eneum lisum, Spartakus Lockas dolor minatus",
+        description: loremIpsum({ count: 4 }),
         image: "https://res.cloudinary.com/dxtjwhnoz/image/upload/v1626531888/alBli/rph9smkxzz25jotfgmyd.jpg",
         inSaleFor: new Date(),
         isInSale: true,

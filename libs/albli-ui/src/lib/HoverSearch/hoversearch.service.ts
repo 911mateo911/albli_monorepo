@@ -43,7 +43,7 @@ export default class HoverSearchService {
 
         this.autoCompleteLoading.next(true);
         mockApiCall(() => {
-            this.autoCompleteResults.next(auto_complete_dummy_response);
+            this.autoCompleteResults.next(auto_complete_dummy_response());
             this.autoCompleteLoading.next(false);
         }, 2000);
     }
