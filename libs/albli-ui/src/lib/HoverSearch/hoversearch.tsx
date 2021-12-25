@@ -7,6 +7,7 @@ import { ReactComponent as SearchIcon } from '../icons/search.svg';
 import { useObservable, useBehaviorSubject } from '../hooks';
 import { hoverSearchService } from './hoversearch.service';
 import { ReactComponent as AnimatedSearchIcon } from '../icons/search-anim.svg';
+import { AutoCompleteItem } from './components/autocompleteitem';
 
 export const Hoversearch: FC<HoverSearchProps> = ({
     open,
@@ -44,8 +45,11 @@ export const Hoversearch: FC<HoverSearchProps> = ({
                         className={styles['search-input']}
                     />
                 </div>
-                <div>
+                <div className={styles['autoCompleteItems-wrapper']} >
                     {isLoading && <AnimatedSearchIcon className={styles['animated-search-icon']} />}
+                    {(autoCompleteResults.length >= 1 && !isLoading) && autoCompleteResults.map(item =>
+                        <AutoCompleteItem key={item.postId} {...item} />
+                    )}
                 </div>
             </div>
         </>

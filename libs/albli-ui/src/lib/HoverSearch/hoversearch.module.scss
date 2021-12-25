@@ -69,6 +69,12 @@
   color: $color_grey-50;
 }
 
+.autoCompleteItems-wrapper {
+  @include basic_flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .animated-search-icon {
   width: 130px;
   height: 130px;

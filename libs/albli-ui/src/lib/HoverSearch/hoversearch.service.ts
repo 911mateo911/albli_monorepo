@@ -22,7 +22,7 @@ export default class HoverSearchService {
             if (this.autoCompleteLoading.value) this.autoCompleteLoading.next(false);
         }),
         debounceTime(350),
-        distinctUntilChanged(),
+        distinctUntilChanged((prev, curr) => prev.trim() === curr.trim()),
         tap(() => this.autoCompleteLoading.next(true)),
         switchMap(this.getAutoCompleteResults),
         tap(() => this.autoCompleteLoading.next(false))
@@ -32,7 +32,7 @@ export default class HoverSearchService {
 
     static get instance(): HoverSearchService {
         if (!HoverSearchService._lazy) {
-            HoverSearchService._lazy = new HoverSearchService;
+            HoverSearchService._lazy = new HoverSearchService();
         }
 
         return HoverSearchService._lazy;

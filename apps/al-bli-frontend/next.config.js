@@ -10,6 +10,9 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: true,
   },
+  images: {
+    domains: ['res.cloudinary.com']
+  }
 };
 
 module.exports = withNx(nextConfig);
