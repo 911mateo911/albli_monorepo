@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import { FC, useRef, useEffect } from 'react';
 import styles from './hoversearch.module.scss';
 import classNames from 'classnames';
 import { HoverSearchProps } from './hoversearch.interface';
 import { useClickOutside } from '../hooks';
 import { ReactComponent as SearchIcon } from '../icons/search.svg';
-import { useBehaviorSubject } from '../hooks';
+import { useObservable, useBehaviorSubject } from '../hooks';
 import { hoverSearchService } from './hoversearch.service';
 import { ReactComponent as AnimatedSearchIcon } from '../icons/search-anim.svg';
 
@@ -12,10 +12,17 @@ export const Hoversearch: FC<HoverSearchProps> = ({
     open,
     onClose
 }) => {
+    const inputRef = useRef<HTMLInputElement>(null);
     const ref = useClickOutside<HTMLDivElement>(() => onClose());
     const inputValue = useBehaviorSubject(hoverSearchService.hoverSearchInputValue);
-    const autoCompleteResults = useBehaviorSubject(hoverSearchService.autoCompleteResults);
+    const autoCompleteResults = useObservable(hoverSearchService.autoCompleteResults, [], []);
     const isLoading = useBehaviorSubject(hoverSearchService.autoCompleteLoading);
+
+    useEffect(() => {
+        if (!open || !inputRef.current) return;
+
+        inputRef.current.focus();
+    }, [open]);
 
     return (
         <>
@@ -29,6 +36,7 @@ export const Hoversearch: FC<HoverSearchProps> = ({
                 <div className={styles['search-wrapper']} >
                     <SearchIcon className={styles['search-icon']} />
                     <input
+                        ref={inputRef}
                         type="text"
                         value={inputValue}
                         onChange={({ target }) => hoverSearchService.setHoverSearchInputValue(target.value)}
