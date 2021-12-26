@@ -15,6 +15,7 @@ type AutoCompleteProductProps = 'title' | "description"
     | "price" | "isInSale"
     | "inSaleFor" | "date"
     | "sellerName" | "currency"
+    | "debatablePrice"
     | "postId" | "slug";
 
 type AutoCompleteProductWithoutImage = Pick<Product, AutoCompleteProductProps>;
@@ -27,6 +28,7 @@ export interface AutoCompleteProduct extends AutoCompleteProductWithoutImage {
 export interface Product {
     postId: string;
     title: string;
+    debatablePrice: boolean;
     description: string;
     images: ProductImage[];
     location: string;

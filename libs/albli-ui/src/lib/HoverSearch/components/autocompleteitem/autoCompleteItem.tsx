@@ -9,7 +9,10 @@ import { ReactComponent as CalendarIcon } from '../../../icons/calendar-outline.
 import classNames from 'classnames';
 import TimeAgo from 'javascript-time-ago';
 import sq from 'javascript-time-ago/locale/sq.json';
-import { upperCase } from '../../../utils/toUpperCase';
+import { upperCase, padNumber } from '../../../utils';
+import { ReactComponent as SaveIcon } from '../../../icons/bookmark-outline.svg';
+import { ReactComponent as CashIcon } from '../../../icons/cash-outline.svg';
+import { ReactComponent as PriceTagIcon } from '../../../icons/pricetags-outline.svg';
 TimeAgo.addLocale(sq);
 const timeAgo = new TimeAgo('sq');
 
@@ -27,13 +30,14 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
     slug,
     date,
     description,
-    currency
+    currency,
+    debatablePrice
 }) => {
     return (
         <div className={styles['item-wrapper']} >
             <Image
-                width={80}
-                height={80}
+                width={100}
+                height={100}
                 src={image}
                 className={styles['item-image']}
                 objectFit="cover"
@@ -45,7 +49,10 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
                         <LocationIcon className={styles['item-location_icon']} />
                         {location}
                     </span>
-                    <span className={styles['item-price']} >{price}{currency}</span>
+                    <SaveIcon
+                        className={styles['item-save__icon']}
+                    />
+                    <span className={styles['item-price']} >{padNumber(price)} {currency}</span>
                 </p>
                 <div className={styles['item-description-wrapper']} >
                     <p className={styles['item-description']} >{description}</p>
@@ -79,6 +86,32 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
                             )}
                         />}
                     />
+                    {debatablePrice && <Chip
+                        text='Cmim i diskutueshem'
+                        wrapperClassName={classNames(
+                            styles['item-chip'],
+                            styles['item-chip_wColor']
+                        )}
+                        icon={<PriceTagIcon
+                            className={classNames(
+                                styles['item-chip_icon'],
+                                styles['item-chip_icon__calendar']
+                            )}
+                        />}
+                    />}
+                    {isInSale && <Chip
+                        text='Ne ulje'
+                        wrapperClassName={classNames(
+                            styles['item-chip'],
+                            styles['item-chip_wColor']
+                        )}
+                        icon={<CashIcon
+                            className={classNames(
+                                styles['item-chip_icon'],
+                                styles['item-chip_icon__calendar']
+                            )}
+                        />}
+                    />}
                 </div>
             </div>
         </div>
