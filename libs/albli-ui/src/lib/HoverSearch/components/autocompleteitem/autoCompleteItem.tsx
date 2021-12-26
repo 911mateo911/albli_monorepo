@@ -13,6 +13,7 @@ import { upperCase, padNumber, truncate } from '../../../utils';
 import { ReactComponent as SaveIcon } from '../../../icons/bookmark-outline.svg';
 import { ReactComponent as CashIcon } from '../../../icons/cash-outline.svg';
 import { ReactComponent as PriceTagIcon } from '../../../icons/pricetags-outline.svg';
+import { useMediaQuery } from 'react-responsive';
 TimeAgo.addLocale(sq);
 const timeAgo = new TimeAgo('sq');
 
@@ -45,18 +46,22 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
             <div className={styles['item-content-wrapper']} >
                 <div className={styles['item-title-wrapper']} >
                     <p className={classNames(styles['item-title'], styles['truncated-text'])} >{title}</p>
-                    <span className={styles['item-location']} >
-                        <LocationIcon className={styles['item-location_icon']} />
-                        {truncate(location, 45)}
+                    <span className={styles['item-location-wrapper']} >
+                        <span className={styles['item-location']} >
+                            <LocationIcon className={styles['item-location_icon']} />
+                            {truncate(location, 45)}
+                        </span>
                     </span>
                     <SaveIcon
                         className={styles['item-save__icon']}
                     />
-                    <span className={classNames(
-                        styles['item-price'],
-                        styles['truncated-text']
-                    )} >
-                        {padNumber(price)} {currency}
+                    <span className={styles['item-price-wrapper']} >
+                        <p className={classNames(
+                            styles['item-price'],
+                            styles['truncated-text']
+                        )} >
+                            {padNumber(price)} {currency}
+                        </p>
                     </span>
                 </div>
                 <div className={styles['item-description-wrapper']} >

@@ -33,7 +33,7 @@ export const auto_complete_dummy_response = (): AutoCompleteProduct[] => [
         sellerId: "1234i1932samdmasd",
         sellerName: "Aleksandri i Maqedonis",
         slug: "audi_a3_hatchback",
-        price: 1300000,
+        price: 2139213093120302310,
         debatablePrice: true
     },
     {
@@ -50,7 +50,7 @@ export const auto_complete_dummy_response = (): AutoCompleteProduct[] => [
         sellerId: "1234i1932samdmasd",
         sellerName: "Madara Uchihahhha",
         slug: "audi_a3_hatchback",
-        price: 1300000,
+        price: 192039021930203192,
         debatablePrice: false
     },
     {
