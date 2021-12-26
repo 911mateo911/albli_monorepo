@@ -45,7 +45,12 @@ export const Hoversearch: FC<HoverSearchProps> = ({
                         className={styles['search-input']}
                     />
                 </div>
-                <div className={styles['autoCompleteItems-wrapper']} >
+                <div className={classNames(
+                    styles['autoCompleteItems-wrapper'],
+                    {
+                        [styles['indent-autocomplete']]: autoCompleteResults.length >= 1 || isLoading
+                    }
+                )} >
                     {isLoading && <AnimatedSearchIcon className={styles['animated-search-icon']} />}
                     {(autoCompleteResults.length >= 1 && !isLoading) && autoCompleteResults.map(item =>
                         <AutoCompleteItem key={item.postId} {...item} />

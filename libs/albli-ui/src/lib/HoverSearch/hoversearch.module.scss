@@ -6,6 +6,7 @@
   position: fixed;
   flex-direction: column;
   @include basic_flex;
+  justify-content: flex-start;
   width: calc(100% - 1rem);
   max-width: 1280px;
   border-radius: 8px;
@@ -14,11 +15,11 @@
   z-index: 999999;
   transition: top 0.4s;
   transform: translateX(-50%);
-  background-color: $color_grey-5;
 }
 
 .wrapper_open {
   top: 10%;
+  bottom: 5%;
 }
 
 .backdrop {
@@ -37,6 +38,7 @@
   padding: 1rem 1.5rem;
   border-radius: 8px;
   border: 1px solid $color_grey-10;
+  z-index: 2;
   background-color: white;
 
   @media (max-width: 600px) {
@@ -69,9 +71,19 @@
   color: $color_grey-50;
 }
 
+.indent-autocomplete {
+  transform: translateY(-10px);
+  padding-top: 10px;
+}
+
 .autoCompleteItems-wrapper {
   @include basic_flex;
+  overflow-y: auto;
+  justify-content: flex-start;
   flex-direction: column;
+  border-radius: 0px 0px 8px 8px;
+  z-index: 1;
+  background-color: $color_grey-5;
   width: 100%;
 }
 

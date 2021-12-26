@@ -9,7 +9,7 @@ import { ReactComponent as CalendarIcon } from '../../../icons/calendar-outline.
 import classNames from 'classnames';
 import TimeAgo from 'javascript-time-ago';
 import sq from 'javascript-time-ago/locale/sq.json';
-import { upperCase, padNumber } from '../../../utils';
+import { upperCase, padNumber, truncate } from '../../../utils';
 import { ReactComponent as SaveIcon } from '../../../icons/bookmark-outline.svg';
 import { ReactComponent as CashIcon } from '../../../icons/cash-outline.svg';
 import { ReactComponent as PriceTagIcon } from '../../../icons/pricetags-outline.svg';
@@ -43,17 +43,22 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
                 objectFit="cover"
             />
             <div className={styles['item-content-wrapper']} >
-                <p className={styles['item-title']} >
-                    {title}
+                <div className={styles['item-title-wrapper']} >
+                    <p className={classNames(styles['item-title'], styles['truncated-text'])} >{title}</p>
                     <span className={styles['item-location']} >
                         <LocationIcon className={styles['item-location_icon']} />
-                        {location}
+                        {truncate(location, 45)}
                     </span>
                     <SaveIcon
                         className={styles['item-save__icon']}
                     />
-                    <span className={styles['item-price']} >{padNumber(price)} {currency}</span>
-                </p>
+                    <span className={classNames(
+                        styles['item-price'],
+                        styles['truncated-text']
+                    )} >
+                        {padNumber(price)} {currency}
+                    </span>
+                </div>
                 <div className={styles['item-description-wrapper']} >
                     <p className={styles['item-description']} >{description}</p>
                     <p className={styles['item-seller']} >

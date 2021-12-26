@@ -44,12 +44,29 @@
   padding-left: 1rem;
 }
 
-.item-title {
-  width: 100%;
-  font-size: 17px;
+.item-title-wrapper {
   @include basic_flex;
+  width: 100%;
   justify-content: flex-start;
+}
+
+.item-title {
+  font-size: 17px;
+  max-width: 50ch;
   font-weight: 700;
+
+  @media (max-width: 1200px) {
+    max-width: 40ch;
+  }
+  @media (max-width: 1100px) {
+    max-width: 30ch;
+  }
+}
+
+.truncated-text {
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .item-location {
@@ -76,6 +93,7 @@
   background-color: white;
   margin-left: 10px;
   font-size: 14px;
+  max-width: 20ch;
   border-radius: 999px;
   box-shadow: 0 0 3px 0 rgb(0 0 0 / 5%);
   border: 1px solid $color_grey-10;
@@ -112,6 +130,12 @@
   overflow: hidden;
   font-family: $font_secondary;
   font-size: 16px;
+  @media (max-width: 1200px) {
+    max-width: 70ch;
+  }
+  @media (max-width: 1050px) {
+    max-width: 60ch;
+  }
 }
 
 .item-seller {
