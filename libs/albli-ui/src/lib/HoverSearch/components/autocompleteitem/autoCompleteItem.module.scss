@@ -51,6 +51,10 @@
   @media (max-width: 1000px) {
     flex-wrap: wrap;
   }
+  @media (max-width: 760px) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 }
 
 .item-title {
@@ -71,6 +75,9 @@
     max-width: 75%;
     width: 100%;
   }
+  @media (max-width: 760px) {
+    display: none;
+  }
 }
 
 .truncated-text {
@@ -88,6 +95,9 @@
   @media (max-width: 850px) {
     width: 50%;
     order: 3;
+  }
+  @media (max-width: 760px) {
+    width: fit-content;
   }
 }
 
@@ -127,6 +137,9 @@
     margin-top: 8px;
     margin-left: auto;
   }
+  @media (max-width: 760px) {
+    max-width: 40ch;
+  }
 }
 
 .item-price {
@@ -141,6 +154,9 @@
   padding: 7px 10px;
   color: $color_grey-100;
   font-weight: 600;
+  @media (max-width: 760px) {
+    max-width: 40ch;
+  }
 }
 
 .item-save__icon {
@@ -154,6 +170,9 @@
   height: 30px;
   @media (max-width: 1000px) {
     order: 2;
+  }
+  @media (max-width: 760px) {
+    display: none;
   }
 }
 
@@ -190,6 +209,9 @@
   font-size: 0.7rem;
   text-align: right;
   color: $color_grey-50;
+  @media (max-width: 760px) {
+    display: none;
+  }
 }
 
 .item-chips-container {

@@ -34,11 +34,14 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
     currency,
     debatablePrice
 }) => {
+
+    const isMobile = useMediaQuery({ query: '(max-width: 760px)' });
+
     return (
         <div className={styles['item-wrapper']} >
             <Image
-                width={100}
-                height={100}
+                width={isMobile ? 250 : 100}
+                height={isMobile ? 250 : 100}
                 src={image}
                 className={styles['item-image']}
                 objectFit="cover"
