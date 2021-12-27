@@ -13,7 +13,9 @@ import { upperCase, padNumber, truncate } from '../../../utils';
 import { ReactComponent as SaveIcon } from '../../../icons/bookmark-outline.svg';
 import { ReactComponent as CashIcon } from '../../../icons/cash-outline.svg';
 import { ReactComponent as PriceTagIcon } from '../../../icons/pricetags-outline.svg';
+import { ReactComponent as ShareIcon } from '../../../icons/share-outline.svg';
 import { useMediaQuery } from 'react-responsive';
+import { getValuePerBreakPoint } from './helpers';
 TimeAgo.addLocale(sq);
 const timeAgo = new TimeAgo('sq');
 
@@ -35,13 +37,14 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
     debatablePrice
 }) => {
 
-    const isMobile = useMediaQuery({ query: '(max-width: 760px)' });
+    const isTablet = useMediaQuery({ query: '(max-width: 760px) and (min-width: 630px)' });
+    const isMobile = useMediaQuery({ query: '(max-width: 630px)' });
 
     return (
         <div className={styles['item-wrapper']} >
             <Image
-                width={isMobile ? 250 : 100}
-                height={isMobile ? 250 : 100}
+                width={getValuePerBreakPoint<number>(isTablet, isMobile, 200, 100)}
+                height={getValuePerBreakPoint<number>(isTablet, isMobile, 200, 100)}
                 src={image}
                 className={styles['item-image']}
                 objectFit="cover"
@@ -50,15 +53,26 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
                 <div className={styles['item-title-wrapper']} >
                     <p className={classNames(styles['item-title'], styles['truncated-text'])} >{title}</p>
                     <span className={styles['item-location-wrapper']} >
-                        <span className={styles['item-location']} >
+                        <span className={classNames(styles['item-location'], styles['truncated-text'])} >
                             <LocationIcon className={styles['item-location_icon']} />
-                            {truncate(location, 45)}
+                            {truncate(location, isTablet ? 50 : 35)}
                         </span>
                     </span>
-                    <SaveIcon
-                        className={styles['item-save__icon']}
+                    <span className={styles['item-save__icon__wrapper']} >
+                        <SaveIcon
+                            className={styles['item-save__icon']}
+                        />
+                    </span>
+                    <ShareIcon
+                        className={styles['item-share__icon']}
                     />
                     <span className={styles['item-price-wrapper']} >
+                        <p className={classNames(
+                            styles['item-seller-mobile'],
+                            styles['truncated-text']
+                        )}>
+                            {sellerName}
+                        </p>
                         <p className={classNames(
                             styles['item-price'],
                             styles['truncated-text']
@@ -67,6 +81,9 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
                         </p>
                     </span>
                 </div>
+                <p className={classNames(
+                    styles['item-title-mobile']
+                )} >{title}</p>
                 <div className={styles['item-description-wrapper']} >
                     <p className={styles['item-description']} >{description}</p>
                     <p className={styles['item-seller']} >

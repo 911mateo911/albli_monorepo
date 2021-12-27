@@ -52,7 +52,7 @@ export const Hoversearch: FC<HoverSearchProps> = ({
                     }
                 )} >
                     {isLoading && <AnimatedSearchIcon className={styles['animated-search-icon']} />}
-                    {(autoCompleteResults.length >= 1 && !isLoading) && autoCompleteResults.map(item =>
+                    {(autoCompleteResults.length >= 1 && !isLoading && open) && autoCompleteResults.map(item =>
                         <AutoCompleteItem key={item.postId} {...item} />
                     )}
                 </div>
