@@ -43,8 +43,8 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
     return (
         <div className={styles['item-wrapper']} >
             <Image
-                width={getValuePerBreakPoint<number>(isTablet, isMobile, 200, 100)}
-                height={getValuePerBreakPoint<number>(isTablet, isMobile, 200, 100)}
+                width={getValuePerBreakPoint<number>(isTablet, isMobile, 200, 100, 100)}
+                height={getValuePerBreakPoint<number>(isTablet, isMobile, 200, 100, 100)}
                 src={image}
                 className={styles['item-image']}
                 objectFit="cover"
@@ -55,7 +55,10 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
                     <span className={styles['item-location-wrapper']} >
                         <span className={classNames(styles['item-location'], styles['truncated-text'])} >
                             <LocationIcon className={styles['item-location_icon']} />
-                            {truncate(location, isTablet ? 50 : 35)}
+                            {truncate(
+                                location,
+                                getValuePerBreakPoint<number>(isTablet, isMobile, 35, 20, 50)
+                            )}
                         </span>
                     </span>
                     <span className={styles['item-save__icon__wrapper']} >
