@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { AutoCompleteProduct } from '@al-bli/al-bli-data-types';
 import styles from './autoCompleteItem.module.scss';
 import Image from 'next/image';
@@ -39,51 +39,11 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
 
     const isTablet = useMediaQuery({ query: '(max-width: 760px) and (min-width: 630px)' });
     const isMobile = useMediaQuery({ query: '(max-width: 630px)' });
+    const isThinMobile = useMediaQuery({ query: '(max-width: 460px)' });
 
-    return (
-        <div className={styles['item-wrapper']} >
-            <Image
-                width={getValuePerBreakPoint<number>(isTablet, isMobile, 200, 100, 100)}
-                height={getValuePerBreakPoint<number>(isTablet, isMobile, 200, 100, 100)}
-                src={image}
-                className={styles['item-image']}
-                objectFit="cover"
-            />
-            <div className={styles['item-content-wrapper']} >
-                <div className={styles['item-title-wrapper']} >
-                    <p className={classNames(styles['item-title'], styles['truncated-text'])} >{title}</p>
-                    <span className={styles['item-location-wrapper']} >
-                        <span className={classNames(styles['item-location'], styles['truncated-text'])} >
-                            <LocationIcon className={styles['item-location_icon']} />
-                            {truncate(
-                                location,
-                                getValuePerBreakPoint<number>(isTablet, isMobile, 35, 20, 50)
-                            )}
-                        </span>
-                    </span>
-                    <span className={styles['item-save__icon__wrapper']} >
-                        <SaveIcon
-                            className={styles['item-save__icon']}
-                        />
-                    </span>
-                    <ShareIcon
-                        className={styles['item-share__icon']}
-                    />
-                    <span className={styles['item-price-wrapper']} >
-                        <p className={classNames(
-                            styles['item-seller-mobile'],
-                            styles['truncated-text']
-                        )}>
-                            {sellerName}
-                        </p>
-                        <p className={classNames(
-                            styles['item-price'],
-                            styles['truncated-text']
-                        )} >
-                            {padNumber(price)} {currency}
-                        </p>
-                    </span>
-                </div>
+    const itemDetails = useMemo(() => {
+        return (
+            <>
                 <p className={classNames(
                     styles['item-title-mobile']
                 )} >{title}</p>
@@ -146,7 +106,59 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
                         />}
                     />}
                 </div>
+            </>
+        )
+    }, [date, debatablePrice, description, isInSale, likes, sellerName, title]);
+
+    return (
+        <div className={styles['root-container']} >
+            <div className={styles['item-wrapper']} >
+                <Image
+                    width={getValuePerBreakPoint<number>(isTablet, isMobile, 200, 100, 100)}
+                    height={getValuePerBreakPoint<number>(isTablet, isMobile, 200, 100, 100)}
+                    src={image}
+                    className={styles['item-image']}
+                    objectFit="cover"
+                />
+                <div className={styles['item-content-wrapper']} >
+                    <div className={styles['item-title-wrapper']} >
+                        <p className={classNames(styles['item-title'], styles['truncated-text'])} >{title}</p>
+                        {!isThinMobile && <span className={styles['item-location-wrapper']} >
+                            <span className={classNames(styles['item-location'], styles['truncated-text'])} >
+                                <LocationIcon className={styles['item-location_icon']} />
+                                {truncate(
+                                    location,
+                                    getValuePerBreakPoint<number>(isTablet, isMobile, 35, 20, 50)
+                                )}
+                            </span>
+                        </span>}
+                        <span className={styles['item-save__icon__wrapper']} >
+                            <SaveIcon
+                                className={styles['item-save__icon']}
+                            />
+                        </span>
+                        <ShareIcon
+                            className={styles['item-share__icon']}
+                        />
+                        <span className={styles['item-price-wrapper']} >
+                            {!isThinMobile && <p className={classNames(
+                                styles['item-seller-mobile'],
+                                styles['truncated-text']
+                            )}>
+                                {sellerName}
+                            </p>}
+                            <p className={classNames(
+                                styles['item-price'],
+                                styles['truncated-text']
+                            )} >
+                                {padNumber(price)} {currency}
+                            </p>
+                        </span>
+                    </div>
+                    {!isThinMobile && itemDetails}
+                </div>
             </div>
+            {isThinMobile && itemDetails}
         </div>
     )
 }
