@@ -17,7 +17,7 @@
         "external": [
           "react/jsx-runtime"
         ],
-        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "rollupConfig": "rollup.config.cjs",
         "assets": [
           {
             "glob": "libs/albli-ui/README.md",

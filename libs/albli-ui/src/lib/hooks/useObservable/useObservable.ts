@@ -4,14 +4,13 @@ import { Observable } from 'rxjs';
 import isEqual from 'lodash.isequal';
 
 type useObservableType = {
-    <T>(observable$: Observable<T>, dependencies: unknown[]): T | undefined;
     <T>(observable$: Observable<T>, dependencies: unknown[], initialValue: T): T;
 };
 
 export const useObservable: useObservableType = <T>(
     observable$: Observable<T>,
     dependencies: unknown[],
-    initialValue?: T
+    initialValue: T
 ) => {
     const [state, setState] = useState<T>(initialValue);
 

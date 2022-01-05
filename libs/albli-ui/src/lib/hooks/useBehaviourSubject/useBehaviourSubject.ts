@@ -1,4 +1,4 @@
-import { useObservable } from "./useObservable";
+import { useObservable } from "../useObservable";
 import { BehaviorSubject } from "rxjs";
 
 export const useBehaviorSubject = <T>(subject$: BehaviorSubject<T>): T => {
