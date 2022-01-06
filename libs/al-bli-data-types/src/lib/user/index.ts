@@ -2,6 +2,7 @@ import { Product } from '../product';
 
 export interface User {
     profilePic?: string;
+    userId: string;
     name: string;
     bio?: string;
     email: string;
@@ -11,6 +12,6 @@ export interface User {
     favorites: Product[];
 }
 
-export interface UserWithCredential extends User {
+export interface UserWithCredential extends Omit<User, 'likes' | 'favorites' | 'userId'> {
     password: string;
 }

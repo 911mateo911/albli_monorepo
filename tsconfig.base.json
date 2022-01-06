@@ -18,6 +18,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@al-bli/al-bli-config-files": [
+        "libs/al-bli-config-files/src/index.ts"
+      ],
       "@al-bli/al-bli-data-types": [
         "libs/al-bli-data-types/src/index.ts"
       ],

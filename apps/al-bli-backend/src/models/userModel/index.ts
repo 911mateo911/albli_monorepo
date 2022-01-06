@@ -1,6 +1,6 @@
 import * as Joi from 'joi';
-import { NextFunction, Request, Response } from 'express';
 import { UserWithCredential } from '@al-bli/al-bli-data-types';
+import { RequestHandler } from 'express';
 
 export const UserValidationSchema = Joi.object<UserWithCredential>({
     name: Joi.string().min(8).max(40).pattern(/^[a-z '-]+$/i).required(),
@@ -10,6 +10,6 @@ export const UserValidationSchema = Joi.object<UserWithCredential>({
     telephone: Joi.string().pattern(/^(?:[+\d].*\d|\d)$/)
 }).required();
 
-export const validate_user = (req: Request, res: Response, next: NextFunction) => {
+export const validate_user: RequestHandler = (req, res, next) => {
     next();
 }
