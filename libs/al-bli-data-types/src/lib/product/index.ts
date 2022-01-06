@@ -1,4 +1,4 @@
-export interface ProductImage {
+export interface Image {
     imageUrl: string;
     imageId: string;
 }
@@ -30,7 +30,7 @@ export interface Product {
     title: string;
     debatablePrice: boolean;
     description: string;
-    images: ProductImage[];
+    images: Image[];
     location: string;
     price: number;
     isInSale: boolean;
