@@ -1,0 +1,51 @@
+@import "../styles/variables";
+
+.input-wrapper {
+  position: relative;
+}
+
+.input {
+  border-radius: 6px;
+  appearance: none;
+  outline: none;
+  font-family: $font_secondary;
+  font-weight: 400;
+  padding: 13px 12px;
+  max-height: 50px;
+  transition: all 0.3s;
+  border: 1px solid $color_grey-20;
+  font-size: 1rem;
+
+  &:focus {
+    border: 1px solid $color_blue-50;
+    padding: 18px 12px 8px 12px;
+    box-shadow: 0 0 8px 0 $color_blue-10;
+  }
+
+  &::placeholder {
+    color: transparent;
+  }
+}
+
+.input_has_value {
+  border: 1px solid $color_blue-50;
+  padding: 18px 12px 8px 12px;
+  box-shadow: 0 0 8px 0 $color_blue-10;
+}
+
+.input-placeholder {
+  position: absolute;
+  font-size: 1rem;
+  transition: all 0.2s;
+  transform: translateY(-50%);
+  color: $color_grey-50;
+  top: 50%;
+  left: 12px;
+}
+
+.input-placeholder_active {
+  top: 11px;
+  font-weight: 500;
+  font-size: 11px;
+  color: $color_blue-60;
+}
