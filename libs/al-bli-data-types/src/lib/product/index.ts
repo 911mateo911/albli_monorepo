@@ -1,4 +1,4 @@
-export interface ProductImage {
+export interface Image {
     imageUrl: string;
     imageId: string;
 }
@@ -30,7 +30,7 @@ export interface Product {
     title: string;
     debatablePrice: boolean;
     description: string;
-    images: ProductImage[];
+    images: Image[];
     location: string;
     price: number;
     isInSale: boolean;
@@ -45,10 +45,8 @@ export interface Product {
     whatsapp?: number;
     email: string;
     date: Date,
-    // do you need these ones?
     slug: string;
     sluggedKeywords: string;
-    // get from the jwt
     sellerName: string;
     currency: CurrencyType;
     likes: string[];
