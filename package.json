@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "start:frontend": "nx run al-bli-frontend:serve",
+    "start:backend": "nx run al-bli-backend:serve",
     "build": "nx build",
     "test": "nx test",
     "storybook": "nx run albli-ui:storybook --host=0.0.0.0 ",

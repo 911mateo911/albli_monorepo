@@ -17,6 +17,28 @@ export enum POSTPARAMS {
     GET_POST_ID_KEY = 'postId'
 }
 
+export enum PUBLISH_POST_REQUEST_KEYS {
+    TITLE = 'title',
+    HAS_DEBATABLE_PRICE = 'debatablePrice',
+    DESCRIPTION = 'description',
+    IMAGES = 'images',
+    LOCATION = 'location',
+    PRICE = 'price',
+    IS_IN_SALE = 'isInSale',
+    IN_SALE_FOR = 'inSaleFor',
+    ADVERT_INDEX = 'advertIndex',
+    CATEGORY = 'category',
+    SUB_CATEGORY = 'subCategory',
+    KEYWORDS = 'keywords',
+    TELEPHONE = 'telephone',
+    WHATSAPP = 'whatsapp',
+    EMAIL = 'email',
+    DATE = 'date',
+    SLUG = 'slug',
+    SELLER_NAME = 'sellerName',
+    CURRENCY = 'currency'
+}
+
 export type ConfigType = {
     ROUTES: typeof RouteKeys,
     POSTPARAMS: typeof POSTPARAMS

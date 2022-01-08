@@ -45,10 +45,8 @@ export interface Product {
     whatsapp?: number;
     email: string;
     date: Date,
-    // do you need these ones?
     slug: string;
     sluggedKeywords: string;
-    // get from the jwt
     sellerName: string;
     currency: CurrencyType;
     likes: string[];

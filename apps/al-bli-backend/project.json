@@ -11,10 +11,7 @@
       "options": {
         "outputPath": "dist/apps/al-bli-backend",
         "main": "apps/al-bli-backend/src/main.ts",
-        "tsConfig": "apps/al-bli-backend/tsconfig.app.json",
-        "assets": [
-          "apps/al-bli-backend/src/assets"
-        ]
+        "tsConfig": "apps/al-bli-backend/tsconfig.app.json"
       },
       "configurations": {
         "production": {
