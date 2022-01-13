@@ -4,3 +4,4 @@ export * from './slideDrawer';
 export * from './hoverSearch';
 export * from './hooks';
 export * from './input';
+export * from './publishPage';

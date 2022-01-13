@@ -1,11 +1,8 @@
+import { PublishPage } from "../../molecules/PublishPage";
 import { NextPage } from "next";
 
 export const Publish: NextPage = () => {
-    return (
-        <div>
-
-        </div>
-    )
+    return (<PublishPage />)
 }
 
 export default Publish

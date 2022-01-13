@@ -1,0 +1,26 @@
+@import "../styles/mixins";
+@import "../styles/variables";
+
+.wrapper {
+  @include basic_flex;
+}
+
+.container {
+  @include basic_flex;
+  flex-direction: column;
+  width: 65%;
+  border-radius: 10px;
+  background-color: #f6f6f7;
+}
+
+.left-container {
+  min-width: 200px;
+  width: 35%;
+}
+
+.your-product {
+  font-size: 1.1rem;
+  margin: 2rem auto 2rem 1rem;
+  letter-spacing: 0.4px;
+  color: $color_grey-100;
+}
