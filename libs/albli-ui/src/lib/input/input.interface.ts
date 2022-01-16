@@ -4,5 +4,6 @@ export interface InputProps {
     name: string;
     id?: string;
     type?: 'text' | 'number';
+    className?: string;
     placeholder?: string;
 }

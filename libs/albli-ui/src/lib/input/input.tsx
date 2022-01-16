@@ -8,13 +8,14 @@ export const Input: FC<InputProps> = ({
     onChange,
     value,
     id,
+    className,
     type = 'text',
     placeholder
 }) => {
     const [hasFocus, setHasFocus] = useState<boolean>(false);
 
     return (
-        <div className={styles['input-wrapper']} >
+        <div className={classNames(styles['input-wrapper'], className)} >
             <span className={classNames(
                 styles['input-placeholder'],
                 {
