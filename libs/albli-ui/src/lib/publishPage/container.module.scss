@@ -1,0 +1,95 @@
+@import "../styles/mixins";
+@import "../styles/variables";
+
+.wrapper {
+  @include basic_flex;
+  align-items: flex-start;
+  margin: 0 10px;
+}
+
+.container {
+  @include basic_flex;
+  flex-direction: column;
+  width: 65%;
+  border-radius: 10px;
+  background-color: #f6f6f7;
+}
+
+.left-container {
+  min-width: 200px;
+  background-color: white;
+  width: 35%;
+  padding-right: 20px;
+}
+
+.your-product {
+  font-size: 1.3rem;
+  margin: 2rem auto 1rem 0;
+  letter-spacing: 0.4px;
+  color: $color_grey-100;
+}
+
+.you {
+  width: 100%;
+  font-size: 1.5rem;
+  margin-top: 14px;
+  color: $color_grey-100;
+  font-weight: 900;
+}
+
+.contact-info {
+  font-family: $font_secondary;
+  font-size: 1rem;
+  color: $color_grey-100;
+  width: 100%;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.introduce-yourself {
+  margin-top: 6px;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: $color_grey-90;
+  font-family: $font_secondary;
+}
+
+.user-input {
+  margin-top: 12px;
+  width: 100%;
+}
+
+.preferredContact {
+  color: $color_grey-90;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.preferredContact_wrapper {
+  @include basic_flex;
+  width: 100%;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+
+.form-container {
+  padding: 0 1.2rem;
+  width: 100%;
+}
+
+.product-text {
+  font-family: $font_secondary;
+  font-weight: 700;
+  color: $color_grey-100;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.product-text_secondary {
+  font-family: $font_secondary;
+  color: $color_grey-90;
+  width: 100%;
+}
