@@ -24,7 +24,7 @@
 
 .your-product {
   font-size: 1.3rem;
-  margin: 2rem auto 1rem 1rem;
+  margin: 2rem auto 1rem 0;
   letter-spacing: 0.4px;
   color: $color_grey-100;
 }
@@ -73,4 +73,23 @@
   flex-wrap: wrap;
   margin-top: 10px;
   margin-bottom: 12px;
+}
+
+.form-container {
+  padding: 0 1.2rem;
+  width: 100%;
+}
+
+.product-text {
+  font-family: $font_secondary;
+  font-weight: 700;
+  color: $color_grey-100;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.product-text_secondary {
+  font-family: $font_secondary;
+  color: $color_grey-90;
+  width: 100%;
 }

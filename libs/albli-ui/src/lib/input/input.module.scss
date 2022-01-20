@@ -15,12 +15,15 @@
   max-height: 50px;
   transition: all 0.3s;
   border: 1px solid $color_grey-20;
+  min-height: 48px;
   font-size: 1rem;
 
   &:focus {
-    border: 1px solid $color_blue-50;
+    border: 1px solid $color_blue-60;
     padding: 18px 12px 8px 12px;
-    box-shadow: 0 0 8px 0 $color_blue-10;
+    box-shadow: 0px 0px 1px rgba(216, 230, 255, 0.28),
+      0px 0px 8px rgba(216, 230, 255, 0.42),
+      0px 0px 20px rgba(216, 230, 255, 0.7);
   }
 
   &::placeholder {
@@ -29,9 +32,10 @@
 }
 
 .input_has_value {
-  border: 1px solid $color_blue-50;
+  border: 1px solid $color_blue-60;
   padding: 18px 12px 8px 12px;
-  box-shadow: 0 0 8px 0 $color_blue-10;
+  box-shadow: 0px 0px 1px rgba(216, 230, 255, 0.28),
+    0px 0px 8px rgba(216, 230, 255, 0.42), 0px 0px 20px rgba(216, 230, 255, 0.7);
 }
 
 .input-placeholder {

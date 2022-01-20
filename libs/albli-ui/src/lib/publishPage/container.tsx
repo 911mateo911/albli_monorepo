@@ -70,7 +70,20 @@ export const Container: FC = () => {
             </div>
             <div className={styles.container} >
                 <Header />
-                <h2 className={styles['your-product']} >Produkti juaj ?</h2>
+                <div className={styles['form-container']} >
+                    <h2 className={styles['your-product']} >Produkti juaj ?</h2>
+                    <p className={styles['product-text']} >Titulli</p>
+                    <p className={styles['product-text_secondary']} >
+                        Nje titull i shkurter dhe permbledhes mbi produktin tend
+                    </p>
+                    <Input
+                        name='title'
+                        placeholder='Titulli'
+                        onChange={() => ({})}
+                        value=''
+                        className={styles['user-input']}
+                    />
+                </div>
             </div>
         </div>
     )
