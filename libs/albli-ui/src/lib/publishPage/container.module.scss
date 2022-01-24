@@ -93,3 +93,26 @@
   color: $color_grey-90;
   width: 100%;
 }
+
+.dropdown-input-wrapper {
+  width: 30%;
+}
+
+.dropdown-input-label {
+  font-family: $font_secondary;
+  width: 100%;
+  font-weight: 500;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.dropdown-input {
+  background-color: white;
+}
+
+.dropdowns-container {
+  width: 100%;
+  @include basic_flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+}

@@ -4,4 +4,5 @@ export interface DropdownInputProps {
     placeholder?: string;
     values: string[];
     className?: string;
+    id?: string;
 }
