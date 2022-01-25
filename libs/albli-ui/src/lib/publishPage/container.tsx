@@ -7,6 +7,7 @@ import { PreferredContact } from './components/preferredContact';
 import { Userlocation } from './components/userLocation';
 import { UserProfile } from './components/userProfile';
 import { DropdownInput } from '../dropdownInput';
+import { ImagePicker } from '../imagePicker';
 
 export const Container: FC = () => {
     return (
@@ -84,7 +85,7 @@ export const Container: FC = () => {
                         value=''
                         className={styles['user-input']}
                     />
-                    <div className={styles['dropdowns-container']} >
+                    <div className={styles['flex-container']} >
                         <span className={styles['dropdown-input-wrapper']} >
                             <p className={styles['dropdown-input-label']} >Qyteti</p>
                             <DropdownInput
@@ -112,6 +113,9 @@ export const Container: FC = () => {
                                 className={styles['dropdown-input']}
                             />
                         </span>
+                    </div>
+                    <div className={styles['flex-container']} >
+                        <ImagePicker />
                     </div>
                 </div>
             </div>
