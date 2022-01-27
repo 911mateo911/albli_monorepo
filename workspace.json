@@ -7,6 +7,7 @@
     "al-bli-dummy-data": "libs/al-bli-dummy-data",
     "al-bli-frontend": "apps/al-bli-frontend",
     "al-bli-frontend-e2e": "apps/al-bli-frontend-e2e",
+    "al-bli-langs": "libs/al-bli-langs",
     "albli-ui": "libs/albli-ui",
     "albli-ui-e2e": "apps/albli-ui-e2e"
   }

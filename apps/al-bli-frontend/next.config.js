@@ -12,6 +12,11 @@ const nextConfig = {
   },
   images: {
     domains: ['res.cloudinary.com']
+  },
+  i18n: {
+    locales: ['sq', 'en-US'],
+    defaultLocale: 'sq',
+    localeDetection: false
   }
 };
 

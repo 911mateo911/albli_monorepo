@@ -1,0 +1,33 @@
+{
+  "root": "libs/al-bli-langs",
+  "sourceRoot": "libs/al-bli-langs/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/workspace:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/al-bli-langs",
+        "main": "libs/al-bli-langs/src/index.ts",
+        "tsConfig": "libs/al-bli-langs/tsconfig.lib.json",
+        "assets": [
+          "libs/al-bli-langs/*.md"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/al-bli-langs/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
