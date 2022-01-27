@@ -6,6 +6,8 @@ import { Header } from './components/header';
 import { PreferredContact } from './components/preferredContact';
 import { Userlocation } from './components/userLocation';
 import { UserProfile } from './components/userProfile';
+import { DropdownInput } from '../dropdownInput';
+import { ImagePicker } from '../imagePicker';
 
 export const Container: FC = () => {
     return (
@@ -83,6 +85,38 @@ export const Container: FC = () => {
                         value=''
                         className={styles['user-input']}
                     />
+                    <div className={styles['flex-container']} >
+                        <span className={styles['dropdown-input-wrapper']} >
+                            <p className={styles['dropdown-input-label']} >Qyteti</p>
+                            <DropdownInput
+                                values={['Tirane', 'Durres']}
+                                selectedValue='Tirane'
+                                onChange={() => ({})}
+                                className={styles['dropdown-input']}
+                            />
+                        </span>
+                        <span className={styles['dropdown-input-wrapper']} >
+                            <p className={styles['dropdown-input-label']} >Kategori</p>
+                            <DropdownInput
+                                values={['Automjete', 'Shtepiake']}
+                                selectedValue='Automjete'
+                                onChange={() => ({})}
+                                className={styles['dropdown-input']}
+                            />
+                        </span>
+                        <span className={styles['dropdown-input-wrapper']} >
+                            <p className={styles['dropdown-input-label']} >Nenkategori</p>
+                            <DropdownInput
+                                values={['Pjese kembimi', 'Traktore']}
+                                selectedValue='Pjese kembimi'
+                                onChange={() => ({})}
+                                className={styles['dropdown-input']}
+                            />
+                        </span>
+                    </div>
+                    <div className={styles['flex-container']} >
+                        <ImagePicker />
+                    </div>
                 </div>
             </div>
         </div>
