@@ -9,6 +9,7 @@ export interface User {
     email: string;
     whatsapp?: number;
     telephone?: number;
+    preferredContact: 'email' | 'telephone' | 'whatsapp'
     likes: Product[];
     favorites: Product[];
 }

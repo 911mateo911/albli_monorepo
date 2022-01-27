@@ -13,6 +13,7 @@
   top: -100%;
   left: 50%;
   z-index: 999999;
+  height: fit-content;
   transition: top 0.4s;
   transform: translateX(-50%);
 }
@@ -20,6 +21,10 @@
 .wrapper_open {
   top: 10%;
   bottom: 5%;
+}
+
+.wrapper_populated {
+  height: auto;
 }
 
 .backdrop {

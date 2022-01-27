@@ -1,0 +1,24 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.wrapper {
+  @include basic_flex;
+  padding-top: 10px;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  width: 100%;
+  border-top: 1px solid $color_grey-10;
+}
+
+.user-img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.user-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  color: $color_grey-90;
+}

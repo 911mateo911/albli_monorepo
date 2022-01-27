@@ -32,7 +32,10 @@ export const Hoversearch: FC<HoverSearchProps> = ({
                 ref={ref}
                 className={classNames(
                     styles.wrapper,
-                    open && styles.wrapper_open
+                    open && styles.wrapper_open,
+                    {
+                        [styles.wrapper_populated]: autoCompleteResults.length >= 1 && !isLoading && open
+                    }
                 )} >
                 <div className={styles['search-wrapper']} >
                     <SearchIcon className={styles['search-icon']} />
