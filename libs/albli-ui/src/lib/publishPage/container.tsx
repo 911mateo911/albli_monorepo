@@ -9,6 +9,7 @@ import { UserProfile } from './components/userProfile';
 import { DropdownInput } from '../dropdownInput';
 import { ImagePicker } from '../imagePicker';
 
+// TODO: refactor this nonsense, WTF
 export const Container: FC = () => {
     return (
         <div className={styles.wrapper}>

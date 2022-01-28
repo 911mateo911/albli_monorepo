@@ -21,6 +21,7 @@
   "dependencies": {
     "@nrwl/next": "13.1.2",
     "@storybook/react": "^6.3.12",
+    "browser-image-compression": "^1.0.17",
     "classnames": "^2.3.1",
     "cloudinary": "^1.28.1",
     "core-js": "^3.6.5",

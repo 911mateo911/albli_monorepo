@@ -4,7 +4,9 @@ import { ReactComponent as CameraIcon } from '../icons/camera.svg';
 import { ImageType } from './imagePicker.interface';
 
 export const ImagePicker: FC = () => {
+    // ImageType contains also a preview key to serve as a url to preview the images
     const [images, setImages] = useState<ImageType[]>([]);
+    // save prevImages so we can revoke the url to not cause memory leaks
     const prevImages = useRef<ImageType[]>([]);
 
     const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
@@ -15,7 +17,6 @@ export const ImagePicker: FC = () => {
         const withPreviewFiles: ImageType[] = [];
 
         // for loop as we cant iterate through a FileList
-
         for (let index = 0; index < Number(files?.length); index++) {
             withPreviewFiles.push(Object.assign(
                 files[index],
@@ -25,13 +26,15 @@ export const ImagePicker: FC = () => {
             ));
         }
 
+        // set modified imgs
         setImages(withPreviewFiles);
     }
 
     useEffect(() => {
-        // prevent memory leaks
+        // revoke objectUrls to  prevent memory leaks
         prevImages.current.map(({ preview }) => URL.revokeObjectURL(preview));
 
+        // update the prevImages to contain latest data
         prevImages.current = images;
     }, [images]);
 
