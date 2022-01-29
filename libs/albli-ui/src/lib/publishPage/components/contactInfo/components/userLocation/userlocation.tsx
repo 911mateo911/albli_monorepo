@@ -1,12 +1,11 @@
 import { FC } from 'react';
 import styles from './userlocation.module.scss';
-import { ReactComponent as LocationIcon } from '../../../icons/location-outline.svg';
+import { ReactComponent as LocationIcon } from '../../../../../icons/location-outline.svg';
 import { UserLocationProps } from './userlocation.interface';
 
 export const Userlocation: FC<UserLocationProps> = ({
     streetAddress,
-    countryAddress,
-    kilometresAway
+    countryAddress
 }) => {
     return (
         <div className={styles.wrapper} >
@@ -15,11 +14,6 @@ export const Userlocation: FC<UserLocationProps> = ({
                 <p className={styles['street-address']} >{streetAddress}</p>
                 <p className={styles['country-address']} >{countryAddress}</p>
             </span>
-            <p className={styles.away} >
-                {kilometresAway} km
-                <br />
-                larg
-            </p>
         </div>
     )
 }

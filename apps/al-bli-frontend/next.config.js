@@ -14,7 +14,7 @@ const nextConfig = {
     domains: ['res.cloudinary.com']
   },
   i18n: {
-    locales: ['sq', 'en-US'],
+    locales: ['sq', 'en'],
     defaultLocale: 'sq',
     localeDetection: false
   }

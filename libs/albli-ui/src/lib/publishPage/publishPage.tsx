@@ -1,48 +1,25 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import styles from './container.module.scss';
+import styles from './publishPage.module.scss';
 import { Input } from '../input';
 import { Header } from './components/header';
-import { PreferredContact } from './components/preferredContact';
-import { Userlocation } from './components/userLocation';
-import { UserProfile } from './components/userProfile';
 import { DropdownInput } from '../dropdownInput';
 import { ImagePicker } from '../imagePicker';
 import { ContactInfo } from './components/contactInfo';
 
-// TODO: refactor this nonsense, WTF
+const {
+    'container': cls_container,
+    'left-container': cls_leftContainer
+} = styles;
+
+// TODO: differ company and user here
 export const PublishPageContainer: FC = () => {
     return (
         <div className={styles.wrapper}>
-            <div className={classNames(styles.container, styles['left-container'])} >
+            <div className={classNames(cls_container, cls_leftContainer)} >
                 <ContactInfo />
-                <p className={styles.preferredContact} >Preferoj te pergjigjem ne:</p>
-                <div className={styles.preferredContact_wrapper} >
-                    <PreferredContact
-                        contact='Telefon/Celular'
-                        onClick={() => ({})}
-                        isActive
-                    />
-                    <PreferredContact
-                        contact='Whatsapp'
-                        onClick={() => ({})}
-                        isActive={false}
-                    />
-                    <PreferredContact
-                        contact='Email'
-                        onClick={() => ({})}
-                        isActive={false}
-                    />
-                </div>
-                <p className={styles['contact-info']} >Adresa juaj:</p>
-                <Userlocation
-                    streetAddress='Pallatet Fratari, Astir'
-                    countryAddress='Tirane, Shqiperi'
-                    kilometresAway={10}
-                />
-                <UserProfile />
             </div>
-            <div className={styles.container} >
+            <div className={cls_container} >
                 <Header />
                 <div className={styles['form-container']} >
                     <h2 className={styles['your-product']} >Produkti juaj ?</h2>

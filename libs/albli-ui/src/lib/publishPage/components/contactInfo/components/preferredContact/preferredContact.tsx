@@ -1,13 +1,12 @@
 import classNames from 'classnames';
-import { FC } from 'react';
 import styles from './preferredContact.module.scss';
 import { PreferredContactProps } from './preferredContact.interface';
 
-export const PreferredContact: FC<PreferredContactProps> = ({
+export const PreferredContact = <T,>({
     onClick,
     isActive,
     contact
-}) => {
+}: PreferredContactProps<T>): JSX.Element => {
     return (
         <span
             onClick={() => onClick(contact)}

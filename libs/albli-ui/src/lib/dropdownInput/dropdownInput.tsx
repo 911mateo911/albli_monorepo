@@ -16,6 +16,7 @@ const {
     'dropdown-values': cls_dropdownValues
 } = styles;
 
+// TODO: fix dropdown arrow weird rotation on fast click
 export const DropdownInput: FC<DropdownInputProps> = ({
     selectedValue,
     onChange,

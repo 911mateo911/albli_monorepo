@@ -1,9 +1,10 @@
-@import "../../../styles/variables";
+@import "../../../../../styles/variables";
 
 .preferredContact {
   color: $color_blue-80;
   font-family: $font_secondary;
   cursor: pointer;
+  user-select: none;
   border-radius: 999px;
   margin: 0 auto;
   font-size: 0.8rem;

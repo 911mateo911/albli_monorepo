@@ -37,3 +37,33 @@
     margin-right: 4px;
   }
 }
+
+.form-steps-container {
+  @include basic_flex;
+  margin-left: auto;
+}
+
+.form-step {
+  padding: 6px 10px;
+  margin: 0 4px;
+  background-color: $color_blue-5;
+  color: $color_grey-100;
+  font-size: 12px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-family: $font-secondary;
+  transition: all 0.3s;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.form-step-active {
+  background-color: $color_blue-80;
+  color: white;
+}

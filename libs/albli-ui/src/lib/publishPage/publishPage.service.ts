@@ -1,8 +1,9 @@
 import { BehaviorSubject } from 'rxjs';
-import { ImageType, PreferredContact } from '@al-bli/albli-ui';
+import { ImageType, PreferredContactType } from '@al-bli/albli-ui';
 import imageCompression from 'browser-image-compression';
+import { FormSteps } from '.';
 
-export class PublishPageService {
+class PublishPageService {
     private static _lazy: PublishPageService;
 
     static get instance(): PublishPageService {
@@ -14,13 +15,16 @@ export class PublishPageService {
     }
 
     photos = new BehaviorSubject<ImageType[]>([]);
+    // pipe from here in order to compress the images while you are waiting on the verify form
+    // so they are ready for deployment
+    formStep = new BehaviorSubject<FormSteps>('Fill Form');
     isSubmitting = new BehaviorSubject<boolean>(false);
     processedPhotos = new BehaviorSubject<File[]>([]);
     imageProcessingProgress = new BehaviorSubject<number>(0);
     // TODO: get from authentication (SUPABASE OR MONGODB?)
     name = new BehaviorSubject<string>('');
     email = new BehaviorSubject<string>('');
-    preferrredContact = new BehaviorSubject<PreferredContact>('Whatsapp');
+    preferrredContact = new BehaviorSubject<PreferredContactType>('Whatsapp');
     address = new BehaviorSubject<string>('');
 
     compressImages(): void {

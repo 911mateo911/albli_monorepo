@@ -1,5 +1,5 @@
-@import "../../../styles/variables";
-@import "../../../styles/mixins";
+@import "../../../../../styles/variables";
+@import "../../../../../styles/mixins";
 
 .wrapper {
   @include basic_flex;
@@ -27,11 +27,4 @@
   font-size: 0.8rem;
   color: $color_grey-60;
   margin-top: 4px;
-}
-
-.away {
-  font-size: 0.75rem;
-  text-align: center;
-  font-weight: 600;
-  color: $color_blue-70;
 }

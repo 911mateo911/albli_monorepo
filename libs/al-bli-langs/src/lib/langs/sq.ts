@@ -5,5 +5,7 @@ export const SQ: Record<keyof typeof EN, string> = {
     'upload-photos': 'Ngarko fotografi',
     'you-are': 'Juve jeni',
     'contact-info': 'Informacionet e kontaktit',
-    'introduce-yourself': 'Prezantohuni duke plotesuar formen e meposhtme: '
+    'introduce-yourself': 'Prezantohuni duke plotesuar formen e meposhtme: ',
+    'answer-preference': 'Preferoj te pergjigjem ne:',
+    'your-address': 'Adresa juaj:'
 }
