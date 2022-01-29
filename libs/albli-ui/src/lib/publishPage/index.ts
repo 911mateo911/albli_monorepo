@@ -1,1 +1,2 @@
-export * from './container';
+export * from './publishPage';
+export * from './publishPage.interface';

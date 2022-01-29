@@ -8,43 +8,14 @@ import { Userlocation } from './components/userLocation';
 import { UserProfile } from './components/userProfile';
 import { DropdownInput } from '../dropdownInput';
 import { ImagePicker } from '../imagePicker';
+import { ContactInfo } from './components/contactInfo';
 
 // TODO: refactor this nonsense, WTF
-export const Container: FC = () => {
+export const PublishPageContainer: FC = () => {
     return (
         <div className={styles.wrapper}>
             <div className={classNames(styles.container, styles['left-container'])} >
-                <h1 className={styles.you} >Juve jeni ?</h1>
-                <p className={styles['contact-info']} >Informacionet e kontaktit</p>
-                <p className={styles['introduce-yourself']} >Prezantohuni duke plotesuar formen e meposhtme: </p>
-                <Input
-                    name='fullName'
-                    placeholder='Emer Mbiemer'
-                    onChange={() => ({})}
-                    value=''
-                    className={styles['user-input']}
-                />
-                <Input
-                    name='email'
-                    placeholder='Email'
-                    onChange={() => ({})}
-                    value=''
-                    className={styles['user-input']}
-                />
-                <Input
-                    name='telephone'
-                    placeholder='Telefon/Celular'
-                    onChange={() => ({})}
-                    value=''
-                    className={styles['user-input']}
-                />
-                <Input
-                    name='whatsapp'
-                    placeholder='Whatsapp'
-                    onChange={() => ({})}
-                    value=''
-                    className={styles['user-input']}
-                />
+                <ContactInfo />
                 <p className={styles.preferredContact} >Preferoj te pergjigjem ne:</p>
                 <div className={styles.preferredContact_wrapper} >
                     <PreferredContact

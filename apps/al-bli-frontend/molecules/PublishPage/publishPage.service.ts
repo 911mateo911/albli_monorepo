@@ -1,5 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
-import { ImageType } from '@al-bli/albli-ui';
+import { ImageType, PreferredContact } from '@al-bli/albli-ui';
+import imageCompression from 'browser-image-compression';
 
 export class PublishPageService {
     private static _lazy: PublishPageService;
@@ -12,16 +13,29 @@ export class PublishPageService {
         return PublishPageService._lazy;
     }
 
-    readonly photos = new BehaviorSubject<ImageType[]>([]);
+    photos = new BehaviorSubject<ImageType[]>([]);
+    isSubmitting = new BehaviorSubject<boolean>(false);
+    processedPhotos = new BehaviorSubject<File[]>([]);
+    imageProcessingProgress = new BehaviorSubject<number>(0);
+    // TODO: get from authentication (SUPABASE OR MONGODB?)
+    name = new BehaviorSubject<string>('');
+    email = new BehaviorSubject<string>('');
+    preferrredContact = new BehaviorSubject<PreferredContact>('Whatsapp');
+    address = new BehaviorSubject<string>('');
+
+    compressImages(): void {
+        Promise.all(this.photos.getValue()
+            .map(photo => Promise.resolve(
+                imageCompression(photo, {
+                    onProgress: this.imageProcessingProgress.next
+                }))
+            )
+        ).then(this.processedPhotos.next);
+    }
 
     get formPhotos(): ImageType[] {
         return this.photos.getValue();
     }
-
-    // TODO: get from authentication (SUPABASE OR MONGODB?)
-    name = new BehaviorSubject<string>('');
-    email = new BehaviorSubject<string>('');
-    address = new BehaviorSubject<string>('');
 }
 
 export const PublishPageServiceInstance = PublishPageService.instance;
