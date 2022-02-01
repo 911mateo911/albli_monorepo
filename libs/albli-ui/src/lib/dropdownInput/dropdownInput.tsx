@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FC, useState, useEffect, SyntheticEvent } from 'react';
+import { FC, useState, useEffect, useCallback, SyntheticEvent, useMemo } from 'react';
 import { DropdownInputProps } from './dropdownInput.interface';
 import { ReactComponent as DropdownArrowIcon } from '../icons/dropdown-arrow.svg';
 import styles from './dropdownInput.module.scss';
@@ -38,12 +38,22 @@ export const DropdownInput: FC<DropdownInputProps> = ({
         setSelectedDropdownValue(selectedValue);
     }, [selectedValue]);
 
-    const handleOnChange = (event: SyntheticEvent, value: string) => {
+    const handleOnChange = useCallback((event: SyntheticEvent, value: string) => {
         event.stopPropagation();
         setSelectedDropdownValue(value);
         onChange(value);
         setDropdownOpen(false);
-    }
+    }, [onChange])
+
+    const dropdownValues = useMemo(() => {
+        return values.map(value => (<p
+            key={value}
+            className={cls_dropdownValues}
+            onClick={(event) => handleOnChange(event, value)}
+        >
+            {value}
+        </p>))
+    }, [handleOnChange, values])
 
     return (
         <div
@@ -59,13 +69,7 @@ export const DropdownInput: FC<DropdownInputProps> = ({
             <div className={classNames(cls_dropdownContainer, {
                 [cls_dropdownContainer_open]: dropdownOpen
             })} >
-                {values.map(value => (<p
-                    key={value}
-                    className={cls_dropdownValues}
-                    onClick={(event) => handleOnChange(event, value)}
-                >
-                    {value}
-                </p>))}
+                {dropdownOpen && dropdownValues}
             </div>
         </div>
     )
