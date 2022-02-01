@@ -1,5 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
-import { ImageType, PreferredContactType } from '@al-bli/albli-ui';
+import { ImageType } from '../imagePicker';
+import { PreferredContactType } from './publishPage.interface';
 import imageCompression from 'browser-image-compression';
 import { FormSteps } from '.';
 

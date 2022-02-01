@@ -5,5 +5,7 @@ export interface InputProps {
     id?: string;
     type?: 'text' | 'number';
     className?: string;
+    error?: boolean;
     placeholder?: string;
+    required?: boolean;
 }
