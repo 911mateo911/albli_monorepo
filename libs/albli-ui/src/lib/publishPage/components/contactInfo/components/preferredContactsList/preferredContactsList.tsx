@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { preferredContactsInputs } from '../../../../config';
 import { PublishPageServiceInstance } from '../../../../publishPage.service';
-import { useBehaviorSubject } from '@al-bli/albli-ui';
+import { useBehaviorSubject } from '../../../../../hooks';
 import { PreferredContact } from '../preferredContact';
 import { PreferredContactType } from '../../../../publishPage.interface';
 

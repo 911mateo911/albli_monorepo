@@ -5,7 +5,9 @@ export interface InputProps {
     id?: string;
     type?: 'text' | 'number';
     className?: string;
-    error?: boolean;
+    validateOn?: 'change' | 'blur'
+    pattern?: RegExp;
     placeholder?: string;
     required?: boolean;
+    onError?: (name: string) => void;
 }

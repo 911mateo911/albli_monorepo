@@ -41,4 +41,8 @@
   flex-wrap: wrap;
   margin-top: 10px;
   margin-bottom: 12px;
+
+  @media (max-width: 1000px) {
+    margin-bottom: 0;
+  }
 }

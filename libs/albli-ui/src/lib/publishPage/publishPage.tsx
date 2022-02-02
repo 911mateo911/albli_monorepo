@@ -25,7 +25,7 @@ export const PublishPageContainer: FC = () => {
                     <h2 className={styles['your-product']} >Produkti juaj ?</h2>
                     <p className={styles['product-text']} >Titulli</p>
                     <p className={styles['product-text_secondary']} >
-                        Nje titull i shkurter dhe permbledhes mbi produktin tend
+                        Nje titull i shkurter dhe permbledhes mbi produktin tend.
                     </p>
                     <Input
                         name='title'

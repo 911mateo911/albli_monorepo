@@ -8,4 +8,4 @@ export const mobileNumberRGX = /^(?:[+\d].*\d|\d)$/;
 export const fullNameRGX = /^[a-z '-]+$/i;
 export const passwordRGX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$/;
 
-export const testString = (str: string, rgx: RegExp): boolean => str.length ? !rgx.test(str) : false;
+export const testString = (str: string, rgx: RegExp): boolean => !rgx.test(str);

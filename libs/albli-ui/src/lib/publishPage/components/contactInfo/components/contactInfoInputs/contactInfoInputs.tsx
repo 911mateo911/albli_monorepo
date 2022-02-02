@@ -1,36 +1,33 @@
-import { useBehaviorSubject } from '../../../../../hooks';
 import { FC } from 'react';
 import { Input } from '../../../../../input';
 import { PublishPageServiceInstance } from '../../../../publishPage.service';
 import styles from './contactInfoInputs.module.scss';
-import { emailValidatorRGX, fullNameRGX, testString } from '../../../../config';
+import { emailValidatorRGX, fullNameRGX } from '../../../../config';
 
 const {
     'user-input': cls_userInput
 } = styles;
 
 export const ContactInfoInputs: FC = () => {
-    const fullName = useBehaviorSubject(PublishPageServiceInstance.name);
-    const email = useBehaviorSubject(PublishPageServiceInstance.email);
-
     return (<>
         <Input
             name='fullName'
             required
             placeholder='Emer Mbiemer'
             onChange={(value) => PublishPageServiceInstance.name.next(value)}
-            value={fullName}
+            value=''
             className={cls_userInput}
-            error={testString(fullName, fullNameRGX)}
+            pattern={fullNameRGX}
         />
         <Input
             name='email'
             required
+            validateOn='blur'
             placeholder='Email'
             onChange={(value) => PublishPageServiceInstance.email.next(value)}
-            value={email}
+            value=''
             className={cls_userInput}
-            error={testString(email, emailValidatorRGX)}
+            pattern={emailValidatorRGX}
         />
         <Input
             name='telephone'

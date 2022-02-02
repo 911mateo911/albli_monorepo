@@ -17,6 +17,10 @@
   &:hover {
     background-color: $color_blue-5;
   }
+
+  @media (max-width: 1000px) {
+    margin: 0 10px 10px 0;
+  }
 }
 
 .preferredContact_active {

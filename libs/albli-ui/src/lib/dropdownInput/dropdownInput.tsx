@@ -13,7 +13,8 @@ const {
     'dropdown-container': cls_dropdownContainer,
     'dropdown-container_open': cls_dropdownContainer_open,
     'selected-value': cls_selectedValue,
-    'dropdown-values': cls_dropdownValues
+    'dropdown-values': cls_dropdownValues,
+    'truncated': cls_truncated
 } = styles;
 
 // TODO: fix dropdown arrow weird rotation on fast click
@@ -48,7 +49,7 @@ export const DropdownInput: FC<DropdownInputProps> = ({
     const dropdownValues = useMemo(() => {
         return values.map(value => (<p
             key={value}
-            className={cls_dropdownValues}
+            className={classNames(cls_dropdownValues, cls_truncated)}
             onClick={(event) => handleOnChange(event, value)}
         >
             {value}
@@ -65,7 +66,7 @@ export const DropdownInput: FC<DropdownInputProps> = ({
             <DropdownArrowIcon className={classNames(cls_dropdownArrow, {
                 [cls_dropdownArrow_open]: dropdownOpen
             })} />
-            <p className={cls_selectedValue} >{selectedDropdownValue}</p>
+            <p className={classNames(cls_selectedValue, cls_truncated)} >{selectedDropdownValue}</p>
             <div className={classNames(cls_dropdownContainer, {
                 [cls_dropdownContainer_open]: dropdownOpen
             })} >

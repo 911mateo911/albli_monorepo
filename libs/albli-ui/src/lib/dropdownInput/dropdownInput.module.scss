@@ -66,11 +66,19 @@
   left: 10px;
   color: $color_grey-100;
   transform: translateY(-50%);
+  max-width: calc(100% - 2.5rem);
+}
+
+.truncated {
+  overflow: hidden;
+  white-space: pre;
+  text-overflow: ellipsis;
 }
 
 .dropdown-values {
   padding: 10px 0 10px 10px;
   transition: all 0.3s;
+  max-width: 100%;
 
   &:hover {
     background-color: $color_grey-5;
