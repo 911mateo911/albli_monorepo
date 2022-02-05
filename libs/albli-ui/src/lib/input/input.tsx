@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { FC, useState, useEffect, useRef } from 'react';
-import { testString } from '../publishPage/config';
+import { testString } from '../utils';
 import { InputProps } from './input.interface';
 import styles from './input.module.scss';
 
