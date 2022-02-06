@@ -4,6 +4,16 @@ import { testString } from '../utils';
 import { InputProps } from './input.interface';
 import styles from './input.module.scss';
 
+const {
+    'input-wrapper': cls_inputWrapper,
+    'input': cls_input,
+    'input_error': cls_inputError,
+    'input_has_value': cls_inputHasValue,
+    'input-placeholder': cls_inputPlaceholder,
+    'input-placeholder_active': cls_inputPlaceholderActive,
+    'input-placeholder_hidden': cls_inputPlaceholderHidden
+} = styles;
+
 export const Input: FC<InputProps> = ({
     name,
     onChange,
@@ -63,23 +73,23 @@ export const Input: FC<InputProps> = ({
 
     return (
         <div className={classNames(
-            styles['input-wrapper'],
+            cls_inputWrapper,
             className,
-            (error) && styles.input_error)} >
+            (error) && cls_inputError)} >
             <span
                 onClick={handlePlaceholderClick}
                 className={classNames(
-                    styles['input-placeholder'],
+                    cls_inputPlaceholder,
                     {
-                        [styles['input-placeholder_active']]: hasFocus,
-                        [styles['input-placeholder_hidden']]: inputValue.length && !hasFocus
+                        [cls_inputPlaceholderActive]: hasFocus,
+                        [cls_inputPlaceholderHidden]: inputValue.length && !hasFocus
                     }
                 )} >{placeholder}</span>
             <input
                 className={classNames(
-                    styles.input,
+                    cls_input,
                     {
-                        [styles.input_has_value]: inputValue.length && hasFocus
+                        [cls_inputHasValue]: inputValue.length && hasFocus
                     }
                 )}
                 type={type}

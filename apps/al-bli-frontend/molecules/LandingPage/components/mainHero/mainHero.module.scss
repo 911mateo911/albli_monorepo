@@ -113,21 +113,22 @@
   margin-right: 20px;
   font-size: 1rem;
   font-weight: 400;
+
   @media (max-width: 600px) {
     width: auto;
     margin-right: 0;
     margin-bottom: 1rem;
     min-width: auto;
   }
-}
 
-.mainHero-input::placeholder {
-  color: $color_grey-50;
-}
+  &::placeholder {
+    color: $color_grey-50;
+  }
 
-.mainHero-input:focus,
-.mainHero-input:active {
-  outline: none;
+  &:focus,
+  &:active {
+    outline: none;
+  }
 }
 
 .mainHero-btn {
@@ -144,8 +145,8 @@
   outline: none;
   border: none;
   cursor: pointer;
-}
 
-.mainHero-btn:hover {
-  box-shadow: 0 4px 8px 0 rgb(0 118 255 / 39%);
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgb(0 118 255 / 39%);
+  }
 }

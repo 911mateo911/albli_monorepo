@@ -11,7 +11,7 @@
   padding-left: 4px;
 
   &:hover {
-    background-color: #fafafa;
+    background-color: #f6f6f7;
   }
 }
 
@@ -24,5 +24,6 @@
 .dropdown {
   width: 100%;
   border: none;
+  background: transparent;
   border-radius: 0;
 }

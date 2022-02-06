@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import styles from './publishPage.module.scss';
-import { Input, ImagePicker, DropdownInput } from '@al-bli/albli-ui';
+import { Input, DropdownInput } from '@al-bli/albli-ui';
 import { ContactInfo } from './components/contactInfo';
 import classNames from 'classnames';
 import { Header } from './components/header';
+import { PublishPageImagePicker } from './components/imagePicker';
 
 const {
     'container': cls_container,
@@ -62,7 +63,7 @@ export const PublishPage: FC = () => {
                             </span>
                         </div>
                         <div className={styles['flex-container']} >
-                            <ImagePicker />
+                            <PublishPageImagePicker />
                         </div>
                     </div>
                 </div>
