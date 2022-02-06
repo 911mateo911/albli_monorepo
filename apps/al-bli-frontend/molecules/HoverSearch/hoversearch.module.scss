@@ -1,0 +1,98 @@
+@import "mixins";
+@import "variables";
+@import "keyframes";
+
+.wrapper {
+  position: fixed;
+  flex-direction: column;
+  @include basic_flex;
+  justify-content: flex-start;
+  width: calc(100% - 1rem);
+  max-width: 1280px;
+  border-radius: 8px;
+  top: -100%;
+  left: 50%;
+  z-index: 999999;
+  height: fit-content;
+  transition: top 0.4s;
+  transform: translateX(-50%);
+}
+
+.wrapper_open {
+  top: 10%;
+  bottom: 5%;
+}
+
+.wrapper_populated {
+  height: auto;
+}
+
+.backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 150vh;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  animation: backdrop_fade_in 1s ease-out forwards 0.2s;
+}
+
+.search-wrapper {
+  @include basic_flex;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid $color_grey-10;
+  z-index: 2;
+  background-color: white;
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
+}
+
+.search-icon {
+  width: 22px;
+  cursor: pointer;
+  height: 22px;
+  stroke: $color_grey-90;
+  margin-right: 1.5rem;
+  @media (max-width: 600px) {
+    margin-right: 1rem;
+  }
+}
+
+.search-input {
+  appearance: none;
+  height: 40px;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 1.3rem;
+  font-family: $font_secondary;
+}
+
+.search-input::placeholder {
+  color: $color_grey-50;
+}
+
+.indent-autocomplete {
+  transform: translateY(-10px);
+  padding-top: 10px;
+}
+
+.autoCompleteItems-wrapper {
+  @include basic_flex;
+  overflow-y: auto;
+  justify-content: flex-start;
+  flex-direction: column;
+  border-radius: 0px 0px 8px 8px;
+  z-index: 1;
+  background-color: $color_grey-5;
+  width: 100%;
+}
+
+.animated-search-icon {
+  width: 130px;
+  height: 130px;
+}

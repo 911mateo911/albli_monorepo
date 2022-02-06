@@ -1,0 +1,28 @@
+@import "variables";
+@import "mixins";
+
+.wrapper {
+  @include basic_flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1rem;
+  border-bottom: 1px solid $color_grey-20;
+  transition: all 0.3s;
+  padding-left: 4px;
+
+  &:hover {
+    background-color: #fafafa;
+  }
+}
+
+.location-icon {
+  width: 26px;
+  height: 26px;
+  color: $color_grey-40;
+}
+
+.dropdown {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+}

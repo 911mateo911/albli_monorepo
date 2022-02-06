@@ -1,5 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const withNx = require('@nrwl/next/plugins/with-nx');
+const path = require('path');
 
 /**
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
@@ -14,9 +15,12 @@ const nextConfig = {
     domains: ['res.cloudinary.com']
   },
   i18n: {
-    locales: ['sq', 'en-US'],
+    locales: ['sq', 'en'],
     defaultLocale: 'sq',
     localeDetection: false
+  },
+  sassOptions: {
+    includePaths: [path.join(__dirname, '../../libs/albli-ui/src/lib/styles')]
   }
 };
 

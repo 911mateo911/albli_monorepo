@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FC, useState, useEffect, SyntheticEvent } from 'react';
+import { FC, useState, useEffect, useCallback, SyntheticEvent, useMemo } from 'react';
 import { DropdownInputProps } from './dropdownInput.interface';
 import { ReactComponent as DropdownArrowIcon } from '../icons/dropdown-arrow.svg';
 import styles from './dropdownInput.module.scss';
@@ -13,9 +13,11 @@ const {
     'dropdown-container': cls_dropdownContainer,
     'dropdown-container_open': cls_dropdownContainer_open,
     'selected-value': cls_selectedValue,
-    'dropdown-values': cls_dropdownValues
+    'dropdown-values': cls_dropdownValues,
+    'truncated': cls_truncated
 } = styles;
 
+// TODO: fix dropdown arrow weird rotation on fast click
 export const DropdownInput: FC<DropdownInputProps> = ({
     selectedValue,
     onChange,
@@ -37,12 +39,22 @@ export const DropdownInput: FC<DropdownInputProps> = ({
         setSelectedDropdownValue(selectedValue);
     }, [selectedValue]);
 
-    const handleOnChange = (event: SyntheticEvent, value: string) => {
+    const handleOnChange = useCallback((event: SyntheticEvent, value: string) => {
         event.stopPropagation();
         setSelectedDropdownValue(value);
         onChange(value);
         setDropdownOpen(false);
-    }
+    }, [onChange])
+
+    const dropdownValues = useMemo(() => {
+        return values.map(value => (<p
+            key={value}
+            className={classNames(cls_dropdownValues, cls_truncated)}
+            onClick={(event) => handleOnChange(event, value)}
+        >
+            {value}
+        </p>))
+    }, [handleOnChange, values])
 
     return (
         <div
@@ -54,17 +66,11 @@ export const DropdownInput: FC<DropdownInputProps> = ({
             <DropdownArrowIcon className={classNames(cls_dropdownArrow, {
                 [cls_dropdownArrow_open]: dropdownOpen
             })} />
-            <p className={cls_selectedValue} >{selectedDropdownValue}</p>
+            <p className={classNames(cls_selectedValue, cls_truncated)} >{selectedDropdownValue}</p>
             <div className={classNames(cls_dropdownContainer, {
                 [cls_dropdownContainer_open]: dropdownOpen
             })} >
-                {values.map(value => (<p
-                    key={value}
-                    className={cls_dropdownValues}
-                    onClick={(event) => handleOnChange(event, value)}
-                >
-                    {value}
-                </p>))}
+                {dropdownOpen && dropdownValues}
             </div>
         </div>
     )
