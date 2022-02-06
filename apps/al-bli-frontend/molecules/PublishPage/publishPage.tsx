@@ -34,15 +34,6 @@ export const PublishPage: FC = () => {
                         />
                         <div className={styles['flex-container']} >
                             <span className={styles['dropdown-input-wrapper']} >
-                                <p className={styles['dropdown-input-label']} >Qyteti</p>
-                                <DropdownInput
-                                    values={['Tirane', 'Durres']}
-                                    selectedValue='Tirane'
-                                    onChange={() => ({})}
-                                    className={styles['dropdown-input']}
-                                />
-                            </span>
-                            <span className={styles['dropdown-input-wrapper']} >
                                 <p className={styles['dropdown-input-label']} >Kategori</p>
                                 <DropdownInput
                                     values={['Automjete', 'Shtepiake']}
@@ -56,6 +47,15 @@ export const PublishPage: FC = () => {
                                 <DropdownInput
                                     values={['Pjese kembimi', 'Traktore']}
                                     selectedValue='Pjese kembimi'
+                                    onChange={() => ({})}
+                                    className={styles['dropdown-input']}
+                                />
+                            </span>
+                            <span className={styles['dropdown-input-wrapper']} >
+                                <p className={styles['dropdown-input-label']} >Monedha</p>
+                                <DropdownInput
+                                    values={['Lek', 'Euro']}
+                                    selectedValue='Lek'
                                     onChange={() => ({})}
                                     className={styles['dropdown-input']}
                                 />

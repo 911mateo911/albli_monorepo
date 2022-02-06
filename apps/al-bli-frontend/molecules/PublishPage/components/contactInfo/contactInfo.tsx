@@ -33,10 +33,7 @@ export const ContactInfo: FC = () => {
         <p className={cls_contactInfo} >
             <FormattedMessage id='your-address' />
         </p>
-        <Userlocation
-            streetAddress='Pallatet Fratari, Astir'
-            countryAddress='Tirane, Shqiperi'
-        />
+        <Userlocation />
         <UserProfile />
     </>);
 };
