@@ -5,6 +5,7 @@ import { ContactInfo } from './components/contactInfo';
 import classNames from 'classnames';
 import { Header } from './components/header';
 import { PublishPageImagePicker } from './components/imagePicker';
+import { ImagePickerPreview } from './components/imagePickerPreview/imagePickerPreview';
 
 const {
     'container': cls_container,
@@ -64,6 +65,7 @@ export const PublishPage: FC = () => {
                         </div>
                         <div className={styles['flex-container']} >
                             <PublishPageImagePicker />
+                            <ImagePickerPreview />
                         </div>
                     </div>
                 </div>
