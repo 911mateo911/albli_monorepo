@@ -26,15 +26,17 @@
 .dropdown-arrow {
   position: absolute;
   right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: all 0.3s;
+  margin: auto 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.2s;
   width: 1rem;
+  transform-origin: center center;
   color: $color_grey-50;
 }
 
 .dropdown-arrow_open {
-  transform: rotate(180deg) translateY(50%);
+  transform: rotate(180deg);
 }
 
 .dropdown-container {
@@ -43,7 +45,7 @@
   border-radius: 6px;
   border: 1px solid $color_grey-20;
   opacity: 0;
-  transition: all 0.3s;
+  transition: all 0.2s;
   z-index: -10;
   visibility: hidden;
   top: 50%;
@@ -64,11 +66,19 @@
   left: 10px;
   color: $color_grey-100;
   transform: translateY(-50%);
+  max-width: calc(100% - 2.5rem);
+}
+
+.truncated {
+  overflow: hidden;
+  white-space: pre;
+  text-overflow: ellipsis;
 }
 
 .dropdown-values {
   padding: 10px 0 10px 10px;
   transition: all 0.3s;
+  max-width: 100%;
 
   &:hover {
     background-color: $color_grey-5;

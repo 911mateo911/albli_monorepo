@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
-import { Navbar, SlideDrawer, Hoversearch } from '@al-bli/albli-ui';
+import { Navbar, SlideDrawer } from '@al-bli/albli-ui';
 import { useRouter } from 'next/router';
+import { Hoversearch } from '../HoverSearch';
 
 export const NavbarComponent: FC = () => {
     const [drawerOpened, setDrawerOpened] = useState<boolean>(false);

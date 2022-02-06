@@ -1,0 +1,48 @@
+@import "variables";
+@import "mixins";
+
+.you {
+  width: 100%;
+  font-size: 1.5rem;
+  margin-top: 14px;
+  color: $color_grey-100;
+  font-weight: 900;
+}
+
+.contact-info {
+  font-family: $font_secondary;
+  font-size: 1rem;
+  color: $color_grey-100;
+  width: 100%;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.introduce-yourself {
+  margin-top: 6px;
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: $color_grey-90;
+  font-family: $font_secondary;
+}
+
+.preferredContact {
+  color: $color_grey-90;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.preferredContact_wrapper {
+  @include basic_flex;
+  width: 100%;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 12px;
+
+  @media (max-width: 1000px) {
+    margin-bottom: 0;
+  }
+}

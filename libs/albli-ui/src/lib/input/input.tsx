@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect, useRef } from 'react';
+import { testString } from '../utils';
 import { InputProps } from './input.interface';
 import styles from './input.module.scss';
 
@@ -10,35 +11,83 @@ export const Input: FC<InputProps> = ({
     id,
     className,
     type = 'text',
-    placeholder
+    placeholder,
+    validateOn = 'change',
+    pattern,
+    required,
+    onError = () => ({})
 }) => {
+    const [error, setError] = useState(false);
     const [hasFocus, setHasFocus] = useState<boolean>(false);
     const [inputValue, setInputValue] = useState<string>(value);
+    const hasBeenFocused = useRef(false);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
-        setInputValue(value)
-    }, [value])
+        if (!error) return;
+
+        onError(name);
+    }, [error, name, onError])
+
+    const checkForError = (currentVal: string) => {
+        if (pattern) setError(testString(currentVal, pattern));
+    }
+
+    const handlePlaceholderClick = () => {
+        if (hasFocus || !inputRef.current) return;
+
+        setHasFocus(true);
+        inputRef.current.focus();
+        hasBeenFocused.current = true;
+    }
+
+    const handleChange = (value: string) => {
+        setInputValue(value);
+        onChange(value);
+        if (validateOn === 'change' || error) checkForError(value);
+    }
+
+    const handleFocus = () => {
+        setHasFocus(true);
+        hasBeenFocused.current = true;
+    }
+
+    const handleBlur = () => {
+        setHasFocus(false);
+        if (validateOn === 'blur') {
+            checkForError(inputValue);
+            return;
+        }
+        if (hasBeenFocused.current && required) checkForError(inputValue);
+    }
 
     return (
-        <div className={classNames(styles['input-wrapper'], className)} >
-            <span className={classNames(
-                styles['input-placeholder'],
-                {
-                    [styles['input-placeholder_active']]: hasFocus || inputValue.length
-                }
-            )} >{placeholder}</span>
+        <div className={classNames(
+            styles['input-wrapper'],
+            className,
+            (error) && styles.input_error)} >
+            <span
+                onClick={handlePlaceholderClick}
+                className={classNames(
+                    styles['input-placeholder'],
+                    {
+                        [styles['input-placeholder_active']]: hasFocus,
+                        [styles['input-placeholder_hidden']]: inputValue.length && !hasFocus
+                    }
+                )} >{placeholder}</span>
             <input
                 className={classNames(
                     styles.input,
                     {
-                        [styles.input_has_value]: inputValue.length
+                        [styles.input_has_value]: inputValue.length && hasFocus
                     }
                 )}
                 type={type}
-                onFocus={() => setHasFocus(true)}
-                onBlur={() => setHasFocus(false)}
+                ref={inputRef}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 value={inputValue}
-                onChange={({ target }) => onChange(target.value)}
+                onChange={({ target }) => handleChange(target.value)}
                 name={name}
                 id={id}
             />
