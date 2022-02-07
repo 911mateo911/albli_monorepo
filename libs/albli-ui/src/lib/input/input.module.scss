@@ -87,3 +87,48 @@
 .input-placeholder_hidden {
   display: none;
 }
+
+.textarea {
+  white-space: pre-wrap;
+  resize: none;
+  width: 100%;
+  appearance: none;
+  border: 1px solid $color_grey-20;
+  background-color: white;
+  border-radius: 6px;
+  width: 100%;
+  transition: all 0.3s;
+  min-height: 200px;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: $font_secondary;
+
+  &::placeholder {
+    color: $color_grey-50;
+  }
+
+  &:focus {
+    border: 1px solid $color_blue-60;
+    box-shadow: 0px 0px 1px rgba(216, 230, 255, 0.28),
+      0px 0px 8px rgba(216, 230, 255, 0.42),
+      0px 0px 20px rgba(216, 230, 255, 0.7);
+    outline: none;
+  }
+}
+
+.textarea-error {
+  border: 1px solid $color_red-60;
+  box-shadow: 0px 0px 1px rgba(255, 216, 216, 0.28),
+    0px 0px 8px rgba(255, 216, 216, 0.42), 0px 0px 20px rgba(255, 216, 216, 0.7);
+
+  &:focus {
+    border: 1px solid $color_red-60;
+    box-shadow: 0px 0px 1px rgba(255, 216, 216, 0.28),
+      0px 0px 8px rgba(255, 216, 216, 0.42),
+      0px 0px 20px rgba(255, 216, 216, 0.7);
+  }
+
+  &::placeholder {
+    color: $color_red-60;
+  }
+}

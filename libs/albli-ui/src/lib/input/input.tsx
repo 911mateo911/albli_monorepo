@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FC, useState, useEffect, useRef } from 'react';
+import { FC, useState, useEffect, useRef, RefObject } from 'react';
 import { testString } from '../utils';
 import { InputProps } from './input.interface';
 import styles from './input.module.scss';
@@ -25,7 +25,9 @@ export const Input: FC<InputProps> = ({
     validateOn = 'change',
     pattern,
     required,
-    onError = () => ({})
+    onError = () => ({}),
+    textArea = false,
+    textAreaClassName
 }) => {
     const [error, setError] = useState(false);
     const [hasFocus, setHasFocus] = useState<boolean>(false);
@@ -71,7 +73,23 @@ export const Input: FC<InputProps> = ({
         if (hasBeenFocused.current && required) checkForError(inputValue);
     }
 
-    return (
+    return textArea ? (
+        <textarea
+            ref={inputRef as unknown as RefObject<HTMLTextAreaElement>}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            value={inputValue}
+            onChange={({ target }) => handleChange(target.value)}
+            name={name}
+            id={id}
+            placeholder={placeholder}
+            className={classNames(
+                textAreaClassName,
+                styles.textarea,
+                (error) && styles['textarea-error']
+            )}
+        />
+    ) : (
         <div className={classNames(
             cls_inputWrapper,
             className,
@@ -101,6 +119,6 @@ export const Input: FC<InputProps> = ({
                 name={name}
                 id={id}
             />
-        </div>
+        </div >
     )
 }

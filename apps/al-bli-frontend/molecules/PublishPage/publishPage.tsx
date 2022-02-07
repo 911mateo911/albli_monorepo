@@ -67,6 +67,17 @@ export const PublishPage: FC = () => {
                             <PublishPageImagePicker />
                             <ImagePickerPreview />
                         </div>
+                        <Input
+                            textArea
+                            value=''
+                            validateOn='blur'
+                            placeholder='Nje permbledhje e vogel mbi produktin'
+                            required
+                            name='description'
+                            pattern={/^[\S\s]{1,8000}$/}
+                            textAreaClassName={styles.textarea}
+                            onChange={() => ({})}
+                        />
                     </div>
                 </div>
             </div>
