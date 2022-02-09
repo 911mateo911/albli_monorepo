@@ -8,6 +8,10 @@
   border: 1px solid $color_grey-10;
   width: 100%;
   padding: 12px 10px;
+
+  @media (max-width: 780px) {
+    display: none;
+  }
 }
 
 .back-button {

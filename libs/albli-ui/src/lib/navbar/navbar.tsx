@@ -6,6 +6,17 @@ import { Logo } from '../logo';
 import { ReactComponent as SearchIcon } from '../icons/search.svg';
 import { ReactComponent as MenuIcon } from '../icons/menu.svg';
 
+const {
+  'navbar-wrapper': cls_navbarWrapper,
+  'menu-icon': cls_menuIcon,
+  'search-icon-wrapper': cls_searchIconWrapper,
+  'search-icon': cls_searchIcon,
+  'navbar-app-title': cls_navbarAppTitle,
+  'navbar-navigation-wrapper': cls_navbarNavWrapper,
+  'navbar-navigation_login': cls_navbarNavLogin,
+  'navbar-navigation': cls_navbarNav
+} = styles;
+
 export const Navbar: FC<NavbarProps> = ({
   title = 'al-Bli',
   logo = <Logo />,
@@ -14,25 +25,25 @@ export const Navbar: FC<NavbarProps> = ({
 }) => {
   return (
     <>
-      <div onClick={onSearchToggle} className={styles['search-icon-wrapper']} >
-        <SearchIcon className={styles['search-icon']} />
+      <div onClick={onSearchToggle} className={cls_searchIconWrapper} >
+        <SearchIcon className={cls_searchIcon} />
       </div>
-      <div className={styles['navbar-wrapper']} >
-        <span className={styles['navbar-navigation-wrapper']} >
-          <MenuIcon onClick={onMenuToggle} className={styles['menu-icon']} />
+      <div className={cls_navbarWrapper} >
+        <span className={cls_navbarNavWrapper} >
+          <MenuIcon onClick={onMenuToggle} className={cls_menuIcon} />
           {logo}
-          <Link href='/' ><p className={styles['navbar-app-title']} >{title}</p></Link>
+          <Link href='/' ><p className={cls_navbarAppTitle} >{title}</p></Link>
         </span>
-        <span className={styles['navbar-navigation-wrapper']} >
+        <span className={cls_navbarNavWrapper} >
           <Link href='/' >
-            <p className={styles['navbar-navigation']} >Shtëpia</p>
+            <p className={cls_navbarNav} >Shtëpia</p>
           </Link>
-          <p className={styles['navbar-navigation']} >Kategori</p>
+          <p className={cls_navbarNav} >Kategori</p>
           <Link href='/oferta' >
-            <p className={styles['navbar-navigation']} >Oferta</p>
+            <p className={cls_navbarNav} >Oferta</p>
           </Link>
           <Link href='/kycu' >
-            <p className={styles['navbar-navigation_login']} >Kycu</p>
+            <p className={cls_navbarNavLogin} >Kycu</p>
           </Link>
         </span>
       </div>
