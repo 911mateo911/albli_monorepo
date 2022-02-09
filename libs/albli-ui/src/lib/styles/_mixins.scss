@@ -3,3 +3,9 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin on_dark_mode {
+  body:global(.theme--dark) & {
+    @content;
+  }
+}
