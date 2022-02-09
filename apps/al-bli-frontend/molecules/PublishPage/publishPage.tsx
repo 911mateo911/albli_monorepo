@@ -6,6 +6,8 @@ import classNames from 'classnames';
 import { Header } from './components/header';
 import { PublishPageImagePicker } from './components/imagePicker';
 import { ImagePickerPreview } from './components/imagePickerPreview/imagePickerPreview';
+import { ReactComponent as BackArrow } from '@al-bli/icons/arrow-back-outline.svg';
+import { useRouter } from 'next/router';
 
 const {
     'container': cls_container,
@@ -13,9 +15,15 @@ const {
 } = styles;
 
 export const PublishPage: FC = () => {
+    const { back: goBack } = useRouter();
+
     return (
         <div className={styles['root-container']} >
             <div className={styles.wrapper} >
+                <button onClick={goBack} className={styles['mobile-back-btn']} >
+                    <BackArrow />
+                    Mbrapa
+                </button>
                 <div className={classNames(cls_container, cls_leftContainer)} >
                     <ContactInfo />
                 </div>
@@ -63,10 +71,15 @@ export const PublishPage: FC = () => {
                                 />
                             </span>
                         </div>
-                        <div className={styles['flex-container']} >
-                            <PublishPageImagePicker />
+                        <p className={styles['product-text']} >Ngarko imazhe</p>
+                        <div className={classNames(
+                            styles['flex-container'],
+                            styles['image-picker-wrapper']
+                        )} >
                             <ImagePickerPreview />
+                            <PublishPageImagePicker />
                         </div>
+                        <p className={styles['product-text']} >Pershkrimi</p>
                         <Input
                             textArea
                             value=''

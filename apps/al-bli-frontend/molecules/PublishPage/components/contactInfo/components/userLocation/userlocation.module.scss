@@ -26,4 +26,8 @@
   border: none;
   background: transparent;
   border-radius: 0;
+
+  &:hover {
+    background-color: transparent;
+  }
 }
