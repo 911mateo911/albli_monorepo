@@ -18,6 +18,11 @@
   @media (max-width: 900px) {
     margin: 0 20px;
   }
+
+  @media (max-width: 780px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .container {
@@ -26,6 +31,15 @@
   width: 65%;
   border-radius: 10px;
   background-color: #f6f6f7;
+
+  @media (max-width: 780px) {
+    background-color: white;
+    width: 90%;
+  }
+
+  @media (max-width: 640px) {
+    width: 100%;
+  }
 }
 
 .left-container {
@@ -33,6 +47,15 @@
   background-color: white;
   width: 35%;
   padding-right: 20px;
+
+  @media (max-width: 780px) {
+    width: 90%;
+    padding-right: 0;
+  }
+
+  @media (max-width: 640px) {
+    width: 100%;
+  }
 }
 
 .your-product {
@@ -51,6 +74,10 @@
   padding: 0 1.2rem;
   padding-bottom: 1.2rem;
   width: 100%;
+
+  @media (max-width: 780px) {
+    padding: 0;
+  }
 }
 
 .product-text {
@@ -82,6 +109,7 @@
 
 .dropdown-input {
   background-color: white;
+  margin-bottom: 1rem;
 }
 
 .flex-container {
@@ -89,4 +117,53 @@
   @include basic_flex;
   margin-top: 1rem;
   justify-content: space-between;
+}
+
+.image-picker-wrapper {
+  padding-bottom: 1rem;
+
+  @media (max-width: 410px) {
+    flex-direction: column;
+    margin-top: 0;
+  }
+}
+
+.textarea {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+  margin-bottom: 1rem;
+}
+
+.mobile-back-btn {
+  display: none;
+  background-color: $color_blue-10;
+  border-radius: 999px;
+  color: $color_grey-90;
+  margin: auto;
+  padding: 7px 10px 7px 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 10px;
+
+  &:hover {
+    background-color: $color_blue-20;
+    & svg {
+      color: $color_blue-90;
+    }
+  }
+
+  & svg {
+    color: $color_blue-80;
+    height: 1rem;
+    width: 1rem;
+    margin-right: 4px;
+  }
+
+  @media (max-width: 780px) {
+    @include basic_flex;
+  }
 }

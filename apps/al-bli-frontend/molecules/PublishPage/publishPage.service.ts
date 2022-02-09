@@ -15,12 +15,12 @@ class PublishPageService {
         return PublishPageService._lazy;
     }
 
-    photos = new BehaviorSubject<ImageType[]>([]);
+    images = new BehaviorSubject<ImageType[]>([]);
     // pipe from here in order to compress the images while you are waiting on the verify form
     // so they are ready for deployment
     formStep = new BehaviorSubject<FormSteps>('Fill Form');
     isSubmitting = new BehaviorSubject<boolean>(false);
-    processedPhotos = new BehaviorSubject<File[]>([]);
+    compressedImages = new BehaviorSubject<File[]>([]);
     imageProcessingProgress = new BehaviorSubject<number>(0);
     // TODO: get from authentication (SUPABASE OR MONGODB?)
     name = new BehaviorSubject<string>('');
@@ -29,17 +29,25 @@ class PublishPageService {
     address = new BehaviorSubject<string>('');
 
     compressImages(): void {
-        Promise.all(this.photos.getValue()
+        Promise.all(this.images.getValue()
             .map(photo => Promise.resolve(
                 imageCompression(photo, {
                     onProgress: this.imageProcessingProgress.next
                 }))
             )
-        ).then(this.processedPhotos.next);
+        ).then(this.compressedImages.next);
     }
 
     get formPhotos(): ImageType[] {
-        return this.photos.getValue();
+        return this.images.getValue();
+    }
+
+    removeImage(imagePreviewString: string): void {
+        const filteredImages = this.images.value.filter(({ preview }) => preview !== imagePreviewString);
+
+        this.images.next(filteredImages);
+
+        URL.revokeObjectURL(imagePreviewString);
     }
 }
 

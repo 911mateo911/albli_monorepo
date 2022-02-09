@@ -1,0 +1,67 @@
+@import "variables";
+@import "mixins";
+
+.picker-container {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 2.5px 7.5px 0 rgb(0 0 0 / 10%);
+  height: 150px;
+  position: relative;
+  transition: all 0.3s;
+  width: 45%;
+
+  &:hover {
+    background-color: $color_green-5;
+    box-shadow: 0 5px 15px 0 rgb(0 0 0 / 10%);
+
+    .camera-icon {
+      color: $color_green-40;
+    }
+  }
+
+  @media (max-width: 410px) {
+    width: 100%;
+    margin: 1rem 0 10px 0;
+  }
+}
+
+.image-picker {
+  position: absolute;
+  height: 1px;
+  appearance: none;
+  opacity: 0.0000001;
+  width: 1px;
+  top: 0;
+  left: 0;
+}
+
+.picker-label {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.camera-icon {
+  height: 40%;
+  position: absolute;
+  transition: all 0.3s;
+  top: 46.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $color_grey-30;
+}
+
+.picker-text {
+  color: $color_grey-50;
+  position: absolute;
+  white-space: nowrap;
+  font-weight: 600;
+  bottom: 12.5%;
+  left: 50%;
+  font-size: 0.9rem;
+  transform: translateX(-50%);
+}

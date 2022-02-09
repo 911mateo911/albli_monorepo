@@ -19,9 +19,13 @@ export const Hoversearch: FC<HoverSearchProps> = ({
     const isLoading = useBehaviorSubject(hoverSearchService.autoCompleteLoading);
 
     useEffect(() => {
-        if (!open || !inputRef.current) return;
+        if (!inputRef.current || !document) return;
 
-        inputRef.current.focus();
+        if (!open) document.body.classList.remove('body-scroll-lock');
+        else {
+            document.body.classList.add('body-scroll-lock');
+            inputRef.current.focus();
+        }
     }, [open]);
 
     return (

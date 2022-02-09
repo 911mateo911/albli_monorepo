@@ -10,4 +10,6 @@ export interface InputProps {
     placeholder?: string;
     required?: boolean;
     onError?: (name: string) => void;
+    textArea?: boolean;
+    textAreaClassName?: string;
 }
