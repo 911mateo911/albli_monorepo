@@ -3,21 +3,17 @@ import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { IntlProvider } from 'react-intl';
 import { NavbarComponent } from '../molecules/Navbar';
+import { useTheme } from '@al-bli/albli-ui';
 import './styles.scss';
 import { useEffect } from 'react';
 
 function CustomApp({ Component, pageProps }: AppProps): JSX.Element {
     const { locale } = useRouter();
+    const { initTheme } = useTheme();
 
-    // add the default theme here
-    // TODO: make a hook to get from localstorage
     useEffect(() => {
-        if (typeof window === 'undefined') return;
-
-        const body = document.querySelector('body');
-
-        body.classList.add('theme--white');
-    }, []);
+        initTheme();
+    }, [initTheme])
 
     return (
         <IntlProvider locale={locale} messages={Langs[locale]} onError={() => ({})} >
