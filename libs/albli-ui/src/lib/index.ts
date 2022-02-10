@@ -5,3 +5,4 @@ export * from './input';
 export * from './dropdownInput';
 export * from './imagePicker';
 export * from './utils';
+export * from './useTheme';
