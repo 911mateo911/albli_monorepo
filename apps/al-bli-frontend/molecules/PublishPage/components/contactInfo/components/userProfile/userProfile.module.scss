@@ -26,4 +26,8 @@
   font-size: 0.9rem;
   margin-left: 10px;
   color: $color_grey-90;
+
+  @include on_dark_mode {
+    color: $color_grey-10;
+  }
 }

@@ -18,6 +18,11 @@
   background-color: white;
   border-radius: 10px;
   z-index: 99999;
+
+  @include on_dark_mode {
+    background-color: $color_grey-90;
+    border: 1.5px solid $color_grey-100;
+  }
 }
 
 .menu-icon {
@@ -123,6 +128,11 @@
     background-color: $color_blue-10;
     color: $color_blue-50;
   }
+
+  @include on_dark_mode {
+    background-color: $color_blue-30;
+    color: $color_blue-100;
+  }
 }
 
 .navbar-navigation {
@@ -132,6 +142,10 @@
   color: $color_grey-70;
   font-weight: 500;
   font-size: 1rem;
+
+  @include on_dark_mode {
+    color: $color_grey-10;
+  }
 
   @media (max-width: 600px) {
     display: none;

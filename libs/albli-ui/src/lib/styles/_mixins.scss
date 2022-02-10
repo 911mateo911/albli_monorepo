@@ -6,6 +6,7 @@
 
 @mixin on_dark_mode {
   body:global(.theme--dark) & {
+    transition: all 0.2s;
     @content;
   }
 }

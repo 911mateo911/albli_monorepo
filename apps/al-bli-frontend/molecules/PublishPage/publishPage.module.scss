@@ -40,6 +40,10 @@
   @media (max-width: 640px) {
     width: 100%;
   }
+
+  @include on_dark_mode {
+    background-color: $color_grey-100;
+  }
 }
 
 .left-container {
@@ -55,6 +59,13 @@
 
   @media (max-width: 640px) {
     width: 100%;
+  }
+
+  & > p,
+  h1 {
+    @include on_dark_mode {
+      color: $color_grey-10;
+    }
   }
 }
 
