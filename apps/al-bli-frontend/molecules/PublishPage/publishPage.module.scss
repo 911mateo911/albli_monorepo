@@ -43,6 +43,9 @@
 
   @include on_dark_mode {
     background-color: $color_grey-100;
+    @media (min-width: 780px) {
+      background-color: $color_grey-90;
+    }
   }
 }
 
@@ -61,6 +64,10 @@
     width: 100%;
   }
 
+  @include on_dark_mode {
+    background-color: $color_grey-100;
+  }
+
   & > p,
   h1 {
     @include on_dark_mode {
@@ -74,6 +81,10 @@
   margin: 2rem auto 1rem 0;
   letter-spacing: 0.4px;
   color: $color_grey-100;
+
+  @include on_dark_mode {
+    color: $color_grey-2;
+  }
 }
 
 .user-input {
@@ -89,6 +100,18 @@
   @media (max-width: 780px) {
     padding: 0;
   }
+
+  @include on_dark_mode {
+    .user-input input {
+      background-color: $color_grey-80;
+    }
+  }
+}
+
+.user-input_placeholder {
+  @include on_dark_mode {
+    color: $color_grey-40;
+  }
 }
 
 .product-text {
@@ -97,12 +120,20 @@
   color: $color_grey-100;
   margin: 8px 0;
   width: 100%;
+
+  @include on_dark_mode {
+    color: $color_grey-5;
+  }
 }
 
 .product-text_secondary {
   font-family: $font_secondary;
   color: $color_grey-90;
   width: 100%;
+
+  @include on_dark_mode {
+    color: $color_grey-30;
+  }
 }
 
 .dropdown-input-wrapper {
@@ -116,11 +147,20 @@
   font-weight: 500;
   margin-bottom: 4px;
   text-align: center;
+
+  @include on_dark_mode {
+    color: $color_grey-20;
+  }
 }
 
 .dropdown-input {
   background-color: white;
   margin-bottom: 1rem;
+
+  @include on_dark_mode {
+    background-color: $color_grey-80;
+    border: 1px solid $color_grey-70;
+  }
 }
 
 .flex-container {

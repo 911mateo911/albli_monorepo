@@ -14,10 +14,18 @@
     border-radius: 999px;
     padding: 0 4px;
     right: 6px !important;
+
+    @include on_dark_mode {
+      background-color: $color_grey-70;
+    }
   }
 
   @media (max-width: 410px) {
     width: 100%;
+  }
+
+  @include on_dark_mode {
+    background-color: $color_grey-80;
   }
 }
 
@@ -45,6 +53,15 @@
   &:hover {
     background-color: $color_blue-5;
   }
+
+  @include on_dark_mode {
+    background-color: $color_grey-50;
+    color: $color_blue-10;
+
+    &:hover {
+      background-color: $color_blue-60;
+    }
+  }
 }
 
 .delete-btn_icon {
@@ -52,6 +69,10 @@
   width: 1rem;
   margin-right: 6px;
   color: $color_red-60;
+
+  @include on_dark_mode {
+    color: $color_red-60;
+  }
 }
 
 .no-images {
@@ -64,6 +85,10 @@
   font-weight: 600;
   padding: 0 1rem;
   color: $color_grey-50;
+
+  @include on_dark_mode {
+    color: $color_grey-40;
+  }
 }
 
 .swiper-image-wrapper {

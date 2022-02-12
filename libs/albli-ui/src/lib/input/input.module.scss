@@ -25,6 +25,10 @@
     box-shadow: 0px 0px 1px rgba(216, 230, 255, 0.28),
       0px 0px 8px rgba(216, 230, 255, 0.42),
       0px 0px 20px rgba(216, 230, 255, 0.7);
+
+    @include on_dark_mode {
+      border: 1px solid $color_blue-50;
+    }
   }
 
   &::placeholder {
@@ -34,7 +38,10 @@
   @include on_dark_mode {
     background-color: $color_grey-90;
     border-color: $color_grey-80;
-    // TODO add dark shadows
+    color: $color_grey-2;
+    &:focus {
+      box-shadow: none;
+    }
   }
 }
 
@@ -44,6 +51,11 @@
     box-shadow: 0px 0px 1px rgba(255, 216, 216, 0.28),
       0px 0px 8px rgba(255, 216, 216, 0.42),
       0px 0px 20px rgba(255, 216, 216, 0.7);
+
+    @include on_dark_mode {
+      box-shadow: none;
+      border: 1px solid $color_red-60;
+    }
   }
 
   .input:focus {
@@ -51,10 +63,19 @@
     box-shadow: 0px 0px 1px rgba(255, 216, 216, 0.28),
       0px 0px 8px rgba(255, 216, 216, 0.42),
       0px 0px 20px rgba(255, 216, 216, 0.7);
+
+    @include on_dark_mode {
+      box-shadow: none;
+      border: 1px solid $color_red-60;
+    }
   }
 
   .input-placeholder_active {
     color: $color_red-60;
+
+    @include on_dark_mode {
+      color: $color_red-40;
+    }
   }
 
   .input_has_value {
@@ -64,6 +85,10 @@
   .input-placeholder {
     color: $color_red-60;
     font-weight: 600;
+
+    @include on_dark_mode {
+      color: $color_red-50;
+    }
   }
 }
 
@@ -72,6 +97,10 @@
   padding: 18px 12px 8px 12px;
   box-shadow: 0px 0px 1px rgba(216, 230, 255, 0.28),
     0px 0px 8px rgba(216, 230, 255, 0.42), 0px 0px 20px rgba(216, 230, 255, 0.7);
+
+  @include on_dark_mode {
+    box-shadow: none;
+  }
 }
 
 .input-placeholder {
@@ -84,7 +113,7 @@
   left: 12px;
 
   @include on_dark_mode {
-    color: $color_grey-40;
+    color: $color_grey-50;
   }
 }
 

@@ -23,6 +23,18 @@
     width: 100%;
     margin: 1rem 0 10px 0;
   }
+
+  @include on_dark_mode {
+    background-color: $color_grey-70;
+
+    &:hover {
+      background-color: $color_grey-60;
+
+      .camera-icon {
+        color: $color_grey-30;
+      }
+    }
+  }
 }
 
 .image-picker {
@@ -53,6 +65,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: $color_grey-30;
+
+  @include on_dark_mode {
+    color: $color_grey-40;
+  }
 }
 
 .picker-text {
@@ -64,4 +80,8 @@
   left: 50%;
   font-size: 0.9rem;
   transform: translateX(-50%);
+
+  @include on_dark_mode {
+    color: $color_grey-30;
+  }
 }
