@@ -16,6 +16,10 @@
   height: fit-content;
   transition: top 0.4s;
   transform: translateX(-50%);
+
+  @include on_dark_mode {
+    background-color: $color_grey-70;
+  }
 }
 
 .wrapper_open {
@@ -49,6 +53,11 @@
   @media (max-width: 600px) {
     padding: 1rem;
   }
+
+  @include on_dark_mode {
+    background-color: $color_grey-80;
+    border: 1px solid $color_grey-70;
+  }
 }
 
 .search-icon {
@@ -57,8 +66,13 @@
   height: 22px;
   stroke: $color_grey-90;
   margin-right: 1.5rem;
+
   @media (max-width: 600px) {
     margin-right: 1rem;
+  }
+
+  @include on_dark_mode {
+    stroke: $color_grey-40;
   }
 }
 
@@ -70,10 +84,19 @@
   border: none;
   font-size: 1.3rem;
   font-family: $font_secondary;
+
+  @include on_dark_mode {
+    background-color: $color_grey-80;
+    color: $color_grey-5;
+  }
 }
 
 .search-input::placeholder {
   color: $color_grey-50;
+
+  @include on_dark_mode {
+    color: $color_grey-40;
+  }
 }
 
 .indent-autocomplete {
@@ -90,9 +113,23 @@
   z-index: 1;
   background-color: $color_grey-5;
   width: 100%;
+
+  @include on_dark_mode {
+    background-color: $color_grey-70;
+  }
 }
 
 .animated-search-icon {
   width: 130px;
   height: 130px;
+
+  @include on_dark_mode {
+    & path:first-of-type {
+      fill: #729eeb;
+    }
+
+    & path:last-of-type {
+      fill: $color_grey-50;
+    }
+  }
 }

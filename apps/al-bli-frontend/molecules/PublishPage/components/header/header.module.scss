@@ -12,6 +12,11 @@
   @media (max-width: 780px) {
     display: none;
   }
+
+  @include on_dark_mode {
+    background-color: $color_grey-95;
+    border: 1px solid $color_grey-90;
+  }
 }
 
 .back-button {
@@ -40,6 +45,17 @@
     width: 1rem;
     margin-right: 4px;
   }
+
+  @include on_dark_mode {
+    background-color: $color_blue-30;
+
+    &:hover {
+      background-color: $color_blue-40;
+      & svg {
+        color: $color_blue-100;
+      }
+    }
+  }
 }
 
 .form-steps-container {
@@ -65,9 +81,19 @@
   &:first-child {
     margin-left: 0;
   }
+
+  @include on_dark_mode {
+    background-color: $color_grey-80;
+    color: $color_grey-30;
+  }
 }
 
 .form-step-active {
   background-color: $color_blue-80;
   color: white;
+
+  @include on_dark_mode {
+    background-color: $color_blue-60;
+    color: $color_grey-5;
+  }
 }

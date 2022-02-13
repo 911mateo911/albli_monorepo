@@ -135,11 +135,11 @@ export const AutoCompleteItem: FC<AutoCompleteProduct> = ({
                         </span>}
                         <span className={styles['item-save__icon__wrapper']} >
                             <SaveIcon
-                                className={styles['item-save__icon']}
+                                className={classNames(styles['item-save__icon'], styles['item-action-icon'])}
                             />
                         </span>
                         <ShareIcon
-                            className={styles['item-share__icon']}
+                            className={classNames(styles['item-share__icon'], styles['item-action-icon'])}
                         />
                         <span className={styles['item-price-wrapper']} >
                             {!isThinMobile && <p className={classNames(
