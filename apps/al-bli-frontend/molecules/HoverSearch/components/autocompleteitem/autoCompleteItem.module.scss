@@ -15,15 +15,39 @@
 
     & .item-location {
       background-color: $color_blue-5;
+
+      @include on_dark_mode {
+        background-color: $color_blue-40;
+      }
     }
 
     & .item-chip_wColor {
       background-color: $color_blue-5;
+
+      @include on_dark_mode {
+        background-color: $color_blue-30;
+      }
+    }
+
+    & .item-price {
+      @include on_dark_mode {
+        transition: all 0.2s;
+        background-color: $color_blue-30;
+      }
+    }
+
+    @include on_dark_mode {
+      background-color: $color_grey-75;
     }
   }
 
   &:last-child {
     border-radius: 0px 0px 8px 8px;
+  }
+
+  @include on_dark_mode {
+    background-color: $color_grey-70;
+    border-bottom-color: $color_grey-60;
   }
 }
 
@@ -86,6 +110,10 @@
   @media (max-width: 760px) {
     display: none;
   }
+
+  @include on_dark_mode {
+    color: $color_blue-5;
+  }
 }
 
 .item-title-mobile {
@@ -100,6 +128,10 @@
   font-weight: 700;
   @media (max-width: 760px) {
     display: -webkit-box;
+  }
+
+  @include on_dark_mode {
+    color: $color_grey-5;
   }
 }
 
@@ -140,6 +172,11 @@
   @media (max-width: 1000px) {
     margin-left: 0;
     width: fit-content;
+  }
+
+  @include on_dark_mode {
+    background-color: $color_blue-30;
+    color: $color_blue-90;
   }
 }
 
@@ -190,6 +227,12 @@
   @media (max-width: 460px) {
     margin-left: auto;
   }
+
+  @include on_dark_mode {
+    background-color: $color_blue-20;
+    border: 1px solid $color_blue-30;
+    color: $color_blue-90;
+  }
 }
 
 .item-save__icon__wrapper {
@@ -211,6 +254,24 @@
   padding: 5px;
   width: 30px;
   height: 30px;
+
+  @include on_dark_mode {
+    color: $color_grey-10;
+    border: 1px solid $color_grey-10;
+  }
+}
+
+.item-action-icon {
+  transition: all 0.2s;
+  &:hover {
+    background-color: $color_blue-5;
+    transform: scale(1.15);
+
+    @include on_dark_mode {
+      background-color: $color_grey-50;
+      color: $color_grey-5;
+    }
+  }
 }
 
 .item-share__icon {
@@ -226,6 +287,11 @@
   height: 30px;
   @media (max-width: 760px) {
     display: block;
+  }
+
+  @include on_dark_mode {
+    color: $color_grey-10;
+    border: 1px solid $color_grey-10;
   }
 }
 
@@ -255,6 +321,10 @@
   @media (max-width: 1000px) {
     max-width: 45ch;
   }
+
+  @include on_dark_mode {
+    color: $color_grey-10;
+  }
 }
 
 .item-seller {
@@ -264,6 +334,10 @@
   color: $color_grey-50;
   @media (max-width: 760px) {
     display: none;
+  }
+
+  @include on_dark_mode {
+    color: $color_grey-10;
   }
 }
 
@@ -276,6 +350,10 @@
   color: $color_grey-50;
   @media (max-width: 760px) {
     display: inline;
+  }
+
+  @include on_dark_mode {
+    color: $color_grey-10;
   }
 }
 
@@ -304,10 +382,19 @@
   @media (max-width: 760px) {
     margin: 6px 1rem 0 0;
   }
+
+  @include on_dark_mode {
+    color: $color_grey-20;
+  }
 }
 
 .item-chip_wColor {
   background-color: $color_blue-10;
+
+  @include on_dark_mode {
+    color: $color_blue-90;
+    background-color: $color_blue-20;
+  }
 }
 
 .item-chip_icon__heart {
@@ -323,4 +410,9 @@
 .item-chip_icon__calendar {
   fill: $color_grey-50;
   color: $color_grey-50;
+
+  @include on_dark_mode {
+    fill: $color_grey-40;
+    color: $color_grey-40;
+  }
 }

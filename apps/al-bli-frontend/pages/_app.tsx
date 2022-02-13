@@ -6,10 +6,11 @@ import { NavbarComponent } from '../molecules/Navbar';
 import { useTheme } from '@al-bli/albli-ui';
 import './styles.scss';
 import { useEffect } from 'react';
+import styles from '../styles/index.module.scss';
 
 function CustomApp({ Component, pageProps }: AppProps): JSX.Element {
     const { locale } = useRouter();
-    const { initTheme } = useTheme();
+    const { initTheme, toggle } = useTheme();
 
     useEffect(() => {
         initTheme();
@@ -17,9 +18,12 @@ function CustomApp({ Component, pageProps }: AppProps): JSX.Element {
 
     return (
         <IntlProvider locale={locale} messages={Langs[locale]} onError={() => ({})} >
-            <NavbarComponent />
-            <div className='page-padder' ></div>
-            <Component {...pageProps} />
+            <div className={styles.body} >
+                <button onClick={toggle} >Toggle dark mode</button>
+                <NavbarComponent />
+                <div className='page-padder' ></div>
+                <Component {...pageProps} />
+            </div>
         </IntlProvider>
     );
 }

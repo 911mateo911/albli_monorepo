@@ -20,6 +20,8 @@ export const Input: FC<InputProps> = ({
     value,
     id,
     className,
+    inputClassName,
+    placeholderClassName,
     type = 'text',
     placeholder,
     validateOn = 'change',
@@ -49,7 +51,9 @@ export const Input: FC<InputProps> = ({
         if (hasFocus || !inputRef.current) return;
 
         setHasFocus(true);
-        inputRef.current.focus();
+        inputRef.current.focus({
+            preventScroll: true
+        });
         hasBeenFocused.current = true;
     }
 
@@ -97,6 +101,7 @@ export const Input: FC<InputProps> = ({
             <span
                 onClick={handlePlaceholderClick}
                 className={classNames(
+                    placeholderClassName,
                     cls_inputPlaceholder,
                     {
                         [cls_inputPlaceholderActive]: hasFocus,
@@ -106,6 +111,7 @@ export const Input: FC<InputProps> = ({
             <input
                 className={classNames(
                     cls_input,
+                    inputClassName,
                     {
                         [cls_inputHasValue]: inputValue.length && hasFocus
                     }
