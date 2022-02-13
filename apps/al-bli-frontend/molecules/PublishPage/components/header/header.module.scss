@@ -47,10 +47,10 @@
   }
 
   @include on_dark_mode {
-    background-color: $color_blue-20;
+    background-color: $color_blue-30;
 
     &:hover {
-      background-color: $color_blue-30;
+      background-color: $color_blue-40;
       & svg {
         color: $color_blue-100;
       }

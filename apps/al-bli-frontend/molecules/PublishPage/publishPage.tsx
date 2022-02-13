@@ -8,7 +8,6 @@ import { PublishPageImagePicker } from './components/imagePicker';
 import { ImagePickerPreview } from './components/imagePickerPreview/imagePickerPreview';
 import { ReactComponent as BackArrow } from '@al-bli/icons/arrow-back-outline.svg';
 import { useRouter } from 'next/router';
-import { fullNameRGX } from './config';
 
 const {
     'container': cls_container,
@@ -38,8 +37,6 @@ export const PublishPage: FC = () => {
                         </p>
                         <Input
                             name='title'
-                            required
-                            pattern={fullNameRGX}
                             placeholder='Titulli'
                             onChange={() => ({})}
                             placeholderClassName={styles['user-input_placeholder']}
