@@ -78,6 +78,13 @@
       transform: scale(1.05);
     }
   }
+
+  @include on_dark_mode {
+    &:hover {
+      background-color: $color_grey-30;
+      border: 1px solid $color_grey-40;
+    }
+  }
 }
 
 .search-icon {
