@@ -1,4 +1,5 @@
 @import "foundation";
+@import "variables";
 
 .page-padder {
   margin-top: 96px;
@@ -11,4 +12,8 @@
   top: 0;
   overflow: hidden;
   touch-action: none;
+}
+
+body.theme--dark {
+  background-color: $color_grey-100;
 }

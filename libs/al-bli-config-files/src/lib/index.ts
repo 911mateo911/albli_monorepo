@@ -13,6 +13,10 @@ export enum RouteKeys {
     LATEST_POSTS = '/post/latest'
 }
 
+export enum LOCALSTORE_KEYS {
+    THEME = 'alBli-theme'
+}
+
 export enum POSTPARAMS {
     GET_POST_ID_KEY = 'postId'
 }

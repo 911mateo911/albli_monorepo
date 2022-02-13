@@ -39,6 +39,7 @@ export const PublishPage: FC = () => {
                             name='title'
                             placeholder='Titulli'
                             onChange={() => ({})}
+                            placeholderClassName={styles['user-input_placeholder']}
                             value=''
                             className={styles['user-input']}
                         />

@@ -7,7 +7,6 @@ import { useClickOutside } from '../hooks';
 
 const {
     wrapper: cls_wrapper,
-    placeholder: cls_placeholder,
     'dropdown-arrow': cls_dropdownArrow,
     'dropdown-arrow_open': cls_dropdownArrow_open,
     'dropdown-container': cls_dropdownContainer,
@@ -17,12 +16,10 @@ const {
     'truncated': cls_truncated
 } = styles;
 
-// TODO: fix dropdown arrow weird rotation on fast click
 export const DropdownInput: FC<DropdownInputProps> = ({
     selectedValue,
     onChange,
     values,
-    placeholder,
     className,
     id
 }) => {
@@ -62,7 +59,6 @@ export const DropdownInput: FC<DropdownInputProps> = ({
             ref={ref}
             onClick={() => setDropdownOpen(isOpen => !isOpen)}
             className={classNames(cls_wrapper, className)} >
-            {!selectedDropdownValue && <p className={cls_placeholder} >{placeholder}</p>}
             <DropdownArrowIcon className={classNames(cls_dropdownArrow, {
                 [cls_dropdownArrow_open]: dropdownOpen
             })} />
