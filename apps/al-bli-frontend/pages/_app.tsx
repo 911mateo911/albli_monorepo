@@ -5,6 +5,7 @@ import { IntlProvider } from 'react-intl';
 import { NavbarComponent } from '../molecules/Navbar';
 import { useTheme } from '@al-bli/albli-ui';
 import './styles.scss';
+import "../styles/font-imports.css";
 import { useEffect } from 'react';
 import styles from '../styles/index.module.scss';
 

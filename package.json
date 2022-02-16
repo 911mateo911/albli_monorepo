@@ -6,6 +6,8 @@
     "start": "nx serve",
     "start:frontend": "nx run al-bli-frontend:serve",
     "start:backend": "nx run al-bli-backend:serve",
+    "serve:frontend": "cd ./dist/apps/al-bli-frontend && npm run start",
+    "build:frontend": "nx build al-bli-frontend",
     "build": "nx build",
     "test": "nx test",
     "storybook": "nx run albli-ui:storybook --host=0.0.0.0 ",
