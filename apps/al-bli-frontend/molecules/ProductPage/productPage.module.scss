@@ -1,0 +1,21 @@
+@import "mixins";
+@import "variables";
+
+.wrapper {
+  @include basic_flex;
+  justify-content: flex-start;
+  max-width: 1280px;
+  margin: auto;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.image-viewer-container {
+  width: 55%;
+}
+
+.image-viewer-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+  width: 100%;
+}

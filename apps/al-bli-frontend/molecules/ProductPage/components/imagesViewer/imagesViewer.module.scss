@@ -1,0 +1,78 @@
+@import "mixins";
+@import "variables";
+
+.swiper-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  background-color: $color_grey-2;
+
+  @include on_dark_mode {
+    background-color: $color_grey-90;
+  }
+}
+
+.full-screen-icon {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  height: 30px;
+  z-index: 1;
+  color: $color_blue-80;
+  background-color: white;
+  cursor: pointer;
+  opacity: 0.9;
+  border-radius: 6px;
+  padding: 4px;
+  transition: all 0.3s;
+
+  @include on_dark_mode {
+    background-color: $color_grey-100;
+    color: $color_blue-60;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.swiper {
+  border-radius: 6px;
+  max-height: 100%;
+
+  & :global(.swiper-pagination) {
+    background-color: white;
+    @include basic_flex;
+    border-radius: 999px;
+    padding: 5px;
+    bottom: 6px !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    width: fit-content !important;
+
+    @include on_dark_mode {
+      background-color: $color_grey-70;
+    }
+  }
+}
+
+.swiper-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-image-wrapper {
+  position: relative;
+
+  &:first-child > img {
+    border-radius: 6px 0 0 6px;
+  }
+
+  &:last-child > img {
+    border-radius: 0 6px 6px 0;
+  }
+}
