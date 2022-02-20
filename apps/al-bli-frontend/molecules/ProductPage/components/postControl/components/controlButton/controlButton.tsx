@@ -17,7 +17,7 @@ export const ControlButton: FC<ControlButtonProps> = ({
             >
                 {icon}
             </span>
-            <p className={styles['control-btn_name']} >{name}</p>
+            {name && <p className={styles['control-btn_name']} >{name}</p>}
         </span>
     )
 }

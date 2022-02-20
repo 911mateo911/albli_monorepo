@@ -4,12 +4,24 @@
 .post-control-wrapper {
   border-radius: 6px;
   padding: 6px;
-  background-color: $color_grey-1;
-  margin: 0px 1rem 10px 1rem;
+  background-color: $color_blue-5;
+  margin-bottom: 10px;
 
   @include on_dark_mode {
     background-color: $color_grey-90;
   }
+}
+
+.post-user-not-logged {
+  @include basic_flex;
+}
+
+.post-profile {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  width: fit-content !important;
+  display: inline-flex !important;
 }
 
 .btn-wrapper {
@@ -17,4 +29,60 @@
   margin: auto;
   justify-content: space-evenly;
   max-width: 220px;
+}
+
+.btn-smaller-icon {
+  padding: 11px;
+}
+
+.post-time-like {
+  @include basic_flex;
+  margin-left: auto;
+  margin-right: 4px;
+}
+
+.post-time {
+  font-size: 12px;
+  font-weight: 500;
+  color: $color_grey-90;
+  margin-right: 8px;
+
+  @include on_dark_mode {
+    color: $color_grey-10;
+  }
+}
+
+.post-like {
+  stroke: $color_red-60;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+}
+
+.like-icon-wrapper {
+  @include basic_flex;
+  flex-direction: column;
+}
+
+.like-icon {
+  height: 20px;
+  width: 20px;
+
+  & path {
+    transition: all 0.3s;
+    fill: transparent;
+  }
+}
+
+.like-icon_liked path {
+  fill: $color_red-60;
+}
+
+.like-number {
+  font-size: 10px;
+  font-weight: 800;
+  color: $color_grey-100;
+
+  @include on_dark_mode {
+    color: $color_grey-30;
+  }
 }

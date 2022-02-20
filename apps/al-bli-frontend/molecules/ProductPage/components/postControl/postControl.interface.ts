@@ -1,3 +1,4 @@
 export interface PostControlProps {
-    isInSale: boolean;
+    isLoggedIn: boolean;
+    hasLikedPost?: boolean;
 }

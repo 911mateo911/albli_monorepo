@@ -18,8 +18,10 @@ export const ProductPage: FC = () => {
                 </div>
             </div>
             <div className={styles['post-heading-wrapper']} >
-                {/* CHECK FOR AUTH */}
-                <PostControl isInSale />
+                <PostControl isLoggedIn={false} />
+                <h2 className={styles['post-title']} >
+                    Shitet audi q5 i 2010, title here, hello world
+                </h2>
             </div>
         </div>
     )

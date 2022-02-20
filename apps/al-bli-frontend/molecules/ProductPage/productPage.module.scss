@@ -23,4 +23,23 @@
 
 .post-heading-wrapper {
   width: 45%;
+  padding: 0 12px;
+}
+
+.post-title {
+  font-weight: 700;
+  padding-top: 4px;
+  line-clamp: 3;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: $color_grey-100;
+  border-bottom: 1px solid $color_grey-5;
+
+  @include on_dark_mode {
+    color: $color_grey-2;
+    border-bottom: 1px solid $color_grey-90;
+  }
 }
