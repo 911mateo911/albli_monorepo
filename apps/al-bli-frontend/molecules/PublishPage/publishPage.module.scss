@@ -30,7 +30,7 @@
   flex-direction: column;
   width: 65%;
   border-radius: 10px;
-  background-color: #f6f6f7;
+  background-color: $color_grey-1;
 
   @media (max-width: 780px) {
     background-color: white;

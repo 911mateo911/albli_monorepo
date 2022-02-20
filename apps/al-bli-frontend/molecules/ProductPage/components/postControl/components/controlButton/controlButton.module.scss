@@ -1,0 +1,39 @@
+@import "variables";
+@import "mixins";
+
+.control-btn {
+  display: block;
+  height: 42px;
+  background-color: white;
+  width: 42px;
+  cursor: pointer;
+  color: $color_blue-70;
+  fill: $color_blue-70;
+  padding: 10px;
+  transition: all 0.3s;
+  border-radius: 999px;
+
+  &:hover {
+    box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
+    transform: scale(1.05);
+  }
+
+  @include on_dark_mode {
+    background-color: $color_grey-80;
+    color: $color_blue-30;
+    fill: $color_blue-30;
+  }
+}
+
+.control-btn_name {
+  text-align: center;
+  font-family: $font_secondary;
+  color: $color_grey-70;
+  font-weight: 600;
+  margin-top: 4px;
+  font-size: 10px;
+
+  @include on_dark_mode {
+    color: $color_grey-30;
+  }
+}

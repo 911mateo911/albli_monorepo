@@ -4,6 +4,7 @@
 .wrapper {
   @include basic_flex;
   justify-content: flex-start;
+  align-items: flex-start;
   max-width: 1280px;
   margin: auto;
   width: 100%;
@@ -18,4 +19,8 @@
   position: relative;
   padding-top: 56.25%;
   width: 100%;
+}
+
+.post-heading-wrapper {
+  width: 45%;
 }

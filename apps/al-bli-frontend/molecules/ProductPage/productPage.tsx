@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ImagesViewer } from './components';
+import { ImagesViewer, PostControl } from './components';
 import styles from './productPage.module.scss';
 
 const fakePhotos = [
@@ -16,6 +16,10 @@ export const ProductPage: FC = () => {
                 <div className={styles['image-viewer-wrapper']} >
                     <ImagesViewer photos={fakePhotos} />
                 </div>
+            </div>
+            <div className={styles['post-heading-wrapper']} >
+                {/* CHECK FOR AUTH */}
+                <PostControl isInSale />
             </div>
         </div>
     )
