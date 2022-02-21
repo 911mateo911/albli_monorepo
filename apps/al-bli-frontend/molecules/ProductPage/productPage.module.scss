@@ -9,10 +9,19 @@
   margin: auto;
   width: 100%;
   padding: 0 1rem;
+
+  @media (max-width: 980px) {
+    flex-direction: column;
+  }
 }
 
 .image-viewer-container {
   width: 55%;
+
+  @media (max-width: 980px) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
 .image-viewer-wrapper {
@@ -24,6 +33,28 @@
 .post-heading-wrapper {
   width: 45%;
   padding: 0 12px;
+
+  @media (max-width: 980px) {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.chip {
+  display: inline-block;
+  font-family: $font_secondary;
+  font-weight: 600;
+  font-size: 11px;
+  margin: 6px 3px 4px 0;
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: $color_grey-90;
+  background-color: $color_grey-2;
+
+  @include on_dark_mode {
+    background-color: $color_grey-80;
+    color: $color_grey-20;
+  }
 }
 
 .post-title {
@@ -37,9 +68,82 @@
   overflow: hidden;
   color: $color_grey-100;
   border-bottom: 1px solid $color_grey-5;
+  margin-bottom: 10px;
 
   @include on_dark_mode {
     color: $color_grey-2;
     border-bottom: 1px solid $color_grey-90;
+  }
+}
+
+.header-info-wrapper {
+  @include basic_flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.header-info-text {
+  padding: 8px 1rem;
+  white-space: pre;
+  border-radius: 999px;
+  width: 100%;
+  text-align: center;
+  flex-basis: 45%;
+  &:first-of-type {
+    @media (min-width: 500px) {
+      margin-right: 10px;
+    }
+  }
+}
+
+.price {
+  font-family: $font_secondary;
+  background-color: $color-green-5;
+  color: $color_green-100;
+  font-weight: 700;
+
+  @include on_dark_mode {
+    background-color: $color-green-30;
+  }
+
+  @media (max-width: 500px) {
+    margin-left: auto;
+  }
+}
+
+.location {
+  background-color: $color_blue-10;
+  padding: 4px 10px 4px 8px;
+  font-size: 0.9rem;
+  color: $color_blue-100;
+  font-weight: 600;
+  @include basic_flex;
+
+  @include on_dark_mode {
+    background-color: $color_blue-30;
+  }
+
+  & svg {
+    height: 18px;
+    margin-right: 3px;
+    margin-bottom: -1px;
+  }
+
+  @media (max-width: 500px) {
+    width: fit-content;
+    margin-right: auto;
+    margin-bottom: 4px;
+  }
+}
+
+.location-hide-desktop {
+  @media (min-width: 500px) {
+    display: none;
+  }
+}
+
+.location-hide-mobile {
+  @media (max-width: 500px) {
+    display: none;
   }
 }
