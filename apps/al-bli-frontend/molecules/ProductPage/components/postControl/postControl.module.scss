@@ -45,6 +45,9 @@
   font-size: 12px;
   font-weight: 500;
   color: $color_grey-90;
+  max-width: 100px;
+  text-align: center;
+  margin-left: 10px;
   margin-right: 8px;
 
   @include on_dark_mode {
@@ -73,16 +76,27 @@
   }
 }
 
-.like-icon_liked path {
-  fill: $color_red-60;
+.like-icon_liked {
+  & path {
+    fill: $color_red-60;
+  }
 }
 
 .like-number {
+  transition: all 0.3s;
   font-size: 10px;
   font-weight: 800;
   color: $color_grey-100;
 
   @include on_dark_mode {
     color: $color_grey-30;
+  }
+}
+
+.like-number_liked {
+  color: $color_red-90;
+
+  @include on_dark_mode {
+    color: $color_red-30;
   }
 }
