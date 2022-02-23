@@ -1,10 +1,29 @@
 import { padNumber } from '@al-bli/albli-ui';
 import classNames from 'classnames';
-import { FC, useMemo } from 'react';
+import { FC } from 'react';
 import { ImagesViewer, PostControl } from './components';
 import styles from './productPage.module.scss';
 import { ReactComponent as LocationIcon } from '@al-bli/icons/location-outline.svg';
-import { useMediaQuery } from 'react-responsive';
+
+const fakeDescription = `Audi Q8 50TDI  3X Sline ( 286Hp) Quattro ✅
+** Viti Prodhimit 10-2018 ** 
+📂 Panorama 
+📂Head Up Display 
+📂 58.900km 
+📂Blind Spot Assist 
+📂Distance Warning System 
+📂Ambieng Light 
+📂Sports Package 
+📂Tauch Screen 
+📂WIFI System 
+📂(AdBlue-Technologie) 
+📂 - Sound-System Bang & Olufsen 
+📂Matrix Led Adaptive 
+📂Sline Sport + 
+📂GARANCI DERI NË 04-11-2021
+📂 Extra Full OPSION 🔥 
+Çmimi : 70,000€ Me TVSH 👍
+`
 
 const fakePhotos = [
   'https://res.cloudinary.com/dxtjwhnoz/image/upload/v1626531888/alBli/u5hsebdsqeg05eaeip1u.jpg',
@@ -41,11 +60,11 @@ export const ProductPage: FC = () => {
               key={keyword + index}
               className={styles.chip}
             >
-              {keyword}{index < (arr.length - 1) && ','}
+              {keyword}
             </p>
           ))}
         </div>
-        <h2 className={styles['post-title']} >
+        <h2 className={classNames(styles['post-title'], styles['with-border-bottom'])} >
           Shitet audi q5 i 2010, title here, hello world
         </h2>
         <span className={styles['header-info-wrapper']} >
@@ -54,6 +73,8 @@ export const ProductPage: FC = () => {
             {padNumber(120333)} ALL
           </p>
         </span>
+        <h3 className={classNames(styles.description, styles['with-border-bottom'])} >Pershkrimi</h3>
+        <p className={styles['description-text']} >{fakeDescription}</p>
       </div>
     </div>
   )

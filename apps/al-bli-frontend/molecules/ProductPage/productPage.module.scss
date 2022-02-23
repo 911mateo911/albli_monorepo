@@ -17,6 +17,8 @@
 
 .image-viewer-container {
   width: 55%;
+  @include basic_flex;
+  flex-direction: column;
 
   @media (max-width: 980px) {
     width: 100%;
@@ -67,11 +69,16 @@
   text-overflow: ellipsis;
   overflow: hidden;
   color: $color_grey-100;
-  border-bottom: 1px solid $color_grey-5;
   margin-bottom: 10px;
 
   @include on_dark_mode {
     color: $color_grey-2;
+  }
+}
+
+.with-border-bottom {
+  border-bottom: 1px solid $color_grey-5;
+  @include on_dark_mode {
     border-bottom: 1px solid $color_grey-90;
   }
 }
@@ -107,7 +114,8 @@
   }
 
   @media (max-width: 500px) {
-    margin-left: auto;
+    margin: auto;
+    flex-basis: 90%;
   }
 }
 
@@ -145,5 +153,27 @@
 .location-hide-mobile {
   @media (max-width: 500px) {
     display: none;
+  }
+}
+
+.description {
+  font-weight: 600;
+  margin-bottom: 6px;
+  border-bottom: 1px solid $color_grey-5;
+  color: $color_grey-100;
+
+  @include on_dark_mode {
+    color: $color_grey-5;
+  }
+}
+
+.description-text {
+  white-space: pre-wrap;
+  font-family: $font_secondary;
+  color: $color_grey-90;
+  font-weight: 400;
+
+  @include on_dark_mode {
+    color: $color_grey-10;
   }
 }
