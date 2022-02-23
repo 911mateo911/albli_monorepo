@@ -4,6 +4,8 @@ import { FC } from 'react';
 import { ImagesViewer, PostControl } from './components';
 import styles from './productPage.module.scss';
 import { ReactComponent as LocationIcon } from '@al-bli/icons/location-outline.svg';
+import { InfoBox } from './components/infoBox';
+import { ReactComponent as CategoryIcon } from '@al-bli/icons/category.svg';
 
 const fakeDescription = `Audi Q8 50TDI  3X Sline ( 286Hp) Quattro ✅
 ** Viti Prodhimit 10-2018 ** 
@@ -33,6 +35,7 @@ const fakePhotos = [
 ]
 
 export const ProductPage: FC = () => {
+
   const location = (className?: string) => {
     return (<p className={classNames(
       styles['header-info-text'],
@@ -44,12 +47,60 @@ export const ProductPage: FC = () => {
     </p>)
   }
 
+  const additionalInfo = (className?: string) => {
+    return (
+      <div className={classNames(styles['info-box-container'], className)} >
+        <InfoBox
+          icon={CategoryIcon}
+          info={[
+            {
+              type: 'Kategorite',
+              value: 'Automjete, Makine'
+            }
+          ]}
+        />
+        <InfoBox
+          icon={CategoryIcon}
+          color='#f6655a'
+          info={[
+            {
+              type: 'Marka',
+              value: 'Audi'
+            }
+          ]}
+        />
+
+        <InfoBox
+          icon={CategoryIcon}
+          color='#87c289'
+          info={[
+            {
+              type: 'Karburanti',
+              value: 'Benzine'
+            }
+          ]}
+        />
+
+        <InfoBox
+          icon={CategoryIcon}
+          info={[
+            {
+              type: 'Modeli',
+              value: 'Q8'
+            }
+          ]}
+        />
+      </div>
+    )
+  }
+
   return (
     <div className={styles.wrapper} >
       <div className={styles['image-viewer-container']} >
         <div className={styles['image-viewer-wrapper']} >
           <ImagesViewer photos={fakePhotos} />
         </div>
+        {additionalInfo(styles['info-box-hide-tablet'])}
       </div>
       <div className={styles['post-heading-wrapper']} >
         <PostControl isLoggedIn={false} />
@@ -73,6 +124,8 @@ export const ProductPage: FC = () => {
             {padNumber(120333)} ALL
           </p>
         </span>
+        <p className={styles.details} >Vecorite</p>
+        {additionalInfo(styles['info-box-hide-desktop'])}
         <h3 className={classNames(styles.description, styles['with-border-bottom'])} >Pershkrimi</h3>
         <p className={styles['description-text']} >{fakeDescription}</p>
       </div>
