@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { UserProfile, Userlocation, ContactInfoInputs } from './components';
+import { Userlocation, ContactInfoInputs } from './components';
 import { PreferredContactsList } from './components/preferredContactsList';
 import styles from './contactInfo.module.scss';
+import { UserProfile } from '../../../../components';
 
 const {
     'contact-info': cls_contactInfo,
