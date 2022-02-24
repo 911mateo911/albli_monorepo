@@ -10,7 +10,8 @@ export enum RouteKeys {
     USER_REGISTER = '/user/register',
     USER_DELETE_ACCOUNT = '/user/delete',
     USER_EDIT_ACCOUNT = '/user/edit',
-    LATEST_POSTS = '/post/latest'
+    LATEST_POSTS = '/post/latest',
+    POST_ERROR = '/post-error-message'
 }
 
 export enum LOCALSTORE_KEYS {
