@@ -7,6 +7,7 @@
   max-width: 330px;
   @include basic_flex;
   align-items: flex-start;
+  justify-content: flex-start;
   flex-direction: column;
   padding: 8px;
   border: 1px solid $color_grey-5;
@@ -53,6 +54,9 @@
   color: $color_grey-100;
   margin-bottom: 6px;
   font-weight: 900;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @include on_dark_mode {
     color: $color_grey-20;

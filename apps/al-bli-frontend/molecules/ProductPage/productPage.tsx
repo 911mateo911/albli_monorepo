@@ -49,47 +49,71 @@ export const ProductPage: FC = () => {
 
   const additionalInfo = (className?: string) => {
     return (
-      <div className={classNames(styles['info-box-container'], className)} >
-        <InfoBox
-          icon={CategoryIcon}
-          info={[
-            {
-              type: 'Kategorite',
-              value: 'Automjete, Makine'
-            }
-          ]}
-        />
-        <InfoBox
-          icon={CategoryIcon}
-          color='#f6655a'
-          info={[
-            {
-              type: 'Marka',
-              value: 'Audi'
-            }
-          ]}
-        />
+      <div className={classNames(styles['details-container'], className)} >
+        <div className={styles['info-box-container']} >
+          {/* TODO add shadows so it can be visualized as scrollview */}
+          {/* TODO: modify scrollView */}
+          <InfoBox
+            icon={CategoryIcon}
+            color='#f6655a'
+            info={[
+              {
+                type: 'Marka',
+                value: 'Audi'
+              }
+            ]}
+          />
+          <InfoBox
+            icon={CategoryIcon}
+            info={[
+              {
+                type: 'Date prodhimi',
+                value: '20/12/2012'
+              }
+            ]}
+          />
+          <InfoBox
+            icon={CategoryIcon}
+            color='#87c289'
+            info={[
+              {
+                type: 'Karburanti',
+                value: 'Benzine'
+              }
+            ]}
+          />
+          <InfoBox
+            icon={CategoryIcon}
+            info={[
+              {
+                type: 'Modeli',
+                value: 'Q8'
+              }
+            ]}
+          />
+          <InfoBox
+            icon={CategoryIcon}
+            color='#87c289'
+            info={[
+              {
+                type: 'Karburanti',
+                value: 'Benzine'
+              }
+            ]}
+          />
+          <InfoBox
+            icon={CategoryIcon}
+            info={[
+              {
+                type: 'Modeli',
+                value: 'Q8'
+              }
+            ]}
+          />
+        </div>
+        <div className={styles['contact-wrapper']} >
 
-        <InfoBox
-          icon={CategoryIcon}
-          color='#87c289'
-          info={[
-            {
-              type: 'Karburanti',
-              value: 'Benzine'
-            }
-          ]}
-        />
-
-        <InfoBox
-          icon={CategoryIcon}
-          info={[
-            {
-              type: 'Modeli',
-              value: 'Q8'
-            }
-          ]}
-        />
+        </div>
       </div>
     )
   }
@@ -106,10 +130,13 @@ export const ProductPage: FC = () => {
         <PostControl isLoggedIn={false} />
         {location(styles['location-hide-desktop'])}
         <div>
-          {['Makine', 'Audi', 'Q8', 'Shitet', 'Automjet'].map((keyword, index, arr) => (
+          {['Makine', 'Automjet', 'Audi', 'Q8', 'Shitet'].map((keyword, index) => (
             <p
               key={keyword + index}
-              className={styles.chip}
+              className={classNames(
+                styles.chip,
+                (index < 2) && styles['category-chip']
+              )}
             >
               {keyword}
             </p>
