@@ -33,22 +33,14 @@
 }
 
 .details-container {
-  width: 100%;
+  width: calc(100% + 8px);
+  margin-left: -4px;
   @include basic_flex;
-  justify-content: flex-start;
-}
+  flex-wrap: wrap;
 
-.info-box-container {
-  display: grid;
-  width: 50%;
-  max-height: 200px;
-  overflow: auto;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  padding-bottom: 10px;
-}
-
-.contact-wrapper {
-  width: 50%;
+  @media (max-width: 980px) {
+    margin-bottom: 8px;
+  }
 }
 
 .post-heading-wrapper {
@@ -115,6 +107,12 @@
 .header-info-wrapper {
   @include basic_flex;
   justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.contact-wrapper {
+  @include basic_flex;
+  justify-content: flex-start;
   margin-bottom: 10px;
 }
 

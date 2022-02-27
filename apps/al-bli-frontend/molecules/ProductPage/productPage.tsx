@@ -6,6 +6,8 @@ import styles from './productPage.module.scss';
 import { ReactComponent as LocationIcon } from '@al-bli/icons/location-outline.svg';
 import { InfoBox } from './components/infoBox';
 import { ReactComponent as CategoryIcon } from '@al-bli/icons/category.svg';
+import { ContactButton } from './components/contactButton';
+import { ReactComponent as CallIcon } from '@al-bli/icons/call-outline.svg';
 
 const fakeDescription = `Audi Q8 50TDI  3X Sline ( 286Hp) Quattro ✅
 ** Viti Prodhimit 10-2018 ** 
@@ -50,70 +52,63 @@ export const ProductPage: FC = () => {
   const additionalInfo = (className?: string) => {
     return (
       <div className={classNames(styles['details-container'], className)} >
-        <div className={styles['info-box-container']} >
-          {/* TODO add shadows so it can be visualized as scrollview */}
-          {/* TODO: modify scrollView */}
-          <InfoBox
-            icon={CategoryIcon}
-            color='#f6655a'
-            info={[
-              {
-                type: 'Marka',
-                value: 'Audi'
-              }
-            ]}
-          />
-          <InfoBox
-            icon={CategoryIcon}
-            info={[
-              {
-                type: 'Date prodhimi',
-                value: '20/12/2012'
-              }
-            ]}
-          />
-          <InfoBox
-            icon={CategoryIcon}
-            color='#87c289'
-            info={[
-              {
-                type: 'Karburanti',
-                value: 'Benzine'
-              }
-            ]}
-          />
-          <InfoBox
-            icon={CategoryIcon}
-            info={[
-              {
-                type: 'Modeli',
-                value: 'Q8'
-              }
-            ]}
-          />
-          <InfoBox
-            icon={CategoryIcon}
-            color='#87c289'
-            info={[
-              {
-                type: 'Karburanti',
-                value: 'Benzine'
-              }
-            ]}
-          />
-          <InfoBox
-            icon={CategoryIcon}
-            info={[
-              {
-                type: 'Modeli',
-                value: 'Q8'
-              }
-            ]}
-          />
-        </div>
-        <div className={styles['contact-wrapper']} >
-
-        </div>
+        <InfoBox
+          icon={CategoryIcon}
+          color='#f6655a'
+          info={[
+            {
+              type: 'Marka',
+              value: 'Audi'
+            }
+          ]}
+        />
+        <InfoBox
+          icon={CategoryIcon}
+          info={[
+            {
+              type: 'Date prodhimi',
+              value: '20/12/2012'
+            }
+          ]}
+        />
+        <InfoBox
+          icon={CategoryIcon}
+          color='#87c289'
+          info={[
+            {
+              type: 'Karburanti',
+              value: 'Benzine'
+            }
+          ]}
+        />
+        <InfoBox
+          icon={CategoryIcon}
+          info={[
+            {
+              type: 'Modeli',
+              value: 'Q8'
+            }
+          ]}
+        />
+        <InfoBox
+          icon={CategoryIcon}
+          color='#87c289'
+          info={[
+            {
+              type: 'Kilometra',
+              value: '123999'
+            }
+          ]}
+        />
+        <InfoBox
+          icon={CategoryIcon}
+          info={[
+            {
+              type: 'Transmisioni',
+              value: 'Automatik'
+            }
+          ]}
+        />
       </div>
     )
   }
@@ -151,6 +146,13 @@ export const ProductPage: FC = () => {
             {padNumber(120333)} ALL
           </p>
         </span>
+        {/* TODO: think about this shit here :( */}
+        <div className={styles['contact-wrapper']} >
+          <ContactButton
+            icon={<CallIcon />}
+            text='+35560012388'
+          />
+        </div>
         <p className={styles.details} >Vecorite</p>
         {additionalInfo(styles['info-box-hide-desktop'])}
         <h3 className={classNames(styles.description, styles['with-border-bottom'])} >Pershkrimi</h3>
