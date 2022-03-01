@@ -1,13 +1,12 @@
-import { padNumber } from '@al-bli/albli-ui';
+import { padNumber, Accordion } from '@al-bli/albli-ui';
 import classNames from 'classnames';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { ImagesViewer, PostControl } from './components';
 import styles from './productPage.module.scss';
 import { ReactComponent as LocationIcon } from '@al-bli/icons/location-outline.svg';
 import { InfoBox } from './components/infoBox';
 import { ReactComponent as CategoryIcon } from '@al-bli/icons/category.svg';
-import { ContactButton } from './components/contactButton';
-import { ReactComponent as CallIcon } from '@al-bli/icons/call-outline.svg';
+import { ReactComponent as AccordionIcon } from '@al-bli/icons/dropdown-arrow.svg';
 
 const fakeDescription = `Audi Q8 50TDI  3X Sline ( 286Hp) Quattro ✅
 ** Viti Prodhimit 10-2018 ** 
@@ -37,6 +36,7 @@ const fakePhotos = [
 ]
 
 export const ProductPage: FC = () => {
+  const [contactAccordionOpen, setContactAccordionOpen] = useState<boolean>(false);
 
   const location = (className?: string) => {
     return (<p className={classNames(
@@ -146,13 +146,27 @@ export const ProductPage: FC = () => {
             {padNumber(120333)} ALL
           </p>
         </span>
-        {/* TODO: think about this shit here :( */}
-        <div className={styles['contact-wrapper']} >
-          <ContactButton
-            icon={<CallIcon />}
-            text='+35560012388'
-          />
+        <div
+          className={styles['contact-accordion-wrapper']}
+          onClick={() => setContactAccordionOpen(isOpen => !isOpen)}
+        >
+          <p className={styles['contact-accordion-text']} >
+            {contactAccordionOpen ? 'Kontaktet' : 'Shiko kontaktet'}
+          </p>
+          <AccordionIcon className={classNames(
+            styles['accordion-icon'],
+            {
+              [styles['accordion-icon_open']]: contactAccordionOpen
+            }
+          )} />
         </div>
+        <Accordion
+          transition
+          open={contactAccordionOpen}
+        >
+          <p>JSADAD</p>
+          <p>sadsas</p>
+        </Accordion>
         <p className={styles.details} >Vecorite</p>
         {additionalInfo(styles['info-box-hide-desktop'])}
         <h3 className={classNames(styles.description, styles['with-border-bottom'])} >Pershkrimi</h3>

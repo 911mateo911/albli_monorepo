@@ -110,12 +110,6 @@
   margin-bottom: 4px;
 }
 
-.contact-wrapper {
-  @include basic_flex;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-}
-
 .header-info-text {
   padding: 8px 1rem;
   white-space: pre;
@@ -181,6 +175,54 @@
   @media (max-width: 500px) {
     display: none;
   }
+}
+
+.contact-accordion-wrapper {
+  background-color: $color_grey-2;
+  border-radius: 6px;
+  padding: 12px 10px;
+  transition: all 0.2s;
+  margin-top: 4px;
+  cursor: pointer;
+  @include basic_flex;
+  justify-content: space-between;
+
+  &:hover {
+    background-color: $color_grey-10;
+
+    @include on_dark_mode {
+      background-color: $color_grey-80;
+    }
+  }
+
+  @include on_dark_mode {
+    background-color: $color_grey-90;
+  }
+}
+
+.contact-accordion-text {
+  font-weight: 700;
+  color: $color_grey-100;
+
+  @include on_dark_mode {
+    color: $color_grey-20;
+  }
+}
+
+.accordion-icon {
+  color: $color_grey-90;
+  width: 1rem;
+  transform-origin: center center;
+  height: 1rem;
+  transition: all 0.2s;
+
+  @include on_dark_mode {
+    color: $color_grey-30;
+  }
+}
+
+.accordion-icon_open {
+  transform: rotate(180deg);
 }
 
 .details {
