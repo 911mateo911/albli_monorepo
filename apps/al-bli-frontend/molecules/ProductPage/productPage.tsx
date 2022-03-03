@@ -7,6 +7,10 @@ import { ReactComponent as LocationIcon } from '@al-bli/icons/location-outline.s
 import { InfoBox } from './components/infoBox';
 import { ReactComponent as CategoryIcon } from '@al-bli/icons/category.svg';
 import { ReactComponent as AccordionIcon } from '@al-bli/icons/dropdown-arrow.svg';
+import { ReactComponent as MailIcon } from '@al-bli/icons/mail-outline.svg';
+import { ReactComponent as CallIcon } from '@al-bli/icons/call-outline.svg';
+import { ReactComponent as CopyIcon } from '@al-bli/icons/copy-outline.svg';
+import { ReactComponent as WhatsappIcon } from '@al-bli/icons/logo-whatsapp.svg';
 
 const fakeDescription = `Audi Q8 50TDI  3X Sline ( 286Hp) Quattro ✅
 ** Viti Prodhimit 10-2018 ** 
@@ -162,10 +166,25 @@ export const ProductPage: FC = () => {
         </div>
         <Accordion
           transition
+          offsetTop={4}
           open={contactAccordionOpen}
         >
-          <p>JSADAD</p>
-          <p>sadsas</p>
+          {/* TODO: refactor */}
+          <span className={styles['contact-btn']} >
+            <MailIcon className={styles['contact-btn-main-icon']} />
+            malajmateo@gmail.com
+            <span className={styles['contact-btn-action-icons-wrapper']} >
+              <CopyIcon />
+            </span>
+          </span>
+          <span className={styles['contact-btn']} >
+            <CallIcon className={styles['contact-btn-main-icon']} />
+            +35569967522
+            <span className={styles['contact-btn-action-icons-wrapper']} >
+              <WhatsappIcon />
+              <CopyIcon />
+            </span>
+          </span>
         </Accordion>
         <p className={styles.details} >Vecorite</p>
         {additionalInfo(styles['info-box-hide-desktop'])}

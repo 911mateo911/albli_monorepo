@@ -12,24 +12,7 @@
 .child_wrapper {
   position: absolute;
   width: 100%;
-  transition: all 0.4s;
-  bottom: 0;
-  left: 0;
-}
-.root_wrapper {
-  position: relative;
-  transition: all 0.4s;
-  width: 100%;
-  overflow-y: hidden;
-}
-
-.no_transition {
-  transition: none;
-}
-
-.child_wrapper {
-  position: absolute;
-  width: 100%;
+  overflow: hidden;
   transition: all 0.4s;
   bottom: 0;
   left: 0;
