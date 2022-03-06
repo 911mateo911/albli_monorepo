@@ -123,28 +123,32 @@ const {
   'info-box-hide-tablet': cls_infoBoxHideTablet,
   'description': cls_description,
   'description-text': cls_descriptionText,
+  'price-debatable': cls_priceDebatable,
+  'with-margin-top': cls_withMarginTop
 } = styles;
 
 export const ProductPage: FC = () => {
   const [contactAccordionOpen, setContactAccordionOpen] = useState<boolean>(false);
 
+  const isDebatablePrice = true;
+
   return (
-    <div className={styles.wrapper} >
-      <div className={styles['image-viewer-container']} >
-        <div className={styles['image-viewer-wrapper']} >
+    <div className={cls_rootWrapper} >
+      <div className={cls_imageViewerContainer} >
+        <div className={cls_imageViewerWrapper} >
           <ImagesViewer photos={fakePhotos} />
         </div>
         <AdditionalInfo
           additionalInfos={fakeAdditionalInfo}
-          wrapperClassName={styles['info-box-hide-tablet']}
+          wrapperClassName={cls_infoBoxHideTablet}
         />
       </div>
-      <div className={styles['post-heading-wrapper']} >
+      <div className={cls_postHeadingWrapper} >
         <PostControl isLoggedIn={false} />
         <PostLocation
           wrapperClassName={classNames(
-            styles['location-hide-desktop'],
-            styles['header-info-text']
+            cls_locationHideDesktop,
+            cls_headerInfoText
           )}
           location='Pallatet Fratari, Astir Tirane'
         />
@@ -153,39 +157,42 @@ export const ProductPage: FC = () => {
             <Chip
               key={keyword + index}
               className={classNames(
-                (index < 2) && styles['category-chip']
+                (index < 2) && cls_categoryChip
               )}
               onClick={() => ({})}
               text={keyword}
             />
           ))}
         </div>
-        <h2 className={classNames(styles['post-title'], styles['with-border-bottom'])} >
+        <h2 className={classNames(cls_postTitle, cls_withBorderBottom)} >
           Shitet audi q5 i 2010, title here, hello world
         </h2>
-        <span className={styles['header-info-wrapper']} >
+        <span className={classNames(cls_headerInfoWrapper, isDebatablePrice && cls_withMarginTop)} >
           <PostLocation
             wrapperClassName={classNames(
-              styles['location-hide-mobile'],
-              styles['header-info-text']
+              cls_locationHideMobile,
+              cls_headerInfoText
             )}
             location='Pallatet Fratari, Astir Tirane'
           />
-          <p className={classNames(styles['header-info-text'], styles.price)} >
+          <p className={classNames(cls_headerInfoText, cls_price)} >
             {padNumber(120333)} ALL
+            {isDebatablePrice && (
+              <span className={cls_priceDebatable} >I diskutueshem</span>
+            )}
           </p>
         </span>
         <div
-          className={styles['contact-accordion-wrapper']}
+          className={cls_contactAccordionWrapper}
           onClick={() => setContactAccordionOpen(isOpen => !isOpen)}
         >
-          <p className={styles['contact-accordion-text']} >
+          <p className={cls_contactAccordionText} >
             {contactAccordionOpen ? 'Kontaktet' : 'Shiko kontaktet'}
           </p>
           <AccordionIcon className={classNames(
-            styles['accordion-icon'],
+            cls_accordionIcon,
             {
-              [styles['accordion-icon_open']]: contactAccordionOpen
+              [cls_accordionIconOpen]: contactAccordionOpen
             }
           )} />
         </div>
@@ -204,13 +211,13 @@ export const ProductPage: FC = () => {
             contact='+355699675522'
           />
         </Accordion>
-        <p className={styles.details} >Vecorite</p>
+        <p className={cls_details} >Vecorite</p>
         <AdditionalInfo
           additionalInfos={fakeAdditionalInfo}
-          wrapperClassName={styles['info-box-hide-desktop']}
+          wrapperClassName={cls_infoBoxHideDesktop}
         />
-        <h3 className={classNames(styles.description, styles['with-border-bottom'])} >Pershkrimi</h3>
-        <p className={styles['description-text']} >{fakeDescription}</p>
+        <h3 className={classNames(cls_description, cls_withBorderBottom)} >Pershkrimi</h3>
+        <p className={cls_descriptionText} >{fakeDescription}</p>
       </div>
     </div>
   )

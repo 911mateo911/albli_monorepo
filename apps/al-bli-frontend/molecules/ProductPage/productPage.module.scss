@@ -82,6 +82,10 @@
   margin-bottom: 4px;
 }
 
+.with-margin-top {
+  margin-top: 14px;
+}
+
 .header-info-text {
   padding: 8px 1rem;
   white-space: pre;
@@ -100,6 +104,7 @@
   font-family: $font_secondary;
   background-color: $color-green-5;
   color: $color_green-100;
+  position: relative;
   font-weight: 700;
 
   @include on_dark_mode {
@@ -110,6 +115,19 @@
     margin: auto;
     flex-basis: 90%;
   }
+}
+
+.price-debatable {
+  position: absolute;
+  right: 0;
+  font-size: 9px;
+  font-weight: 700;
+  font-family: $font_secondary;
+  top: -10px;
+  padding: 4px 10px;
+  background-color: $color_red-60;
+  color: $color_grey-1;
+  border-radius: 999px;
 }
 
 .location-hide-desktop {
