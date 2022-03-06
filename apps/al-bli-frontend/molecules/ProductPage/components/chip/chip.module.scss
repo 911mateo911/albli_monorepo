@@ -1,0 +1,19 @@
+@import "mixins";
+@import "variables";
+
+.chip {
+  display: inline-block;
+  font-family: $font_secondary;
+  font-weight: 600;
+  font-size: 11px;
+  margin: 6px 3px 4px 0;
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: $color_grey-90;
+  background-color: $color_grey-2;
+
+  @include on_dark_mode {
+    background-color: $color_grey-80;
+    color: $color_grey-20;
+  }
+}

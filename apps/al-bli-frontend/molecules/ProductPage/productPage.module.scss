@@ -32,17 +32,6 @@
   width: 100%;
 }
 
-.details-container {
-  width: calc(100% + 8px);
-  margin-left: -4px;
-  @include basic_flex;
-  flex-wrap: wrap;
-
-  @media (max-width: 980px) {
-    margin-bottom: 8px;
-  }
-}
-
 .post-heading-wrapper {
   width: 45%;
   padding: 0 12px;
@@ -60,23 +49,6 @@
   @include on_dark_mode {
     background-color: $color-blue-70 !important;
     color: $color_grey-20 !important;
-  }
-}
-
-.chip {
-  display: inline-block;
-  font-family: $font_secondary;
-  font-weight: 600;
-  font-size: 11px;
-  margin: 6px 3px 4px 0;
-  padding: 3px 10px;
-  border-radius: 999px;
-  color: $color_grey-90;
-  background-color: $color_grey-2;
-
-  @include on_dark_mode {
-    background-color: $color_grey-80;
-    color: $color_grey-20;
   }
 }
 
@@ -140,40 +112,15 @@
   }
 }
 
-.location {
-  background-color: $color_blue-10;
-  padding: 4px 10px 4px 8px;
-  font-size: 0.9rem;
-  color: $color_blue-100;
-  font-weight: 600;
-  @include basic_flex;
-
-  @include on_dark_mode {
-    background-color: $color_blue-30;
-  }
-
-  & svg {
-    height: 18px;
-    margin-right: 3px;
-    margin-bottom: -1px;
-  }
-
-  @media (max-width: 500px) {
-    width: fit-content;
-    margin-right: auto;
-    margin-bottom: 4px;
-  }
-}
-
 .location-hide-desktop {
   @media (min-width: 500px) {
-    display: none;
+    display: none !important;
   }
 }
 
 .location-hide-mobile {
   @media (max-width: 500px) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -197,54 +144,6 @@
 
   @include on_dark_mode {
     background-color: $color_grey-90;
-  }
-}
-
-.contact-btn {
-  padding: 10px;
-  @include basic_flex;
-  justify-content: flex-start;
-  color: $color_grey-100;
-  border-radius: 6px;
-  margin-bottom: 4px;
-  background-color: $color_grey-1;
-  transition: all 0.2s;
-  cursor: pointer;
-  font-weight: 500;
-
-  &:hover {
-    background-color: $color_grey-2;
-
-    @include on_dark_mode {
-      background-color: $color_grey-70;
-    }
-  }
-
-  @include on_dark_mode {
-    background-color: $color_grey-85;
-    color: $color_grey-10;
-  }
-
-  & svg {
-    height: 22px;
-    width: 22px;
-  }
-}
-
-.contact-btn-main-icon {
-  margin-right: 10px;
-}
-
-.contact-btn-action-icons-wrapper {
-  @include basic_flex;
-  margin-left: auto;
-
-  & * {
-    margin-right: 6px;
-  }
-
-  & *:last-child {
-    margin-right: 0;
   }
 }
 
@@ -291,16 +190,15 @@
   }
 }
 
-// TODO: refactor
 .info-box-hide-desktop {
   @media (min-width: 980px) {
-    display: none;
+    display: none !important;
   }
 }
 
 .info-box-hide-tablet {
   @media (max-width: 980px) {
-    display: none;
+    display: none !important;
   }
 }
 

@@ -1,0 +1,50 @@
+@import "mixins";
+@import "variables";
+
+.contact-btn {
+  padding: 10px;
+  @include basic_flex;
+  justify-content: flex-start;
+  color: $color_grey-100;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  background-color: $color_grey-1;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-weight: 500;
+
+  &:hover {
+    background-color: $color_grey-2;
+
+    @include on_dark_mode {
+      background-color: $color_grey-70;
+    }
+  }
+
+  @include on_dark_mode {
+    background-color: $color_grey-85;
+    color: $color_grey-10;
+  }
+
+  & svg {
+    height: 22px;
+    width: 22px;
+  }
+}
+
+.contact-btn-main-icon {
+  margin-right: 10px;
+}
+
+.contact-btn-action-icons-wrapper {
+  @include basic_flex;
+  margin-left: auto;
+
+  & * {
+    margin-right: 6px;
+  }
+
+  & *:last-child {
+    margin-right: 0;
+  }
+}
