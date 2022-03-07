@@ -8,9 +8,10 @@ import { ReactComponent as AccordionIcon } from '@al-bli/icons/dropdown-arrow.sv
 import { ReactComponent as MailIcon } from '@al-bli/icons/mail-outline.svg';
 import { ReactComponent as CallIcon } from '@al-bli/icons/call-outline.svg';
 import { ReactComponent as WhatsappIcon } from '@al-bli/icons/logo-whatsapp.svg';
-import { PostLocation, AdditionalInfo, PostControl, Chip } from './components';
+import { PostLocation, AdditionalInfo, PostControl, Chip, Discount } from './components';
 import { InfoBoxProps } from './components/infoBox/infoBox.interface';
 import { ContactButton } from './components/contactButton';
+import { add } from 'date-fns';
 
 const fakeAdditionalInfo: InfoBoxProps[] = [
   {
@@ -124,13 +125,15 @@ const {
   'description': cls_description,
   'description-text': cls_descriptionText,
   'price-debatable': cls_priceDebatable,
-  'with-margin-top': cls_withMarginTop
+  'with-margin-top': cls_withMarginTop,
+  'price-discounted': cls_priceDiscounted
 } = styles;
 
 export const ProductPage: FC = () => {
   const [contactAccordionOpen, setContactAccordionOpen] = useState<boolean>(false);
 
   const isDebatablePrice = true;
+  const isDiscount = true;
 
   return (
     <div className={cls_rootWrapper} >
@@ -175,13 +178,24 @@ export const ProductPage: FC = () => {
             )}
             location='Pallatet Fratari, Astir Tirane'
           />
-          <p className={classNames(cls_headerInfoText, cls_price)} >
+          <p className={classNames(
+            cls_headerInfoText,
+            cls_price,
+            {
+              [cls_priceDiscounted]: isDiscount
+            }
+          )} >
             {padNumber(120333)} ALL
             {isDebatablePrice && (
               <span className={cls_priceDebatable} >I diskutueshem</span>
             )}
           </p>
         </span>
+        <Discount
+          endDate={add(new Date(), { weeks: 1 })}
+          newPrice={123123}
+          currency='€'
+        />
         <div
           className={cls_contactAccordionWrapper}
           onClick={() => setContactAccordionOpen(isOpen => !isOpen)}
