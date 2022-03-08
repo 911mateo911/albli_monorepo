@@ -7,3 +7,4 @@ export * from './imagePicker';
 export * from './utils';
 export * from './useTheme';
 export * from './accordion';
+export * from './toastController';

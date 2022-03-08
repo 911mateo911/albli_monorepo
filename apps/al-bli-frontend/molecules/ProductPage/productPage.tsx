@@ -93,14 +93,14 @@ const fakeDescription = `Audi Q8 50TDI  3X Sline ( 286Hp) Quattro ✅
 📂GARANCI DERI NË 04-11-2021
 📂 Extra Full OPSION 🔥 
 Çmimi : 70,000€ Me TVSH 👍
-`
+`;
 
 const fakePhotos = [
   'https://res.cloudinary.com/dxtjwhnoz/image/upload/v1626531888/alBli/u5hsebdsqeg05eaeip1u.jpg',
   'https://res.cloudinary.com/dxtjwhnoz/image/upload/v1626531888/alBli/rph9smkxzz25jotfgmyd.jpg',
   'https://res.cloudinary.com/dxtjwhnoz/image/upload/v1626531888/alBli/mrj8airxoqueotdngch0.jpg',
   'https://res.cloudinary.com/dxtjwhnoz/image/upload/v1626531888/alBli/pgoevqpos77bcyho0t1h.jpg'
-]
+];
 
 const {
   'wrapper': cls_rootWrapper,

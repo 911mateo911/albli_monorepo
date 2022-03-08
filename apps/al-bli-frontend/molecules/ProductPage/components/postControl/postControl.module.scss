@@ -39,6 +39,7 @@
   @include basic_flex;
   margin-left: auto;
   margin-right: 4px;
+  user-select: none;
 }
 
 .post-time {

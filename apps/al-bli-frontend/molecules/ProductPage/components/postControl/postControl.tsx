@@ -75,7 +75,7 @@ export const PostControl: FC<PostControlProps> = ({
                     {
                       [cls_likeNumberLiked]: isPostLiked
                     }
-                  )} >{12}</p>
+                  )} >{12 + Number(isPostLiked)}</p>
                 </span>
               )}
               onClick={() => setPostLiked(liked => !liked)}
