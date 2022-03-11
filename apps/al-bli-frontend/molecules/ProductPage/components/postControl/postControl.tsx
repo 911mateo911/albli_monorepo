@@ -7,6 +7,8 @@ import { ReactComponent as TrashIcon } from '@al-bli/icons/trash-outline.svg';
 import { ControlButton } from './components';
 import { UserProfile } from '../../../../components';
 import { ReactComponent as LikeIcon } from '@al-bli/icons/heart-outline.svg';
+import { ReactComponent as ShareIcon } from '@al-bli/icons/share-outline.svg';
+import { ReactComponent as DownloadIcon } from '@al-bli/icons/cloud-download.svg';
 import classNames from 'classnames';
 
 const {
@@ -54,6 +56,14 @@ export const PostControl: FC<PostControlProps> = ({
             name='Fshi'
             className={cls_btnSmallerIcon}
             icon={<TrashIcon />}
+          />
+          <ControlButton
+            name='Shperndaj'
+            icon={<ShareIcon />}
+          />
+          <ControlButton
+            name='Shkarko'
+            icon={<DownloadIcon />}
           />
         </span>
       ) : (

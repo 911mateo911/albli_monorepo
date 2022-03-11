@@ -27,8 +27,10 @@
 .btn-wrapper {
   @include basic_flex;
   margin: auto;
-  justify-content: space-evenly;
-  max-width: 220px;
+
+  & > span {
+    margin: 0 6px;
+  }
 }
 
 .btn-smaller-icon {
