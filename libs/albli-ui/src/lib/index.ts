@@ -8,3 +8,4 @@ export * from './utils';
 export * from './useTheme';
 export * from './accordion';
 export * from './toastController';
+export * from './modal';
