@@ -1,16 +1,79 @@
 import { padNumber, Accordion } from '@al-bli/albli-ui';
 import classNames from 'classnames';
 import { FC, useState } from 'react';
-import { ImagesViewer, PostControl } from './components';
+import { ImagesViewer } from '../../components';
 import styles from './productPage.module.scss';
-import { ReactComponent as LocationIcon } from '@al-bli/icons/location-outline.svg';
-import { InfoBox } from './components/infoBox';
 import { ReactComponent as CategoryIcon } from '@al-bli/icons/category.svg';
 import { ReactComponent as AccordionIcon } from '@al-bli/icons/dropdown-arrow.svg';
 import { ReactComponent as MailIcon } from '@al-bli/icons/mail-outline.svg';
 import { ReactComponent as CallIcon } from '@al-bli/icons/call-outline.svg';
-import { ReactComponent as CopyIcon } from '@al-bli/icons/copy-outline.svg';
 import { ReactComponent as WhatsappIcon } from '@al-bli/icons/logo-whatsapp.svg';
+import { PostLocation, AdditionalInfo, PostControl, Chip, Discount } from './components';
+import { InfoBoxProps } from './components/infoBox/infoBox.interface';
+import { ContactButton } from './components/contactButton';
+import { add } from 'date-fns';
+
+const fakeAdditionalInfo: InfoBoxProps[] = [
+  {
+    icon: CategoryIcon,
+    info: [
+      {
+        type: 'Marka',
+        value: 'Audi'
+      }
+    ],
+    color: '#f6655a'
+  },
+  {
+    icon: CategoryIcon,
+    info: [
+      {
+        type: 'Date prodhimi',
+        value: '20/12/2012'
+      }
+    ]
+  },
+  {
+    icon: CategoryIcon,
+    color: '#87c289',
+    info:
+      [
+        {
+          type: 'Karburanti',
+          value: 'Benzine'
+        }
+      ]
+  },
+
+  {
+    icon: CategoryIcon,
+    info: [
+      {
+        type: 'Modeli',
+        value: 'Q8'
+      }
+    ]
+  },
+  {
+    icon: CategoryIcon,
+    color: '#87c289',
+    info: [
+      {
+        type: 'Kilometra',
+        value: '123999'
+      }
+    ]
+  },
+  {
+    icon: CategoryIcon,
+    info: [
+      {
+        type: 'Transmisioni',
+        value: 'Automatik'
+      }
+    ]
+  }
+];
 
 const fakeDescription = `Audi Q8 50TDI  3X Sline ( 286Hp) Quattro ✅
 ** Viti Prodhimit 10-2018 ** 
@@ -30,137 +93,120 @@ const fakeDescription = `Audi Q8 50TDI  3X Sline ( 286Hp) Quattro ✅
 📂GARANCI DERI NË 04-11-2021
 📂 Extra Full OPSION 🔥 
 Çmimi : 70,000€ Me TVSH 👍
-`
+`;
 
 const fakePhotos = [
   'https://res.cloudinary.com/dxtjwhnoz/image/upload/v1626531888/alBli/u5hsebdsqeg05eaeip1u.jpg',
   'https://res.cloudinary.com/dxtjwhnoz/image/upload/v1626531888/alBli/rph9smkxzz25jotfgmyd.jpg',
   'https://res.cloudinary.com/dxtjwhnoz/image/upload/v1626531888/alBli/mrj8airxoqueotdngch0.jpg',
   'https://res.cloudinary.com/dxtjwhnoz/image/upload/v1626531888/alBli/pgoevqpos77bcyho0t1h.jpg'
-]
+];
+
+const {
+  'wrapper': cls_rootWrapper,
+  'image-viewer-container': cls_imageViewerContainer,
+  'image-viewer-wrapper': cls_imageViewerWrapper,
+  'post-heading-wrapper': cls_postHeadingWrapper,
+  'category-chip': cls_categoryChip,
+  'post-title': cls_postTitle,
+  'with-border-bottom': cls_withBorderBottom,
+  'header-info-wrapper': cls_headerInfoWrapper,
+  'header-info-text': cls_headerInfoText,
+  'price': cls_price,
+  'location-hide-desktop': cls_locationHideDesktop,
+  'location-hide-mobile': cls_locationHideMobile,
+  'contact-accordion-wrapper': cls_contactAccordionWrapper,
+  'contact-accordion-text': cls_contactAccordionText,
+  'accordion-icon': cls_accordionIcon,
+  'accordion-icon_open': cls_accordionIconOpen,
+  'details': cls_details,
+  'info-box-hide-desktop': cls_infoBoxHideDesktop,
+  'info-box-hide-tablet': cls_infoBoxHideTablet,
+  'description': cls_description,
+  'description-text': cls_descriptionText,
+  'price-debatable': cls_priceDebatable,
+  'with-margin-top': cls_withMarginTop,
+  'price-discounted': cls_priceDiscounted
+} = styles;
 
 export const ProductPage: FC = () => {
   const [contactAccordionOpen, setContactAccordionOpen] = useState<boolean>(false);
 
-  const location = (className?: string) => {
-    return (<p className={classNames(
-      styles['header-info-text'],
-      styles.location,
-      className
-    )} >
-      <LocationIcon />
-      Pallatet Fratari, Astir, Tirane
-    </p>)
-  }
-
-  const additionalInfo = (className?: string) => {
-    return (
-      <div className={classNames(styles['details-container'], className)} >
-        <InfoBox
-          icon={CategoryIcon}
-          color='#f6655a'
-          info={[
-            {
-              type: 'Marka',
-              value: 'Audi'
-            }
-          ]}
-        />
-        <InfoBox
-          icon={CategoryIcon}
-          info={[
-            {
-              type: 'Date prodhimi',
-              value: '20/12/2012'
-            }
-          ]}
-        />
-        <InfoBox
-          icon={CategoryIcon}
-          color='#87c289'
-          info={[
-            {
-              type: 'Karburanti',
-              value: 'Benzine'
-            }
-          ]}
-        />
-        <InfoBox
-          icon={CategoryIcon}
-          info={[
-            {
-              type: 'Modeli',
-              value: 'Q8'
-            }
-          ]}
-        />
-        <InfoBox
-          icon={CategoryIcon}
-          color='#87c289'
-          info={[
-            {
-              type: 'Kilometra',
-              value: '123999'
-            }
-          ]}
-        />
-        <InfoBox
-          icon={CategoryIcon}
-          info={[
-            {
-              type: 'Transmisioni',
-              value: 'Automatik'
-            }
-          ]}
-        />
-      </div>
-    )
-  }
+  const isDebatablePrice = true;
+  const isDiscount = true;
 
   return (
-    <div className={styles.wrapper} >
-      <div className={styles['image-viewer-container']} >
-        <div className={styles['image-viewer-wrapper']} >
+    <div className={cls_rootWrapper} >
+      <div className={cls_imageViewerContainer} >
+        <div className={cls_imageViewerWrapper} >
           <ImagesViewer photos={fakePhotos} />
         </div>
-        {additionalInfo(styles['info-box-hide-tablet'])}
+        <AdditionalInfo
+          additionalInfos={fakeAdditionalInfo}
+          wrapperClassName={cls_infoBoxHideTablet}
+        />
       </div>
-      <div className={styles['post-heading-wrapper']} >
-        <PostControl isLoggedIn={false} />
-        {location(styles['location-hide-desktop'])}
+      <div className={cls_postHeadingWrapper} >
+        <PostControl isLoggedIn={true} />
+        <PostLocation
+          wrapperClassName={classNames(
+            cls_locationHideDesktop,
+            cls_headerInfoText
+          )}
+          location='Pallatet Fratari, Astir Tirane'
+        />
         <div>
           {['Makine', 'Automjet', 'Audi', 'Q8', 'Shitet'].map((keyword, index) => (
-            <p
+            <Chip
               key={keyword + index}
               className={classNames(
-                styles.chip,
-                (index < 2) && styles['category-chip']
+                (index < 2) && cls_categoryChip
               )}
-            >
-              {keyword}
-            </p>
+              onClick={() => ({})}
+              text={keyword}
+            />
           ))}
         </div>
-        <h2 className={classNames(styles['post-title'], styles['with-border-bottom'])} >
+        <h2 className={classNames(cls_postTitle, cls_withBorderBottom)} >
           Shitet audi q5 i 2010, title here, hello world
         </h2>
-        <span className={styles['header-info-wrapper']} >
-          {location(styles['location-hide-mobile'])}
-          <p className={classNames(styles['header-info-text'], styles.price)} >
+        <span className={classNames(cls_headerInfoWrapper, isDebatablePrice && cls_withMarginTop)} >
+          <PostLocation
+            wrapperClassName={classNames(
+              cls_locationHideMobile,
+              cls_headerInfoText
+            )}
+            location='Pallatet Fratari, Astir Tirane'
+          />
+          <p className={classNames(
+            cls_headerInfoText,
+            cls_price,
+            {
+              [cls_priceDiscounted]: isDiscount
+            }
+          )} >
             {padNumber(120333)} ALL
+            {isDebatablePrice && (
+              <span className={cls_priceDebatable} >I diskutueshem</span>
+            )}
           </p>
         </span>
+        <Discount
+          endDate={add(new Date(), { weeks: 1 })}
+          newPrice={123123}
+          currency='€'
+        />
         <div
-          className={styles['contact-accordion-wrapper']}
+          className={cls_contactAccordionWrapper}
           onClick={() => setContactAccordionOpen(isOpen => !isOpen)}
         >
-          <p className={styles['contact-accordion-text']} >
+          <p className={cls_contactAccordionText} >
             {contactAccordionOpen ? 'Kontaktet' : 'Shiko kontaktet'}
           </p>
           <AccordionIcon className={classNames(
-            styles['accordion-icon'],
+            cls_accordionIcon,
             {
-              [styles['accordion-icon_open']]: contactAccordionOpen
+              [cls_accordionIconOpen]: contactAccordionOpen
             }
           )} />
         </div>
@@ -169,27 +215,23 @@ export const ProductPage: FC = () => {
           offsetTop={4}
           open={contactAccordionOpen}
         >
-          {/* TODO: refactor */}
-          <span className={styles['contact-btn']} >
-            <MailIcon className={styles['contact-btn-main-icon']} />
-            malajmateo@gmail.com
-            <span className={styles['contact-btn-action-icons-wrapper']} >
-              <CopyIcon />
-            </span>
-          </span>
-          <span className={styles['contact-btn']} >
-            <CallIcon className={styles['contact-btn-main-icon']} />
-            +35569967522
-            <span className={styles['contact-btn-action-icons-wrapper']} >
-              <WhatsappIcon />
-              <CopyIcon />
-            </span>
-          </span>
+          <ContactButton
+            contact='malajmateo@gmail.com'
+            mainIcon={<MailIcon />}
+          />
+          <ContactButton
+            mainIcon={<CallIcon />}
+            secondaryIcons={[<WhatsappIcon key='whatsapp' />]}
+            contact='+355699675522'
+          />
         </Accordion>
-        <p className={styles.details} >Vecorite</p>
-        {additionalInfo(styles['info-box-hide-desktop'])}
-        <h3 className={classNames(styles.description, styles['with-border-bottom'])} >Pershkrimi</h3>
-        <p className={styles['description-text']} >{fakeDescription}</p>
+        <p className={cls_details} >Vecorite</p>
+        <AdditionalInfo
+          additionalInfos={fakeAdditionalInfo}
+          wrapperClassName={cls_infoBoxHideDesktop}
+        />
+        <h3 className={classNames(cls_description, cls_withBorderBottom)} >Pershkrimi</h3>
+        <p className={cls_descriptionText} >{fakeDescription}</p>
       </div>
     </div>
   )

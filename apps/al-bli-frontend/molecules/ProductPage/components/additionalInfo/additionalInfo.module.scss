@@ -1,0 +1,12 @@
+@import "mixins";
+
+.details-container {
+  width: calc(100% + 8px);
+  margin-left: -4px;
+  @include basic_flex;
+  flex-wrap: wrap;
+
+  @media (max-width: 980px) {
+    margin-bottom: 8px;
+  }
+}

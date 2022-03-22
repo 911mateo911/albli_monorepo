@@ -1,0 +1,21 @@
+@import "../styles/keyframes";
+@import "../styles/mixins";
+
+.backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 150vh;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  animation: backdrop_fade_in 1s ease-out forwards 0.2s;
+}
+
+.modal-wrapper {
+  z-index: 999999;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: fade_in 1s ease-out forwards 0.2s;
+}
