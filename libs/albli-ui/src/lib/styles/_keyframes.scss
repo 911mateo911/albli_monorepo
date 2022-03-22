@@ -6,3 +6,12 @@
     background: rgba(0, 0, 0, 0.4);
   }
 }
+
+@keyframes fade_in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

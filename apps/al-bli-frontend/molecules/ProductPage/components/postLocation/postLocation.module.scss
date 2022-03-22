@@ -1,0 +1,27 @@
+@import "mixins";
+@import "variables";
+
+.location {
+  background-color: $color_blue-10;
+  padding: 4px 10px 4px 8px;
+  font-size: 0.9rem;
+  color: $color_blue-100;
+  font-weight: 600;
+  @include basic_flex;
+
+  @include on_dark_mode {
+    background-color: $color_blue-30;
+  }
+
+  & svg {
+    height: 18px;
+    margin-right: 3px;
+    margin-bottom: -1px;
+  }
+
+  @media (max-width: 500px) {
+    width: fit-content;
+    margin-right: auto;
+    margin-bottom: 4px;
+  }
+}
