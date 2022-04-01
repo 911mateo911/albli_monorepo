@@ -152,7 +152,7 @@ export const ProductPage: FC = () => {
         />
       </div>
       <div className={cls_postHeadingWrapper} >
-        <PostControl isLoggedIn={false} />
+        <PostControl isLoggedIn={true} />
         <PostLocation
           wrapperClassName={classNames(
             cls_locationHideDesktop,

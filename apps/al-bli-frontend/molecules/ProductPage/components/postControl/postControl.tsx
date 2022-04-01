@@ -11,6 +11,7 @@ import { ReactComponent as ShareIcon } from '@al-bli/icons/share-outline.svg';
 import { ReactComponent as DownloadIcon } from '@al-bli/icons/cloud-download.svg';
 import classNames from 'classnames';
 import { Modal } from '@al-bli/albli-ui';
+import { ReactComponent as WarningIcon } from '@al-bli/icons/warning-outline.svg';
 import { ConfirmationDialog } from '../../../../components';
 
 export enum PostControlAllButtons {
@@ -58,9 +59,7 @@ export const PostControl: FC<PostControlProps> = ({
   const postControlModalElement = useMemo<PostControlModalElement>(() => {
     return {
       Ecuria: null,
-      Fshi: (
-        <ConfirmationDialog />
-      ),
+      Fshi: (null),
       Ndrysho: null,
       Shkarko: <>Download here</>,
       Shperndaj: <>Share here</>
@@ -163,9 +162,16 @@ export const PostControl: FC<PostControlProps> = ({
         </>
       )}
       <Modal
+        onBackDropClick={() => setModalOpen(false)}
         open={isModalOpen}
       >
-        <ConfirmationDialog />
+        <ConfirmationDialog
+          title='Fshi produktin?'
+          onAccept={() => ({})}
+          onDecline={() => ({})}
+          content="Fshirja e produktit eshte permanente dhe nuk mund te reversohet"
+          icon={<WarningIcon className={styles['warning-icon']} />}
+        />
       </Modal>
     </div>
   )

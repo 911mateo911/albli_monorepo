@@ -23,13 +23,17 @@ export const Accordion: FC<AccordionProps> = ({
       return;
     }
 
-    if (open) {
-      setWrapperStyles({ height: `${childWrapperRef.current.offsetHeight + offsetTop}px` });
-      setChildStyles({ visibility: 'visible', zIndex: 'auto' })
-    } else {
-      setWrapperStyles({ height: 0 });
-      setChildStyles({ visibility: 'hidden', zIndex: -1 });
-    }
+    requestAnimationFrame(() => {
+      if (!childWrapperRef.current) return;
+
+      if (open) {
+        setWrapperStyles({ height: `${childWrapperRef.current.offsetHeight + offsetTop}px` });
+        setChildStyles({ visibility: 'visible', zIndex: 'auto' });
+      } else {
+        setWrapperStyles({ height: 0 });
+        setChildStyles({ visibility: 'hidden', zIndex: -1 });
+      }
+    })
   }, [refs, open, offsetTop]);
 
   return (

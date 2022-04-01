@@ -1,0 +1,72 @@
+@import "mixins";
+@import "variables";
+
+.container {
+  background-color: $color_grey-2;
+  border-radius: 8px;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  border-left: 10px solid $color_red-60;
+  padding: 10px;
+  padding-top: 6px;
+  min-width: 300px;
+  box-shadow: 0 6px 20px rgb(93 93 93 / 23%);
+}
+
+.title-container {
+  @include basic_flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.title {
+  font-weight: 600;
+  font-family: $font_secondary;
+  font-size: 18px;
+  width: 100%;
+}
+
+.btn {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 6px 8px;
+  cursor: pointer;
+  width: fit-content;
+  min-width: 80px;
+  text-align: center;
+  margin-left: 8px;
+  transition: all 0.2s;
+}
+
+.btnContainer {
+  @include basic_flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.content {
+  margin-top: 8px;
+  color: $color_grey-50;
+  font-size: 14px;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+.acceptBtn {
+  background-color: $color_blue-50;
+
+  &:hover {
+    background-color: $color_blue-60;
+  }
+}
+
+.declineBtn {
+  background-color: $color_red-50;
+
+  &:hover {
+    background-color: $color_red-60;
+  }
+}
