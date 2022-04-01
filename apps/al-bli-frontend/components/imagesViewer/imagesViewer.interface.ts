@@ -1,4 +1,5 @@
 export interface ImagesViewerProps {
-    wrapperClassName?: string;
-    photos: string[];
+  wrapperClassName?: string;
+  photos: string[];
+  onFullScreenClick?: () => void;
 }

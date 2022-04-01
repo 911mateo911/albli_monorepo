@@ -1,4 +1,4 @@
-import { padNumber, Accordion } from '@al-bli/albli-ui';
+import { padNumber, Accordion, Modal, useClickOutside } from '@al-bli/albli-ui';
 import classNames from 'classnames';
 import { FC, useState } from 'react';
 import { ImagesViewer } from '../../components';
@@ -131,6 +131,8 @@ const {
 
 export const ProductPage: FC = () => {
   const [contactAccordionOpen, setContactAccordionOpen] = useState<boolean>(false);
+  const [fullScreenCarouselOpen, setFullScreenCarouselOpen] = useState<boolean>(false);
+  const modalRef = useClickOutside<HTMLDivElement>(() => setFullScreenCarouselOpen(false));
 
   const isDebatablePrice = true;
   const isDiscount = true;
@@ -139,7 +141,10 @@ export const ProductPage: FC = () => {
     <div className={cls_rootWrapper} >
       <div className={cls_imageViewerContainer} >
         <div className={cls_imageViewerWrapper} >
-          <ImagesViewer photos={fakePhotos} />
+          <ImagesViewer
+            onFullScreenClick={() => setFullScreenCarouselOpen(true)}
+            photos={fakePhotos}
+          />
         </div>
         <AdditionalInfo
           additionalInfos={fakeAdditionalInfo}
@@ -147,7 +152,7 @@ export const ProductPage: FC = () => {
         />
       </div>
       <div className={cls_postHeadingWrapper} >
-        <PostControl isLoggedIn={true} />
+        <PostControl isLoggedIn={false} />
         <PostLocation
           wrapperClassName={classNames(
             cls_locationHideDesktop,
@@ -233,6 +238,18 @@ export const ProductPage: FC = () => {
         <h3 className={classNames(cls_description, cls_withBorderBottom)} >Pershkrimi</h3>
         <p className={cls_descriptionText} >{fakeDescription}</p>
       </div>
+      <Modal
+        componentRef={modalRef}
+        open={fullScreenCarouselOpen}
+      >
+        {/* TODO add photo controls */}
+        <div className={styles.modalImageViewerWrapper} >
+          <ImagesViewer
+            wrapperClassName={styles.modalImageViewer}
+            photos={fakePhotos}
+          />
+        </div>
+      </Modal>
     </div>
   )
 }

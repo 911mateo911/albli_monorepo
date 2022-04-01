@@ -11,6 +11,7 @@ import { ReactComponent as ShareIcon } from '@al-bli/icons/share-outline.svg';
 import { ReactComponent as DownloadIcon } from '@al-bli/icons/cloud-download.svg';
 import classNames from 'classnames';
 import { Modal } from '@al-bli/albli-ui';
+import { ConfirmationDialog } from '../../../../components';
 
 export enum PostControlAllButtons {
   Ecuria = 'Ecuria',
@@ -57,7 +58,9 @@ export const PostControl: FC<PostControlProps> = ({
   const postControlModalElement = useMemo<PostControlModalElement>(() => {
     return {
       Ecuria: null,
-      Fshi: <>Delete here</>,
+      Fshi: (
+        <ConfirmationDialog />
+      ),
       Ndrysho: null,
       Shkarko: <>Download here</>,
       Shperndaj: <>Share here</>
@@ -162,7 +165,7 @@ export const PostControl: FC<PostControlProps> = ({
       <Modal
         open={isModalOpen}
       >
-        <p style={{ background: 'white' }} >helo</p>
+        <ConfirmationDialog />
       </Modal>
     </div>
   )
