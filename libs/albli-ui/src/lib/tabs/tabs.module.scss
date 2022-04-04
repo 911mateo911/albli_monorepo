@@ -1,0 +1,29 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.tabContainer {
+  width: 100%;
+  display: grid;
+  border-radius: 8px;
+  background-color: $color_grey-20;
+  padding: 3px;
+}
+
+.tab {
+  cursor: pointer;
+  position: relative;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+  font-family: $font_secondary;
+  padding: 7px 1rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.tabActive {
+  cursor: pointer;
+  box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
+  background-color: $color_grey-10;
+}

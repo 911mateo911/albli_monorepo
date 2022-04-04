@@ -9,3 +9,4 @@ export * from './useTheme';
 export * from './accordion';
 export * from './toastController';
 export * from './modal';
+export * from './tabs';

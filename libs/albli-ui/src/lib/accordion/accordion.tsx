@@ -11,18 +11,24 @@ export const Accordion: FC<AccordionProps> = ({
   rootWrapperClassName,
   children
 }) => {
+  // used to update the refs to get properties on initial render
   const [refs, attachRef] = useState([]);
+  // root wrapper styles
   const [wrapperStyles, setWrapperStyles] = useState<CSSProperties>({ height: 0 });
-  const [childStyles, setChildStyles] = useState<CSSProperties>({ visibility: 'hidden', zIndex: -1 })
+  // child wrapper styles
+  const [childStyles, setChildStyles] = useState<CSSProperties>({ visibility: 'hidden', zIndex: -1 });
+
   const rootWrapperRef = useRef<HTMLDivElement>(null);
   const childWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // force get refs, its going to run max only one time
     if (!rootWrapperRef.current || !childWrapperRef.current) {
       attachRef([]);
       return;
     }
 
+    // when browser is ready open/close the accordion
     requestAnimationFrame(() => {
       if (!childWrapperRef.current) return;
 

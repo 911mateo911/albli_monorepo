@@ -13,6 +13,7 @@ import classNames from 'classnames';
 import { Modal } from '@al-bli/albli-ui';
 import { ReactComponent as WarningIcon } from '@al-bli/icons/warning-outline.svg';
 import { ConfirmationDialog } from '../../../../components';
+import { DownloadProduct } from './components/downloadProduct';
 
 export enum PostControlAllButtons {
   Ecuria = 'Ecuria',
@@ -44,7 +45,8 @@ const {
   'like-icon': cls_likeIcon,
   'like-number': cls_likeNumber,
   'like-icon_liked': cls_likeIconLiked,
-  'like-number_liked': cls_likeNumberLiked
+  'like-number_liked': cls_likeNumberLiked,
+  'warning-icon': cls_warningIcon
 } = styles;
 
 export const PostControl: FC<PostControlProps> = ({
@@ -59,9 +61,21 @@ export const PostControl: FC<PostControlProps> = ({
   const postControlModalElement = useMemo<PostControlModalElement>(() => {
     return {
       Ecuria: null,
-      Fshi: (null),
+      Fshi: (
+        <ConfirmationDialog
+          title='Fshi produktin?'
+          onAccept={() => ({})}
+          onDecline={() => ({})}
+          content="Fshirja e produktit eshte permanente dhe nuk mund te reversohet"
+          icon={<WarningIcon className={cls_warningIcon} />}
+        />
+      ),
       Ndrysho: null,
-      Shkarko: <>Download here</>,
+      Shkarko: (
+        <DownloadProduct
+          productTitle='Shitet audi Q7'
+        />
+      ),
       Shperndaj: <>Share here</>
     }
   }, []);
@@ -165,13 +179,7 @@ export const PostControl: FC<PostControlProps> = ({
         onBackDropClick={() => setModalOpen(false)}
         open={isModalOpen}
       >
-        <ConfirmationDialog
-          title='Fshi produktin?'
-          onAccept={() => ({})}
-          onDecline={() => ({})}
-          content="Fshirja e produktit eshte permanente dhe nuk mund te reversohet"
-          icon={<WarningIcon className={styles['warning-icon']} />}
-        />
+        {postControlModalElement[modalElement]}
       </Modal>
     </div>
   )
