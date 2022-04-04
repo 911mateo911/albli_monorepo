@@ -5,7 +5,7 @@
   width: 100%;
   display: grid;
   border-radius: 8px;
-  background-color: $color_grey-20;
+  background-color: $color_grey-10;
   padding: 3px;
 }
 
@@ -25,5 +25,5 @@
 .tabActive {
   cursor: pointer;
   box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
-  background-color: $color_grey-10;
+  background-color: $color_grey-5;
 }

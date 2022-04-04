@@ -3,4 +3,25 @@
 
 .wrapper {
   @include basic_flex;
+  flex-direction: column;
+  background-color: $color_grey-5;
+  padding: 10px 1rem;
+  border-radius: 6px;
+}
+
+.tabWrapper {
+  margin-bottom: 10px;
+}
+
+.title {
+  text-align: left;
+  width: 100%;
+  font-weight: 500;
+  color: $color_grey-100;
+  margin-bottom: 10px;
+}
+
+.preview {
+  font-size: 14px;
+  width: 100%;
 }
