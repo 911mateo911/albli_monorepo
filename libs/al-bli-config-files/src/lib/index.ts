@@ -14,6 +14,9 @@ export enum RouteKeys {
   POST_ERROR = '/post-error-message'
 }
 
+export const PDFExportMethods = ['E thjeshte', 'E plote'] as const;
+export type PDFExportMethodsType = typeof PDFExportMethods[number];
+
 export enum LOCALSTORE_KEYS {
   THEME = 'alBli-theme'
 }

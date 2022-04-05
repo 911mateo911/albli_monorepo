@@ -1,13 +1,12 @@
 import classNames from 'classnames';
-import { FC } from 'react';
 import { TabsProps } from './tabs.interface';
 import styles from './tabs.module.scss';
 
-export const Tabs: FC<TabsProps> = ({
+export const Tabs = <T extends string,>({
   onTabChange,
   wrapperClassName,
   tabs
-}) => {
+}: TabsProps<T>): JSX.Element => {
   return (
     <div
       style={{

@@ -1,10 +1,10 @@
-export interface TabType {
+export interface TabType<T> {
   isActive: boolean;
-  tabName: string;
+  tabName: T;
 }
 
-export interface TabsProps {
-  tabs: TabType[];
-  onTabChange: (tab: string) => void;
+export interface TabsProps<T extends string> {
+  tabs: TabType<T>[];
+  onTabChange: (tab: T) => void;
   wrapperClassName?: string;
 }

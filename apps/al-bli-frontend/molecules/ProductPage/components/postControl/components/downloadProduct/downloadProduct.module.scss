@@ -7,6 +7,11 @@
   background-color: $color_grey-5;
   padding: 10px 1rem;
   border-radius: 6px;
+  min-width: 50vw;
+
+  @include on_dark_mode {
+    background-color: $color_grey-90;
+  }
 }
 
 .tabWrapper {
@@ -16,12 +21,25 @@
 .title {
   text-align: left;
   width: 100%;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: $font_secondary;
   color: $color_grey-100;
   margin-bottom: 10px;
+
+  @include on_dark_mode {
+    color: $color_grey-10;
+  }
 }
 
 .preview {
   font-size: 14px;
+  width: 100%;
+}
+
+.possibilities {
+}
+
+.pdfContainer {
   width: 100%;
 }
